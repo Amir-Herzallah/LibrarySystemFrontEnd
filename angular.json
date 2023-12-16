@@ -25,9 +25,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/main/style.css",
+              "src/assets/main/css/normalize.css",
+              "src/assets/main/icomoon/icomoon.css",
+              "src/assets/main/css/vendor.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/main/js/jquery-1.11.0.min.js",
+              "src/assets/main/js/plugins.js",
+              "src/assets/main/js/script.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,5 +102,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "d3cf29ca-07af-407d-b471-45311ae63e29"
   }
 }
