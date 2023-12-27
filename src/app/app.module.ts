@@ -7,19 +7,29 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { AboutusFormComponent } from './about-us-dialogs/aboutus-form/aboutus-form.component';
+import { ToastrModule } from 'ngx-toastr';
+import { DeleteDialogComponent } from './about-us-dialogs/delete-dialog/delete-dialog.component';
+import { AboutusCreateFormComponent } from './about-us-dialogs/aboutus-create-form/aboutus-create-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutusComponent,
-    ContactusComponent
+    ContactusComponent,
+    AboutusFormComponent,
+    DeleteDialogComponent,
+    AboutusCreateFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    ToastrModule.forRoot({
+      positionClass :'toast-bottom-right'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

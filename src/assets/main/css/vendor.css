@@ -8916,6 +8916,22 @@ textarea:focus, input:focus {
   border-color: transparent !important;
 }
 
+#imageButton {
+  background-color: white;
+  color: black;
+}
+
+#editButton {
+  height: 45px;
+
+}
+
+#deleteButton {
+  height: 45px;
+  font-size: 1em;
+
+}
+
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; }
 input:focus::-moz-placeholder { color:transparent; }
