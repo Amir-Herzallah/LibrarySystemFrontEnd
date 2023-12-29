@@ -4,6 +4,7 @@ import { ReportsManagementComponent } from './reports-management/reports-managem
 import { LibrariesManagementComponent } from './libraries-management/libraries-management.component';
 import { BooksManagementComponent } from './books-management/books-management.component';
 import { UsersManagementComponent } from './users-management/users-management.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { UsersManagementComponent } from './users-management/users-management.co
     ReportsManagementComponent,
     LibrariesManagementComponent,
     BooksManagementComponent,
-    UsersManagementComponent
+    UsersManagementComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule
