@@ -5,8 +5,13 @@ import { BooksManagementComponent } from './books-management/books-management.co
 import { LibrariesManagementComponent } from './libraries-management/libraries-management.component';
 import { CategoriesManagementComponent } from './categories-management/categories-management.component';
 import { ReportsManagementComponent } from './reports-management/reports-management.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
+  {
+    path:'',
+    component: DashboardComponent
+  },
   {
     path:'users',
     component: UsersManagementComponent

@@ -1,8 +1,8 @@
 ////////// COLOR SYSTEM //////////
 
-$blue: #5E50F9;
-$indigo: #6610f2;
-$purple: #6a008a;
+$blue: #eed9c4;
+$indigo: #eed9c4;
+$purple: #faf0e6;
 $pink: #E91E63;
 $red: #f96868;
 $orange: #f2a654;
@@ -57,7 +57,7 @@ $colors: (
   $black: #000000;
 
 $theme-colors: (
-  primary: #b66dff,
+  primary: #faf0e6,
   secondary: #c3bdbd,
   success: #1bcfb4,
   info: #198ae3,
@@ -67,7 +67,7 @@ $theme-colors: (
   dark: #3e4b5b
   );
 
-  $primary: #b66dff;
+  $primary: #faf0e6;
   $secondary: #c3bdbd;
   $success: #1bcfb4;
   $info: #198ae3;
@@ -76,7 +76,7 @@ $theme-colors: (
   $light: #f8f9fa;
   $dark: #3e4b5b;
 
-$theme-gradient-colors: (primary: linear-gradient(to right, #da8cff, #9a55ff),
+$theme-gradient-colors: (primary: linear-gradient(to right, #000000, #faf0e6),
 secondary: linear-gradient(to right, #e7ebf0, #868e96),
 success: linear-gradient(to right, #84d9d2, #07cdae),
 info: linear-gradient(to right, #90caf9, #047edf 99%),
