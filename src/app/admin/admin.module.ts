@@ -7,6 +7,8 @@ import { BooksManagementComponent } from './books-management/books-management.co
 import { ReportsManagementComponent } from './reports-management/reports-management.component';
 import { LibrariesManagementComponent } from './libraries-management/libraries-management.component';
 import { CategoriesManagementComponent } from './categories-management/categories-management.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -15,11 +17,13 @@ import { CategoriesManagementComponent } from './categories-management/categorie
     BooksManagementComponent,
     ReportsManagementComponent,
     LibrariesManagementComponent,
-    CategoriesManagementComponent
+    CategoriesManagementComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    SharedModule
   ]
 })
 export class AdminModule { }

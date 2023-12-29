@@ -14,6 +14,11 @@ import { AdminFooterComponent } from './admin-footer/admin-footer.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports:[
+    AdminNavbarComponent,
+    AdminSidebarComponent,
+    AdminFooterComponent
   ]
 })
 export class SharedModule { }
