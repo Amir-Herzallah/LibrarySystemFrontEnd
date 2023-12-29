@@ -29,12 +29,23 @@
               "src/assets/main/style.css",
               "src/assets/main/css/normalize.css",
               "src/assets/main/icomoon/icomoon.css",
-              "src/assets/main/css/vendor.css"
+              "src/assets/main/css/vendor.css",
+              "src/assets/admin/vendors/mdi/css/materialdesignicons.min.css",
+              "src/assets/admin/vendors/css/vendor.bundle.base.css",
+              "src/assets/admin/css/style.css"
             ],
             "scripts": [
               "src/assets/main/js/jquery-1.11.0.min.js",
               "src/assets/main/js/plugins.js",
-              "src/assets/main/js/script.js" 
+              "src/assets/main/js/script.js",
+              "src/assets/admin/vendors/js/vendor.bundle.base.js",
+              "src/assets/admin/vendors/chart.js/Chart.min.js",
+              "src/assets/admin/js/jquery.cookie.js",
+              "src/assets/admin/js/off-canvas.js",
+              "src/assets/admin/js/hoverable-collapse.js",
+              "src/assets/admin/js/misc.js",
+              "src/assets/admin/js/dashboard.js",
+              "src/assets/admin/js/todolist.js"
             ]
           },
           "configurations": {
