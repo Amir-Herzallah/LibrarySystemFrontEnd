@@ -8916,6 +8916,29 @@ textarea:focus, input:focus {
   border-color: transparent !important;
 }
 
+#imageButton {
+  background-color: white;
+  color: black;
+}
+
+#editButton {
+  height: 45px;
+  color: #e4be85;
+
+}
+
+#deleteButton {
+  height: 45px;
+  font-size: 1em;
+  color: white;
+
+}
+
+#aboutPar {
+  font-size: 1rem;
+
+}
+
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; }
 input:focus::-moz-placeholder { color:transparent; }

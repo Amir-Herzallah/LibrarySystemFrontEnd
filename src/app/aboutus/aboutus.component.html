@@ -1,66 +1,42 @@
-<app-navbar></app-navbar>
-    <section class="carousel slide container" id="about-slider">
+<app-navbar></app-navbar>>
+    <section class="carousel slide container" id="about-slider" data-bs-ride="carousel">
         <div class="carousel-inner px-4 pt-5 mb-5">
-            <div class="carousel-item active ">
+            <div class="carousel-item" *ngFor="let slider of aboutUs.aboutUsSliders; let i = index" [ngClass]="{'active': i === 0}">
                 <div class="row">
-                    <div class="col-7 p-5 mt-5">
-                        <h1 class="display-4 mb-4" >Navigating Knowledge Horizons</h1>
-                        <p>
-                            Embark on a digital odyssey with [Your E-Library Name], where the pages come to life,
-                            and knowledge knows no bounds. We're not just a library; we're a dynamic hub of information, 
-                            dedicated to cultivating a love for learning. Join us in the quest for boundless knowledge,
-                            where every click opens a new chapter in your intellectual adventure.
-    
-                        </p>
+                    <div class="col-7 p-5 mt-1">
+                        <h1 class="display-2 mb-4" >{{slider.headeR_COMPONENT1}}</h1>
+                        <p class="mb-4 pe-5" id="aboutPar">{{slider.paragraph1}}</p>
+                        <button class="btn btn-lg btn-primary px-4 display-1" id="editButton" mat-raised-button (click)="OpenUpdateDialog(slider)">Edit</button>
+                        <button class="btn btn-lg btn-danger ms-2  px-4 display-1" id="deleteButton" mat-raised-button (click)="OpenDeleteDialog(slider.aboutuspagE_ID)">Delete</button>
                     </div>
                     <div class="col-5 pattern-overlay">
-                        <img src="../../assets/main/images/main-banner1.jpg" class=""/>
+                        <img src="../../assets/AboutUsImages/{{slider.imagE_PATH1}}" class=""/>
                     </div>
                 </div>
+                
+                
             </div>
-            <div class="carousel-item">
-                <div class="row">
-                    <div class="col-5 pattern-overlay">
-                        <img src="../../assets/main/images/main-banner2.jpg" class=""/>
-                    </div>
-                    <div class="col-7 p-5 mt-5">
-                        <h1 class="display-5 mb-4">Empowering Minds, One Click at a Time</h1>
-                        <p>
-                            Discover the transformative potential of [Your E-Library Name], 
-                            where the digital realm meets the written word. We're on a mission to empower minds through seamless access
-                            to a vast collection of e-books, research papers, and educational resources. With user-friendly interfaces and a 
-                            commitment to accessibility, we're shaping the future of e-learning for everyone    
-                        </p>
-                    </div>                    
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="row">
-                    <div class="col-5 pattern-overlay">
-                        <img src="../../assets/main/images/book.jpg" class=""/>
-                    </div>
-                    <div class="col-7 p-5 mt-5">
-                        <h1 class="display-5 mb-4">Connecting Readers to a World of Wisdom</h1>
-                        <p>
-                            Step into the virtual corridors of [Your E-Library Name], where we bridge the gap between curiosity and knowledge. 
-                            Our e-library isn't just a repository; it's a vibrant ecosystem where readers connect, ideas flourish, 
-                            and the pursuit of wisdom is a shared endeavor. Explore the possibilities with us as we redefine the concept of a \
-                            library in the digital age.
-                        </p>
-                    </div>                    
-                </div>
-            </div>
-       </div>
-       <button class="carousel-control-prev" type="button" data-bs-target="#about-slider" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#about-slider" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="">Next</span>
-    </button>
-    </section>
 
+
+        </div>
+
+        <div class="">
+            <button class="carousel-control-prev" type="button" data-bs-target="#about-slider" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#about-slider" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden"></span>
+              </button>
+        </div>
+        
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-lg btn-primary px-4 display-1" id="editButton" mat-raised-button (click)="OpenCreateeDialog()">Create New</button>
+        </div>
+
+    </section>
+    
     <section id="client-holder" >
         <div class="container mt-5">
             <div class="row">
