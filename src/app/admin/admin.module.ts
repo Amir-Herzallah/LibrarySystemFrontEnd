@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AdminRoutingModule } from './admin-routing.module';
 import { UsersManagementComponent } from './users-management/users-management.component';
 import { BooksManagementComponent } from './books-management/books-management.component';

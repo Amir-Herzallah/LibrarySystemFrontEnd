@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminModule } from './admin.module';
 import { UsersManagementComponent } from './users-management/users-management.component';
 import { BooksManagementComponent } from './books-management/books-management.component';
 import { LibrariesManagementComponent } from './libraries-management/libraries-management.component';
