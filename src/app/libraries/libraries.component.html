@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+
+
+<section id="featured-books" class="py-5 my-5">
+  <div class="container" *ngIf="libraries.length; else noData">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-header align-center">
+          <div class="title">
+            <span>Some quality items</span>
+          </div>
+          <h2 class="section-title">Libraries</h2>
+        </div>
+        
+        <!-- Loop through each library and display its details -->
+        <div class="row">
+          <div *ngFor="let library of libraries" class="col-md-3 mb-4">
+            <div class="product-item">
+              <figure class="product-style">
+                <!-- Image of the library -->
+               
+                <img src="../../../assets/Uploded-Images/{{library.image_Path1}}" alt="library" class="img-fluid">  
+                <figcaption class="mt-2">
+                  <h3>{{library.name}}</h3>
+                  <span>ID: {{library.library_Id}}</span>
+                  <span>Location: {{library.location_Latitude}}</span>
+                  <span>Email: {{library.email}}</span>
+                  <button type="button" class="btn btn-primary mt-3">Show The Category</button>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div> <!-- End of libraries row -->
+      </div>
+    </div> <!-- End of main row -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="btn-wrap align-right">
+          <a href="#" class="btn-accent-arrow">View all products <i class="icon icon-ns-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div> <!-- End of container -->
+  <ng-template #noData><div class="container"><p>No libraries found.</p></div></ng-template>
+</section>
+
+<app-footer></app-footer>
