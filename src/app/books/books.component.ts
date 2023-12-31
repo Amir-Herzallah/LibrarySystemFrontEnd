@@ -8,23 +8,11 @@ import { BookService } from '../services/book.service';
 })
 export class BooksComponent  implements OnInit{
   books : any[] = [];   
-  
   constructor(private bookService: BookService) {}
-
+  
   ngOnInit() {
-    this.bookService.getBooks().subscribe(
-      
-      
-      (data) => {
-        debugger ;
-        this.books = data; 
-      },
-      (error) => {
-        console.error('There was an error!', error);
-      }
-    );
+    this.bookService.GetAllBooks();
   }
-
 }
 
       
