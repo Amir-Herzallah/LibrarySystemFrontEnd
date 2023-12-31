@@ -6,7 +6,6 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { LibrariesComponent } from './libraries/libraries.component';
 import { BooksComponent } from './books/books.component';
 
-
 const routes: Routes = [
   { 
     path: '',
@@ -20,14 +19,6 @@ const routes: Routes = [
     path: 'contactus',
     component: ContactusComponent
   },
-  { 
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
-  },
-  {
-    path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
-  },
   {
     path: 'libraries',
     component: LibrariesComponent
@@ -36,6 +27,14 @@ const routes: Routes = [
     path: 'Books',
     component: BooksComponent
   },
+  { 
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  }
 ];
 
 @NgModule({

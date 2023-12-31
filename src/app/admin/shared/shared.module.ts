@@ -6,7 +6,6 @@ import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 import { Router, RouterModule } from '@angular/router';
 
 
-
 @NgModule({
   declarations: [
     AdminNavbarComponent,

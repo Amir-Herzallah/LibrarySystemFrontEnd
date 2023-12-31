@@ -10,9 +10,6 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
-
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -27,7 +24,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     BrowserAnimationsModule,
     ReactiveFormsModule
-
   ],
   exports:[
     CommonModule,
