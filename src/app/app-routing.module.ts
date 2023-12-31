@@ -27,14 +27,15 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
-<<<<<<< HEAD
-  }
-=======
   },
-  { path: 'libraries', component: LibrariesComponent },
-   
-  { path: 'Books', component: BooksComponent },
->>>>>>> 7b977c0ec7fbf905419c5121f3776d26f819c34d
+  {
+    path: 'libraries',
+    component: LibrariesComponent
+  },
+  { 
+    path: 'Books',
+    component: BooksComponent
+  },
 ];
 
 @NgModule({

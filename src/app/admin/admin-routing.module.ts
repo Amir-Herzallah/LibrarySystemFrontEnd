@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-<<<<<<< HEAD
 import { AdminModule } from './admin.module';
 import { UsersManagementComponent } from './users-management/users-management.component';
 import { BooksManagementComponent } from './books-management/books-management.component';
@@ -35,10 +34,6 @@ const routes: Routes = [
     component: ReportsManagementComponent
   }
 ];
-=======
-
-const routes: Routes = [];
->>>>>>> 7b977c0ec7fbf905419c5121f3776d26f819c34d
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
