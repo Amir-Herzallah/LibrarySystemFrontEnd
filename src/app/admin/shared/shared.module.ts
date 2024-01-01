@@ -6,9 +6,10 @@ import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 import { Router, RouterModule } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +24,12 @@ import { MatInputModule } from '@angular/material/input';
     NgxSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+     FormsModule, 
+     ReactiveFormsModule
   ],
   exports:[
     AdminNavbarComponent,
@@ -35,7 +41,14 @@ import { MatInputModule } from '@angular/material/input';
     NgxSpinnerModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    AdminFooterComponent,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule, 
+    ReactiveFormsModule
+
   ]
 })
 export class SharedModule { }

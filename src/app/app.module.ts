@@ -16,6 +16,10 @@ import { LibrariesComponent } from './libraries/libraries.component';
 import { BooksComponent } from './books/books.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +41,10 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatTabsModule,
+    MatInputModule ,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
