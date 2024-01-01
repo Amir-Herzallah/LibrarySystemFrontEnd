@@ -6,6 +6,7 @@ import { LibrariesManagementComponent } from './libraries-management/libraries-m
 import { CategoriesManagementComponent } from './categories-management/categories-management.component';
 import { ReportsManagementComponent } from './reports-management/reports-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PagesManagementComponent } from './pages-management/pages-management.component';
 
 const routes: Routes = [
   {
@@ -31,7 +32,11 @@ const routes: Routes = [
   {
     path:'reports',
     component: ReportsManagementComponent
-  }
+  },
+{
+  path:'pages',
+  component:PagesManagementComponent
+}
 ];
 
 @NgModule({

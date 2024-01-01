@@ -7,6 +7,11 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTabsModule} from '@angular/material/tabs';
+ import { MatInputModule } from '@angular/material/input';
+ import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +24,11 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatInputModule ,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
