@@ -28,11 +28,9 @@ export class BookService {
         this.toastr.error("Error Occured");
       })
   }
-
   DeleteBook(id: number) {
-    this.http.delete('https://localhost:7198/api/Book/DeleteBook/' + id).subscribe((resp: any) => {
+    this.http.delete('https://localhost:7131/api/Book/DeleteBook?id=' + id).subscribe((resp: any) => {
       this.toastr.success("Book Deleted Successfully");
-
     },
       (error: any) => {
         this.toastr.error("Error Occured");
@@ -76,10 +74,7 @@ export class BookService {
 
   display_image: any;
   UpdateBook(id:any ,body: any) {
-    body.book_Img_Path = this.display_image;    
-
-    console.log(id, body);
-    
+    body.book_Img_Path = this.display_image;        
     this.http.put('https://localhost:7131/api/Book/UpdateBook', id ,body).subscribe((resp: any) => {
       this.toastr.success("Book Updated Successfully");
     },

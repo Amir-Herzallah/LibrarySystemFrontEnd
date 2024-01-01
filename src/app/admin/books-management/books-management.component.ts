@@ -13,6 +13,49 @@ export class BooksManagementComponent {
   @ViewChild('callDeleteDailog') callDeleteDialog !: TemplateRef<any>;
   @ViewChild('callUpdateDailog') callUpdateDialog !: TemplateRef<any>;
 
+  
+  constructor(public book: BookService, public dialog: MatDialog) { }
+  
+  _filterText: string = '';
+  
+
+  ngOnInit(): void {
+    this.book.GetAllBooks();
+  }
+  
+  createBook: FormGroup = new FormGroup({
+    book_Id: new FormControl('', Validators.required),
+    title: new FormControl('', Validators.required),
+    author: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
+    book_Img_Path: new FormControl('', Validators.required),
+    book_Pdf_Path: new FormControl('', Validators.required),
+    publication_Date: new FormControl('', Validators.required),
+    price_Per_Day: new FormControl('', Validators.required),
+    avg_Rating: new FormControl('', Validators.required),
+    category_Id: new FormControl('', Validators.required)
+  });
+
+  OpenCreateDialog() {
+    this.dialog.open(this.callCreateDialog);
+  }
+  
+  CallCreateBook() {
+    this.book.CreateBook();
+  }
+  
+  DeleteBook(id: number) {
+    const dialogRef = this.dialog.open(this.callDeleteDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result == 'yes') {
+        this.book.DeleteBook(id);
+      }
+      else {
+        alert("Course Not Deleted");
+      }
+    });
+  }
+
   updateBook: FormGroup = new FormGroup({
     book_Id: new FormControl('', Validators.required),
     title: new FormControl('', Validators.required),
@@ -26,33 +69,6 @@ export class BooksManagementComponent {
     category_Id: new FormControl('', Validators.required)
   });
 
-  _filterText: string = '';
-
-  constructor(public book: BookService, public dialog: MatDialog) { }
-
-  ngOnInit(): void {
-    this.book.GetAllBooks();
-  }
-  OpenCreateDialog() {
-    this.dialog.open(this.callCreateDialog);
-  }
-  CreateBook() {
-    this.book.CreateBook();
-  }
-
-  DeleteBook(id: number) {
-    const dialogRef = this.dialog.open(this.callDeleteDialog);
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result == 'yes') {
-        this.book.DeleteBook(id);
-      }
-      else {
-        alert("Course Not Deleted");
-      }
-    });
-  }
-
   pData: any;
   OpenUpdateDialog(book: any) {
     this.pData = book;
@@ -61,7 +77,6 @@ export class BooksManagementComponent {
     this.book.display_image = this.pData.book_Img_Path;
     this.dialog.open(this.callUpdateDialog);
   }
-
   CallUpdateBook() {
     this.book.UpdateBook(this.pData.book_Id,this.book.updateBook.value);
   }

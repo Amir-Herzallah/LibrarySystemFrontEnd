@@ -8,6 +8,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     NgxSpinnerModule,
     MatFormFieldModule,
+    MatInputModule,
     ReactiveFormsModule
   ],
   exports:[
@@ -32,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     NgxSpinnerModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule
   ]
 })
 export class SharedModule { }
