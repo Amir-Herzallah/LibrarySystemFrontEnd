@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { LibrariesComponent } from './libraries/libraries.component';
 import { BooksComponent } from './books/books.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BooksComponent } from './books/books.component';
   ],
   imports: [
     BrowserModule,
- 
+    RouterModule,
+    AppRoutingModule,
     FormsModule,
     SharedModule
   ],
