@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -8,13 +8,39 @@ import { Observable } from 'rxjs';
 })
 export class LibraryService {
 
-  private apiUrl = 'https://localhost:7131/api/Library/GetAllLibraries';  
+ 
+  libraries : any=[];  
 
-  constructor(private http: HttpClient) { }
+   
+  Categories : any=[];   
+  constructor(private http: HttpClient) {}
 
-  getLibraries(): Observable<any[]> { // changed return type to any[]
-    this.http.get(this.apiUrl).subscribe(data => console.log(data));
-
-    return this.http.get<any[]>(this.apiUrl);
+  GetAllLibraries() {
+    this.http.get('https://localhost:7131/api/Library/GetAllLibraries').subscribe((resp) => {
+     
+   
+        this.libraries = resp;
+        debugger;
+        console.log("Fetched Libraries: ", this.libraries);
+      },
+      (error) => {
+        console.error("Failed to fetch libraries: ", error); 
+        console.log(error.message);
+        console.log(error.status);
+      }
+    );
   }
+    // Fetch categories for a specific library
+    GetCategoriesByLibraryId(id: number) {
+      debugger;
+      this.http.get(`https://localhost:7131/api/Category/GetCategoriesByLibraryId?id=${id}`)
+       .subscribe((res:any) =>{
+        this.Categories = res;
+        console.log("Fetched Categories: ", this.Categories);
+      } ,
+        error => {
+          console.error("Failed to fetch categories: ", error);
+        }
+      );
+    }
 }

@@ -9,24 +9,21 @@ import { LibraryService } from '../services/library.service';
   styleUrls: ['./libraries.component.css']
 })
 export class LibrariesComponent implements OnInit {
-  libraries: any[] = []; // changed type to any[]
-
-  constructor(private libraryService: LibraryService) {}
-
-  ngOnInit() {
-    this.getLibraries();
+  selectedLibraryId: number | null = null;
+  constructor(public libraryService: LibraryService) {}
+  ngOnInit():void {
+    this.libraryService.GetAllLibraries();
   }
+   // Method to fetch categories for a specific library
+   showCategories(id: number) {
+    
+    this.selectedLibraryId = id; // Keep track of selected library
+    console.log("Fetching categories for library ID: ", id);
+    this.libraryService.GetCategoriesByLibraryId(id);
+   
 
-  getLibraries(): void {
-    this.libraryService.getLibraries().subscribe(
-      (data) => {
-        debugger ;
-        this.libraries = data; 
-      },
-      (error) => {
-        console.error('Error fetching libraries', error);
-      }
-    );
+ 
+
   }
   
 }
