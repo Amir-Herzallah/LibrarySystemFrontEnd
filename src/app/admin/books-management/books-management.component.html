@@ -124,23 +124,26 @@
             </mat-form-field>
         
             <mat-form-field class="example-full-width">
+                <mat-label>Avg Rate</mat-label>
+                <input type="number" matInput formControlName="avg_Rating">
+                <mat-error *ngIf="createBook.controls['avg_Rating'].hasError('required')">
+                    Avg Rate is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        
+            <mat-form-field class="example-full-width">
                 <mat-label>Category ID</mat-label>
                 <input type="text" matInput formControlName="category_Id">
                 <mat-error *ngIf="createBook.controls['category_Id'].hasError('required')">
                     Category ID is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-                        
-            <div>
-                <input type="file" #file formControlName="book_Img_Path" (change)="uploadImage(file.files)" />
-            </div>
-
            
         </form>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="CallCreateBook()">Create</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="CreateBook()">Create</button>
     </mat-dialog-actions>
 
 </ng-template>
@@ -167,12 +170,13 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <mat-label>Category ID</mat-label>
-                <input type="text" matInput formControlName="category_Id" [(ngModel)]="pData.category_Id">
-                <mat-error *ngIf="updateBook.controls['category_Id'].hasError('required')">
-                    Category ID is <strong>required</strong>
+                <mat-label>Description</mat-label>
+                <input type="text" matInput formControlName="description" [(ngModel)]="pData.description">
+                <mat-error *ngIf="updateBook.controls['description'].hasError('required')">
+                    Description is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
+
 
             <mat-form-field class="example-full-width">
                 <mat-label>book Img Path</mat-label>
@@ -191,10 +195,36 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
+                <mat-label>Publication Date</mat-label>
+                <input type="date" matInput formControlName="publication_Date" [(ngModel)]="pData.publication_Date">
+                <mat-error *ngIf="updateBook.controls['publication_Date'].hasError('required')">
+                    Publication Date is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
                 <mat-label>Price Per Day</mat-label>
                 <input type="number" matInput formControlName="price_Per_Day" [(ngModel)]="pData.price_Per_Day">
                 <mat-error *ngIf="updateBook.controls['price_Per_Day'].hasError('required')">
                     Price Per Day is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            
+            
+            <mat-form-field class="example-full-width">
+                <mat-label>Avg Rating</mat-label>
+                <input type="text" matInput formControlName="avg_Rating" [(ngModel)]="pData.avg_Rating">
+                <mat-error *ngIf="updateBook.controls['avg_Rating'].hasError('required')">
+                    Avg Rating is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Category ID</mat-label>
+                <input type="number" matInput formControlName="category_Id" [(ngModel)]="pData.category_Id">
+                <mat-error *ngIf="updateBook.controls['category_Id'].hasError('required')">
+                    Category ID is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
                         
@@ -206,7 +236,7 @@
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="CallUpdateBook()">Update</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="UpdateCourse()">Update</button>
     </mat-dialog-actions>
 
 </ng-template>

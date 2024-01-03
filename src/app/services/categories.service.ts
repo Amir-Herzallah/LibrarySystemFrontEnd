@@ -1,15 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { LoginComponent } from '../auth/login/login.component';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+
 @Injectable({
   providedIn: 'root'
 })
-export class BookService {
+export class CategoriesService {
 
   constructor(
     private http: HttpClient,
@@ -18,34 +16,34 @@ export class BookService {
     public dialog: MatDialog
   ) { }
 
-  books: any = [{}];
+  category: any = [{}];
 
-  GetAllBooks() {
-    this.http.get('https://localhost:7131/api/Book/GetAllBooks').subscribe((resp: any) => {
-      this.books = resp;
-      this.toastr.success("Books Loaded Successfully");
+  GetAllCategories() {
+    this.http.get('https://localhost:7131/api/Category/GetAllCategories').subscribe((resp: any) => {
+      this.category = resp;
+      this.toastr.success("Categories Loaded Successfully");
     },
       (error: any) => {
         this.toastr.error("Error Occured");
       })
   }
-  DeleteBook(id: number) {
-    this.http.delete('https://localhost:7131/api/Book/DeleteBook?id=' + id).subscribe((resp: any) => {
-      window.location.reload();
-      this.toastr.success("Book Deleted Successfully");
-    },
-      (error: any) => {
-        this.toastr.error("Error Occured");
-      })
-  }
-
   
-  CreateBook(body: any) {
+  DeleteCategory(id: number) {
+    this.http.delete('https://localhost:7131/api/Category/DeleteCategory?id=' + id).subscribe((resp: any) => {
+      window.location.reload();
+      this.toastr.success("Category Deleted Successfully");
+    },
+      (error: any) => {
+        this.toastr.error("Error Occured");
+      })
+  }
+  
+  CreateCategory(body: any) {
     console.log(body);
     
-    this.http.post('https://localhost:7131/api/Book/CreateBook', body).subscribe((resp: any) => {
+    this.http.post('https://localhost:7131/api/Category/CreateCategory', body).subscribe((resp: any) => {
       window.location.reload();  
-      this.toastr.success("Book Created Successfully");
+      this.toastr.success("Category Created Successfully");
     },
       (error: any) => {
         this.toastr.error("Error Occured");
@@ -53,12 +51,12 @@ export class BookService {
   }
 
   display_image: any;
-  UpdateBook(id:any, body: any) {
+  UpdateCategory(id:any, body: any) {
     console.log(body);
     
-    body.book_Img_Path = this.display_image;        
-    this.http.put('https://localhost:7131/api/Book/UpdateBook?id='+ id ,body).subscribe((resp: any) => {
-      this.toastr.success("Book Updated Successfully");
+    body.image_Path1 = this.display_image;        
+    this.http.put('https://localhost:7131/api/Category/UpdateCategory?id='+ id ,body).subscribe((resp: any) => {
+      this.toastr.success("Category Updated Successfully");
     },
       (error: any) => {
         this.toastr.error("Error Occured");
@@ -66,7 +64,7 @@ export class BookService {
   }
   uploadAttachment(file: FormData) {
     this.http.post('https://localhost:7131/api/AboutUsPage/uploadImage', file).subscribe((resp: any) => {
-      this.display_image = resp.imagename;
+      this.display_image = resp.image_Path1;
       this.toastr.success("Image Uploaded Successfully");
     },
       (error: any) => {
@@ -84,5 +82,4 @@ export class BookService {
 
     this.uploadAttachment(formData);
   }
-
 }

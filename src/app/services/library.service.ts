@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Injectable({
@@ -8,19 +11,19 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class LibraryService {
 
+  constructor(
+    private http: HttpClient,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService,
+    public dialog: MatDialog
+  ) { }
  
   libraries : any=[];  
-
-   
   Categories : any=[];   
-  constructor(private http: HttpClient) {}
 
   GetAllLibraries() {
-    this.http.get('https://localhost:7131/api/Library/GetAllLibraries').subscribe((resp) => {
-     
-   
+    this.http.get('https://localhost:7131/api/Library/GetAllLibraries').subscribe((resp) => { 
         this.libraries = resp;
-        debugger;
         console.log("Fetched Libraries: ", this.libraries);
       },
       (error) => {
@@ -30,9 +33,8 @@ export class LibraryService {
       }
     );
   }
-    // Fetch categories for a specific library
+
     GetCategoriesByLibraryId(id: number) {
-      debugger;
       this.http.get(`https://localhost:7131/api/Category/GetCategoriesByLibraryId?id=${id}`)
        .subscribe((res:any) =>{
         this.Categories = res;
@@ -42,5 +44,58 @@ export class LibraryService {
           console.error("Failed to fetch categories: ", error);
         }
       );
+    }
+    
+    DeleteLibrary(id: number) {
+      this.http.delete('https://localhost:7131/api/Library/DeleteLibrary?id=' + id).subscribe((resp: any) => {
+        window.location.reload();
+        this.toastr.success("Library Deleted Successfully");
+      },
+        (error: any) => {
+          this.toastr.error("Error Occured");
+        })
+    }
+  
+    CreateLibrary(body: any) {
+      
+      this.http.post('https://localhost:7131/api/Library/CreateLibrary', body).subscribe((resp: any) => {
+        window.location.reload();  
+        this.toastr.success("Library Created Successfully");
+      },
+        (error: any) => {
+          this.toastr.error("Error Occured");
+        })
+    }
+  
+    display_image: any;
+    UpdateLibrary(id:any, body: any) {
+      
+      body.book_Img_Path = this.display_image;        
+      this.http.put('https://localhost:7131/api/Library/UpdateLibrary?id='+ id ,body).subscribe((resp: any) => {
+        this.toastr.success("Library Updated Successfully");
+      },
+        (error: any) => {
+          this.toastr.error("Error Occured");
+        })
+    }
+    uploadAttachment(file: FormData) {
+      this.http.post('https://localhost:7131/api/AboutUsPage/uploadImage', file).subscribe((resp: any) => {
+        this.display_image = resp.imagename;
+        this.toastr.success("Image Uploaded Successfully");
+      },
+        (error: any) => {
+          this.toastr.error("Error Occured");
+        })
+    }
+  
+    uploadImage(file: any) {
+      if (file.length === 0)
+        return;
+  
+      let fileToUpload = <File>file[0];
+      const formData = new FormData();
+      formData.append('file', fileToUpload, fileToUpload.name);
+  
+      this.uploadAttachment(formData);
     }
 }

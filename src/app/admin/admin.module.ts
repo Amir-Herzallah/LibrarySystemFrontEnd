@@ -13,7 +13,6 @@ import { SharedModule } from './shared/shared.module';
 import { PagesManagementComponent } from './pages-management/pages-management.component';
 
 
-
 @NgModule({
   declarations: [
     UsersManagementComponent,
@@ -28,6 +27,7 @@ import { PagesManagementComponent } from './pages-management/pages-management.co
     CommonModule,
     AdminRoutingModule,
     SharedModule
-  ]
+  ],
+
 })
 export class AdminModule { }
