@@ -39,8 +39,6 @@ export class CategoriesService {
   }
   
   CreateCategory(body: any) {
-    console.log(body);
-    
     this.http.post('https://localhost:7131/api/Category/CreateCategory', body).subscribe((resp: any) => {
       window.location.reload();  
       this.toastr.success("Category Created Successfully");
@@ -52,10 +50,9 @@ export class CategoriesService {
 
   display_image: any;
   UpdateCategory(id:any, body: any) {
-    console.log(body);
-    
     body.image_Path1 = this.display_image;        
     this.http.put('https://localhost:7131/api/Category/UpdateCategory?id='+ id ,body).subscribe((resp: any) => {
+      window.location.reload();
       this.toastr.success("Category Updated Successfully");
     },
       (error: any) => {

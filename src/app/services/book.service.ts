@@ -38,11 +38,8 @@ export class BookService {
         this.toastr.error("Error Occured");
       })
   }
-
   
   CreateBook(body: any) {
-    console.log(body);
-    
     this.http.post('https://localhost:7131/api/Book/CreateBook', body).subscribe((resp: any) => {
       window.location.reload();  
       this.toastr.success("Book Created Successfully");
@@ -54,10 +51,9 @@ export class BookService {
 
   display_image: any;
   UpdateBook(id:any, body: any) {
-    console.log(body);
-    
     body.book_Img_Path = this.display_image;        
     this.http.put('https://localhost:7131/api/Book/UpdateBook?id='+ id ,body).subscribe((resp: any) => {
+      window.location.reload();
       this.toastr.success("Book Updated Successfully");
     },
       (error: any) => {

@@ -57,7 +57,6 @@ export class LibraryService {
     }
   
     CreateLibrary(body: any) {
-      
       this.http.post('https://localhost:7131/api/Library/CreateLibrary', body).subscribe((resp: any) => {
         window.location.reload();  
         this.toastr.success("Library Created Successfully");
@@ -69,9 +68,9 @@ export class LibraryService {
   
     display_image: any;
     UpdateLibrary(id:any, body: any) {
-      
       body.book_Img_Path = this.display_image;        
       this.http.put('https://localhost:7131/api/Library/UpdateLibrary?id='+ id ,body).subscribe((resp: any) => {
+        window.location.reload();  
         this.toastr.success("Library Updated Successfully");
       },
         (error: any) => {
