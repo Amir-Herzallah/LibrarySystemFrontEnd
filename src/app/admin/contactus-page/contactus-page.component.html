@@ -1,0 +1,251 @@
+<router-outlet></router-outlet>
+<app-admin-navbar></app-admin-navbar>
+<div class="container-fluid page-body-wrapper">
+    <app-admin-sidebar></app-admin-sidebar>
+    <div class="main-panel">
+        <div class="content-wrapper p-4" style="margin-top: 5rem;">
+            <div class="row">
+                <div class="col-12 grid-margin">
+                    <div class="row">
+                        <div class="col-lg-18 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Contact Us Page</h4>
+                                    <br>
+                                    <button type="button" class="btn btn-outline-dark btn-fw" mat-button
+                                        (click)="OpenCreateContactUspageDialog()">Create</button>
+                                    <div class="table-responsive">
+                                        <table class="table text-nowrap mb-0 align-middle" id="table-data">
+                                            <thead class="text-dark fs-4">
+                                                <tr>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Title</h4>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Header1</h4>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Header2</h4>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Header3</h4>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Paragraph1</h4>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Paragraph2</h4>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Paragraph3</h4>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Footer1</h4>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Footer2</h4>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Footer3</h4>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Image1</h4>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Image2</h4>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Logo</h4>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h4 class="fw-semibold mb-0">Operations</h4>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                                <tr *ngFor="let obj of this.adminService.contactUsPageData">
+
+                                                    <td>{{obj.title}}</td>
+                                                    <td>{{obj.headeR_COMPONENT1}}</td>
+                                                    <td>{{obj.headeR_COMPONENT2}}</td>
+                                                    <td>{{obj.headeR_COMPONENT3}}</td>
+                                                    <td>{{obj.paragraph1}}</td>
+                                                    <td>{{obj.paragraph2}}</td>
+                                                    <td>{{obj.paragraph3}}</td>
+                                                    <td>{{obj.footeR_COMPONENT1}}</td>
+                                                    <td>{{obj.footeR_COMPONENT2}}</td>
+                                                    <td>{{obj.footeR_COMPONENT3}}</td>
+                                                    <td> <img src="../../../assets/images/{{obj.imagE_PATH1}}"> </td>
+                                                    <td> <img src="../../../assets/images/{{obj.imagE_PATH2}}"> </td>
+                                                    <td> <img src="../../../assets/images/{{obj.logO_PATH}}"> </td>
+                                                    <td>
+                                                        <button mat-button (click)="OpenUpdateContactUspageDailog(obj)"
+                                                            class="btn btn-success m-1">Update</button>
+
+                                                        <button mat-button
+                                                            (click)="DeleteContactUspageDialog(obj.contactuspagE_ID)"
+                                                            class="btn btn-danger m-1">Delete</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- partial -->
+            </div>
+
+            <ng-template #callCreateContactUspageDialog>
+                <h2 mat-dialog-title>Create About Us page </h2>
+                <mat-dialog-content class="mat-typography">
+                    <form class="example-form" [formGroup]="createContactUsPageForm">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Header1</mat-label>
+                            <input type="text" matInput formControlName="headeR_COMPONENT1">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Header2</mat-label>
+                            <input type="text" matInput formControlName="headeR_COMPONENT2">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Header3</mat-label>
+                            <input type="text" matInput formControlName="headeR_COMPONENT3">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Paragraph1</mat-label>
+                            <input type="text" matInput formControlName="paragraph1">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Paragraph2</mat-label>
+                            <input type="text" matInput formControlName="paragraph2">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Paragraph3</mat-label>
+                            <input type="text" matInput formControlName="paragraph3">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Footer1</mat-label>
+                            <input type="text" matInput formControlName="footeR_COMPONENT1">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Footer2</mat-label>
+                            <input type="text" matInput formControlName="footeR_COMPONENT2">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Footer3</mat-label>
+                            <input type="text" matInput formControlName="footeR_COMPONENT3">
+                        </mat-form-field>
+
+                        <div>
+                            <input type="file" #file formControlName="logO_PATH"
+                                (change)="UploadContactUsImage(file.files)">
+                        </div>
+
+                    </form>
+                </mat-dialog-content>
+                <mat-dialog-actions align="end">
+                    <button mat-button mat-dialog-close class="btn btn-outline btn-primary">Cancel</button>
+                    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="SaveContactUspageInfo()"
+                        class="btn btn-outline btn-primary">Save</button>
+                </mat-dialog-actions>
+
+            </ng-template>
+
+            <ng-template #callUpdateContactUspageDialog>
+                <h2 mat-dialog-title>Update About Us Page</h2>
+                <mat-dialog-content class="mat-typography">
+                    <form class="example-form" [formGroup]="updateContactUsPageForm">
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Header1</mat-label>
+                            <input type="text" matInput formControlName="headeR_COMPONENT1"
+                                [(ngModel)]="contactUspage_pData.headeR_COMPONENT1">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Header2</mat-label>
+                            <input type="text" matInput formControlName="headeR_COMPONENT2"
+                                [(ngModel)]="contactUspage_pData.headeR_COMPONENT2">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Header3</mat-label>
+                            <input type="text" matInput formControlName="headeR_COMPONENT3"
+                                [(ngModel)]="contactUspage_pData.headeR_COMPONENT3">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Paragraph1</mat-label>
+                            <input type="text" matInput formControlName="paragraph1"
+                                [(ngModel)]="contactUspage_pData.paragraph1">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Paragraph2</mat-label>
+                            <input type="text" matInput formControlName="paragraph2"
+                                [(ngModel)]="contactUspage_pData.paragraph2">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Paragraph3</mat-label>
+                            <input type="text" matInput formControlName="paragraph3"
+                                [(ngModel)]="contactUspage_pData.paragraph3">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Footer1</mat-label>
+                            <input type="text" matInput formControlName="footeR_COMPONENT1"
+                                [(ngModel)]="contactUspage_pData.footeR_COMPONENT1">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Footer2</mat-label>
+                            <input type="text" matInput formControlName="footeR_COMPONENT2"
+                                [(ngModel)]="contactUspage_pData.footeR_COMPONENT2">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Footer3</mat-label>
+                            <input type="text" matInput formControlName="footeR_COMPONENT3"
+                                [(ngModel)]="contactUspage_pData.footeR_COMPONENT3">
+                        </mat-form-field>
+
+                        <div>
+                            <input type="file" #file formControlName="logO_PATH"
+                                (change)="UploadContactUspageImage(file.files)" [(ngModel)]="contactUspage_pData.logO_PATH">
+                        </div>
+
+                    </form>
+                </mat-dialog-content>
+                <mat-dialog-actions align="end">
+                    <button mat-button mat-dialog-close class="btn btn-outline btn-primary">Cancel</button>
+                    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="UpdateContactUspage()"
+                        class="btn btn-outline btn-primary">Update</button>
+                </mat-dialog-actions>
+
+            </ng-template>
+
+            <ng-template #callDeleteContactUspageDailog>
+
+                <h1 mat-dialog-title>Delete Element</h1>
+                <div mat-dialog-content>Are you sure you want to delete this item?</div>
+                <div mat-dialog-actions>
+                    <button type="button" class="btn btn-primary m-1" mat-dialog-close="1">Yes</button>
+                    <button type="button" mat-button mat-dialog-close="0">No</button>
+                </div>
+            </ng-template>

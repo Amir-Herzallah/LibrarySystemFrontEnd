@@ -10,7 +10,10 @@ import { LibrariesManagementComponent } from './libraries-management/libraries-m
 import { CategoriesManagementComponent } from './categories-management/categories-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from './shared/shared.module';
-import { PagesManagementComponent } from './pages-management/pages-management.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { AboutusPageComponent } from './aboutus-page/aboutus-page.component';
+import { TestimonialPageComponent } from './testimonial-page/testimonial-page.component';
+import { ContactusPageComponent } from './contactus-page/contactus-page.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { PagesManagementComponent } from './pages-management/pages-management.co
     LibrariesManagementComponent,
     CategoriesManagementComponent,
     DashboardComponent,
-    PagesManagementComponent
+    HomePageComponent,
+    AboutusPageComponent,
+    TestimonialPageComponent,
+    ContactusPageComponent
   ],
   imports: [
     CommonModule,

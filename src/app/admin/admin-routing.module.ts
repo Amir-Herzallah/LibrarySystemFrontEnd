@@ -7,37 +7,52 @@ import { LibrariesManagementComponent } from './libraries-management/libraries-m
 import { CategoriesManagementComponent } from './categories-management/categories-management.component';
 import { ReportsManagementComponent } from './reports-management/reports-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { PagesManagementComponent } from './pages-management/pages-management.component';
+import { AboutusPageComponent } from './aboutus-page/aboutus-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { ContactusPageComponent } from './contactus-page/contactus-page.component';
+import { TestimonialPageComponent } from './testimonial-page/testimonial-page.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: DashboardComponent
   },
   {
-    path:'users',
+    path: 'users',
     component: UsersManagementComponent
   },
   {
-    path:'libraries',
+    path: 'libraries',
     component: LibrariesManagementComponent
   },
   {
-    path:'categories',
+    path: 'categories',
     component: CategoriesManagementComponent
   },
   {
-    path:'books',
+    path: 'books',
     component: BooksManagementComponent
   },
   {
-    path:'reports',
+    path: 'reports',
     component: ReportsManagementComponent
   },
-{
-  path:'pages',
-  component:PagesManagementComponent
-}
+  {
+    path: 'home-page',
+    component: HomePageComponent
+  },
+  {
+    path: 'aboutus-page',
+    component: AboutusPageComponent
+  },
+  {
+    path: 'contactus-page',
+    component: ContactusPageComponent
+  },
+  {
+    path: 'testimonial-page',
+    component: TestimonialPageComponent
+  }
 ];
 
 @NgModule({
