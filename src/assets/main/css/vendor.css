@@ -8939,6 +8939,10 @@ textarea:focus, input:focus {
 
 }
 
+#titleHeight {
+  line-height: 75px;
+}
+
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; }
 input:focus::-moz-placeholder { color:transparent; }
