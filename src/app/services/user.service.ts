@@ -18,7 +18,7 @@ export class UserService {
   ) { }
 
   users: any = [{}];
-
+  numOfRegisterUsers:any;
   GetAllUsers() {
     this.http.get('https://localhost:7131/api/User/GetAllUsers').subscribe((resp: any) => {
       this.users = resp;
@@ -80,5 +80,14 @@ export class UserService {
     formData.append('file', fileToUpload, fileToUpload.name);
 
     this.uploadAttachment(formData);
+  }
+  GetNumberOfRegisteredUsers(){
+    this.http.get("https://localhost:7131/api/User/NumberOfRegisteredUsers").subscribe((resp)=>{
+      this.numOfRegisterUsers = resp;
+    },err=>{ 
+      console.log(err.message);
+      console.log(err.status);
+     
+    })
   }
 }
