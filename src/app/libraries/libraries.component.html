@@ -1,47 +1,54 @@
-<app-navbar></app-navbar>
 
+<app-navbar>
 
-<section id="featured-books" class="py-5 my-5">
-  <div class="container" *ngIf="libraries.length; else noData">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-header align-center">
-          <div class="title">
-            <span>Some quality items</span>
-          </div>
-          <h2 class="section-title">Libraries</h2>
-        </div>
-        
-        <!-- Loop through each library and display its details -->
-        <div class="row">
-          <div *ngFor="let library of libraries" class="col-md-3 mb-4">
-            <div class="product-item">
-              <figure class="product-style">
-                <!-- Image of the library -->
-               
-                <img src="../../../assets/Uploded-Images/{{library.image_Path1}}" alt="library" class="img-fluid">  
-                <figcaption class="mt-2">
-                  <h3>{{library.name}}</h3>
-                  <span>ID: {{library.library_Id}}</span>
-                  <span>Location: {{library.location_Latitude}}</span>
-                  <span>Email: {{library.email}}</span>
-                  <button type="button" class="btn btn-primary mt-3">Show The Category</button>
-                </figcaption>
-              </figure>
+</app-navbar>
+<section id="popular-books" class="bookshelf py-5 my-5">
+    <!-- ... -->
+    <div *ngIf="libraryService.libraries.length; else noData" class="container">
+      <div class="row">
+        <!-- ... header and tabs ... -->
+  
+        <!-- Replace static content with dynamic books from the API -->
+        <div class="tab-content">
+          <div id="all-genre" data-tab-content class="active">
+            <div class="row">
+              <!-- Loop through each book and display its details -->
+              <div *ngFor="let library of libraryService.libraries" class="col-md-3">
+                <div class="product-item">
+                  <figure class="product-style">
+                   <img src="../../../assets/Uploded-Images/{{library.image_Path1}}" alt="library img" class="product-item">  
+                  <!--   <img [src]="'../../../assets/Uploded-Images/' + book.book_Img_Path" alt="Book cover" class="product-item">
+ -->
+                    <button type="button"  (click)="showCategories(library.library_Id)"    class="add-to-cart">Show The Category
+                     <!--  <span>{{library.library_Id}}</span> -->
+                    </button>
+
+                  </figure> 
+                  <figcaption>
+                    <h3>{{library.name}}</h3>
+                    <span>{{library.location_Latitude}}</span>
+                    <h4>{{library.phone_Number}}</h4>
+                    
+                    <div class="item-price">{{library.email}}</div>
+                  </figcaption>
+                      <!-- Display categories for the selected library -->
+                   
+                </div>
+             
+              </div>
             </div>
           </div>
-        </div> <!-- End of libraries row -->
-      </div>
-    </div> <!-- End of main row -->
-    <div class="row">
-      <div class="col-md-12">
-        <div class="btn-wrap align-right">
-          <a href="#" class="btn-accent-arrow">View all products <i class="icon icon-ns-arrow-right"></i></a>
+          <!-- ... other tabs ... -->
         </div>
       </div>
     </div>
-  </div> <!-- End of container -->
-  <ng-template #noData><div class="container"><p>No libraries found.</p></div></ng-template>
-</section>
-
-<app-footer></app-footer>
+    <ng-template #noData><p>No popular books found.</p></ng-template>
+    
+  
+    <ul class="category-list">
+      <li *ngFor="let category of libraryService.Categories">{{ category.category_Name }}</li>
+    </ul>
+    
+  </section>
+  
+  <app-footer></app-footer>

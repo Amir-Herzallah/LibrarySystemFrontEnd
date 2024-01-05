@@ -24,7 +24,6 @@ export class BooksManagementComponent {
   }
   
   createBook: FormGroup = new FormGroup({
-    book_Id: new FormControl('', Validators.required),
     title: new FormControl('', Validators.required),
     author: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
@@ -40,8 +39,8 @@ export class BooksManagementComponent {
     this.dialog.open(this.callCreateDialog);
   }
   
-  CallCreateBook() {
-    this.book.CreateBook();
+  CreateBook() {
+    this.book.CreateBook(this.createBook.value);
   }
   
   DeleteBook(id: number) {
@@ -72,13 +71,13 @@ export class BooksManagementComponent {
   pData: any;
   OpenUpdateDialog(book: any) {
     this.pData = book;
-    this.book.updateBook.controls['book_Id'].setValue(this.pData.book_Id);
-    this.book.updateBook.controls['category_Id'].setValue(this.pData.category_Id);
+    this.updateBook.controls['book_Id'].setValue(this.pData.book_Id);
     this.book.display_image = this.pData.book_Img_Path;
     this.dialog.open(this.callUpdateDialog);
   }
-  CallUpdateBook() {
-    this.book.UpdateBook(this.pData.book_Id,this.book.updateBook.value);
+  UpdateCourse() {
+    
+    this.book.UpdateBook(this.updateBook.value.book_Id ,this.updateBook.value);
   }
 
   uploadImage(file: any) {
@@ -92,3 +91,4 @@ export class BooksManagementComponent {
     this.book.uploadAttachment(formData);
   }
 }
+      

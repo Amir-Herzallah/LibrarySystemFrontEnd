@@ -20,7 +20,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +34,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     BooksComponent    ],
   imports: [
     BrowserModule,
+    RouterModule,
+    AppRoutingModule,
     FormsModule,
     SharedModule,
     BrowserAnimationsModule,

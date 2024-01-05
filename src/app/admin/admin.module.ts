@@ -14,7 +14,6 @@ import { PagesManagementComponent } from './pages-management/pages-management.co
 import { ProfileComponent } from './profile/profile.component';
 
 
-
 @NgModule({
   declarations: [
     UsersManagementComponent,
@@ -30,6 +29,7 @@ import { ProfileComponent } from './profile/profile.component';
     CommonModule,
     AdminRoutingModule,
     SharedModule
-  ]
+  ],
+
 })
 export class AdminModule { }
