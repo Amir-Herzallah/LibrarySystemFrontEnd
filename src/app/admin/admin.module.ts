@@ -14,7 +14,6 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AboutusPageComponent } from './aboutus-page/aboutus-page.component';
 import { TestimonialPageComponent } from './testimonial-page/testimonial-page.component';
 import { ContactusPageComponent } from './contactus-page/contactus-page.component';
-import { PagesManagementComponent } from './pages-management/pages-management.component';
 import { ProfileComponent } from './profile/profile.component';
 
 

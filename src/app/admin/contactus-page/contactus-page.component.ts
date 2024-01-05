@@ -65,8 +65,11 @@ export class ContactusPageComponent {
   }
 
   updateContactUsPageForm: FormGroup = new FormGroup({
-    ContactUspagE_ID: new FormControl(),
+    contactuspagE_ID: new FormControl(),
     logO_PATH: new FormControl(),
+    email: new FormControl(),
+    subject: new FormControl(),
+    message: new FormControl(),
     headeR_COMPONENT1: new FormControl(),
     headeR_COMPONENT2: new FormControl(),
     headeR_COMPONENT3: new FormControl(),
@@ -75,20 +78,18 @@ export class ContactusPageComponent {
     paragraph3: new FormControl(),
     footeR_COMPONENT1: new FormControl(),
     footeR_COMPONENT2: new FormControl(),
-    footeR_COMPONENT3: new FormControl(),
-    imagE_PATH1: new FormControl(),
-    imagE_PATH2: new FormControl()
+    footeR_COMPONENT3: new FormControl()
   })
   
   OpenUpdateContactUspageDailog(obj: any) {
     this.contactUspage_pData = obj;
-    this.updateContactUsPageForm.controls['contactUspagE_ID'].setValue(this.contactUspage_pData.ContactUspagE_ID);
-    this.adminService.display_image = this.contactUspage_pData.imagename;
+    this.updateContactUsPageForm.controls['contactuspagE_ID'].setValue(this.contactUspage_pData.contactuspagE_ID);
+    this.adminService.display_image = this.contactUspage_pData.logO_PATH;
     this.dialog.open(this.callUpdateContactUspageDialog);
   }
 
   UpdateContactUspage() {
-    this.adminService.UpdateHomepage(this.updateContactUsPageForm.value)
+    this.adminService.UpdateContactUsPage(this.updateContactUsPageForm.value)
   }
   UploadContactUsImage(file: any) {
     if (file.length == 0) return;

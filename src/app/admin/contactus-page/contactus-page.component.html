@@ -19,9 +19,6 @@
                                             <thead class="text-dark fs-4">
                                                 <tr>
                                                     <th class="border-bottom-0">
-                                                        <h4 class="fw-semibold mb-0">Title</h4>
-                                                    </th>
-                                                    <th class="border-bottom-0">
                                                         <h4 class="fw-semibold mb-0">Header1</h4>
                                                     </th>
                                                     <th class="border-bottom-0">
@@ -48,12 +45,7 @@
                                                     <th class="border-bottom-0">
                                                         <h4 class="fw-semibold mb-0">Footer3</h4>
                                                     </th>
-                                                    <th class="border-bottom-0">
-                                                        <h4 class="fw-semibold mb-0">Image1</h4>
-                                                    </th>
-                                                    <th class="border-bottom-0">
-                                                        <h4 class="fw-semibold mb-0">Image2</h4>
-                                                    </th>
+
                                                     <th class="border-bottom-0">
                                                         <h4 class="fw-semibold mb-0">Logo</h4>
                                                     </th>
@@ -66,8 +58,6 @@
                                             <tbody>
 
                                                 <tr *ngFor="let obj of this.adminService.contactUsPageData">
-
-                                                    <td>{{obj.title}}</td>
                                                     <td>{{obj.headeR_COMPONENT1}}</td>
                                                     <td>{{obj.headeR_COMPONENT2}}</td>
                                                     <td>{{obj.headeR_COMPONENT3}}</td>
@@ -77,8 +67,6 @@
                                                     <td>{{obj.footeR_COMPONENT1}}</td>
                                                     <td>{{obj.footeR_COMPONENT2}}</td>
                                                     <td>{{obj.footeR_COMPONENT3}}</td>
-                                                    <td> <img src="../../../assets/images/{{obj.imagE_PATH1}}"> </td>
-                                                    <td> <img src="../../../assets/images/{{obj.imagE_PATH2}}"> </td>
                                                     <td> <img src="../../../assets/images/{{obj.logO_PATH}}"> </td>
                                                     <td>
                                                         <button mat-button (click)="OpenUpdateContactUspageDailog(obj)"
@@ -103,7 +91,7 @@
             </div>
 
             <ng-template #callCreateContactUspageDialog>
-                <h2 mat-dialog-title>Create About Us page </h2>
+                <h2 mat-dialog-title>Create Contact Us page </h2>
                 <mat-dialog-content class="mat-typography">
                     <form class="example-form" [formGroup]="createContactUsPageForm">
                         <mat-form-field class="example-full-width">
@@ -167,7 +155,7 @@
             </ng-template>
 
             <ng-template #callUpdateContactUspageDialog>
-                <h2 mat-dialog-title>Update About Us Page</h2>
+                <h2 mat-dialog-title>Update Contact Us Page</h2>
                 <mat-dialog-content class="mat-typography">
                     <form class="example-form" [formGroup]="updateContactUsPageForm">
 
