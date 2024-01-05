@@ -8,6 +8,7 @@ import { CategoriesManagementComponent } from './categories-management/categorie
 import { ReportsManagementComponent } from './reports-management/reports-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesManagementComponent } from './pages-management/pages-management.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -34,10 +35,14 @@ const routes: Routes = [
     path:'reports',
     component: ReportsManagementComponent
   },
-{
-  path:'pages',
-  component:PagesManagementComponent
-}
+  {
+    path:'pages',
+    component:PagesManagementComponent
+  },
+  {
+    path:'profile',
+    component:ProfileComponent
+  }
 ];
 
 @NgModule({

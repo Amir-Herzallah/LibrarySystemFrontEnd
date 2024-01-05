@@ -11,6 +11,7 @@ import { CategoriesManagementComponent } from './categories-management/categorie
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from './shared/shared.module';
 import { PagesManagementComponent } from './pages-management/pages-management.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -22,7 +23,8 @@ import { PagesManagementComponent } from './pages-management/pages-management.co
     LibrariesManagementComponent,
     CategoriesManagementComponent,
     DashboardComponent,
-    PagesManagementComponent
+    PagesManagementComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

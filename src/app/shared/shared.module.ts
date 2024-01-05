@@ -22,8 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports:[
     CommonModule,
@@ -32,7 +31,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
-    BrowserAnimationsModule,
     ReactiveFormsModule,
     NavbarComponent,
     FooterComponent

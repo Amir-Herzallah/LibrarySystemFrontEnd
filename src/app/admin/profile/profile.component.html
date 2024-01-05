@@ -1,0 +1,91 @@
+
+<app-admin-navbar></app-admin-navbar>
+ <div class="container-fluid page-body-wrapper px-3">
+    <app-admin-sidebar></app-admin-sidebar>
+
+              <div class="row">
+                <div class="col-md-12">
+                  
+                  <div class="card mb-4">
+                    <h5 class="card-header">Profile Details</h5>
+                    <!-- Account -->
+                    <form [formGroup]="editProfile">
+                         <div class="text-danger"></div>
+                        <div class="card-body">
+                          <div class="d-flex align-items-start align-items-sm-center gap-4">
+                            <img
+                              src="../../../assets/UserImages/{{profile.userInfo.profile_Img_Path}}"
+                              alt="user-avatar"
+                              class="d-block rounded"
+                              height="100"
+                              width="100"
+                            />
+                            <div class="button-wrapper">
+                              <label  class="" tabindex="0">
+                                <span class="d-none d-sm-block">Upload new photo</span>
+                                <i class="bx bx-upload d-block d-sm-none"></i>
+                                <input type="file" class="" id="imageButton" #file formControlName="profile_Img_Path" (change)="UploadImage(file.files)"/>
+
+                              </label>
+
+
+                              <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="my-0" />
+                        <div class="card-body">
+                     
+                            <div class="row">
+                              <div class="mb-3 col-md-6">
+                                <label class="form-label">First Name</label>
+                                <input
+                                  formControlName="first_Name"
+                                  [(ngModel)]="profile.userInfo.first_Name"
+                                  class="form-control"
+                                  type="text"
+                                  autofocus
+                                />
+                              </div>
+                              <div class="mb-3 col-md-6">
+                                <label  class="form-label">Last Name</label>
+                                <input  class="form-control" type="text" formControlName="last_Name" [(ngModel)]="profile.userInfo.last_Name" />
+                              </div>
+                              <div class="mb-3 col-md-6">
+                                <label  class="form-label">E-mail</label>
+                                <input
+                                  formControlName="email"
+                                  [(ngModel)]="profile.userInfo.email"
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="john.doe@example.com"
+                                />
+                              </div>
+                              <div class="mb-3 col-md-6">
+                                <label class="form-label" >Phone Number</label>
+                                <div class="input-group input-group-merge">
+                                  <span class="input-group-text">Jor (+962)</span>
+                                  <input
+                                   [(ngModel)]="profile.userInfo.phone_Number"
+                                    formControlName="phone_Number"
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="202 555 0111"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="mt-2">
+                              <button type="submit" value="save" id="editButton" class="btn btn-primary me-2" (click)="UpdateProfile()">Save changes</button>
+                           
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- /Account -->
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+            <app-admin-footer></app-admin-footer>
