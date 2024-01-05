@@ -11,6 +11,7 @@ import { AboutusPageComponent } from './aboutus-page/aboutus-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ContactusPageComponent } from './contactus-page/contactus-page.component';
 import { TestimonialPageComponent } from './testimonial-page/testimonial-page.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: 'testimonial-page',
     component: TestimonialPageComponent
+  },
+  {
+    path:'profile',
+    component:ProfileComponent
   }
 ];
 

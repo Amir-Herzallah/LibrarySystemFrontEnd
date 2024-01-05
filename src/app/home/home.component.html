@@ -1,51 +1,52 @@
 
 <app-navbar></app-navbar>
-<section id="billboard">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <button class="prev slick-arrow">
-                    <i class="icon icon-arrow-left"></i>
-                </button>
-
-                <div class="main-slider pattern-overlay">
-                    <div class="slider-item ">
-                        <div class="banner-content">
-                            <h2 class="banner-title">Life of the Wild</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero
-                                ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
-                                urna, a eu.</p>
-                            <div class="btn-wrap">
-                                <a href="#" class="btn btn-outline-accent btn-accent-arrow">Read More<i
-                                        class="icon icon-ns-arrow-right"></i></a>
-                            </div>
-                        </div><!--banner-content-->
-                        <img src="../../assets/main/images/main-banner1.jpg" alt="banner" class="banner-image">
-                    </div><!--slider-item-->
-
-                    <div class="slider-item">
-                        <div class="banner-content">
-                            <h2 class="banner-title">Birds gonna be Happy</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero
-                                ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
-                                urna, a eu.</p>
-                            <div class="btn-wrap">
-                                <a href="#" class="btn btn-outline-accent btn-accent-arrow">Read More<i
-                                        class="icon icon-ns-arrow-right"></i></a>
-                            </div>
-                        </div><!--banner-content-->
-                        <!-- <img src="../../assets/main/images/main-banner2.jpg" alt="banner" class="banner-image"> -->
-                    </div><!--slider-item-->
-
-                </div><!--slider-->
-
-                <button class="next slick-arrow">
-                    <i class="icon icon-arrow-right"></i>
-                </button>
-
+<section class="carousel slide container" id="about-slider" data-bs-ride="carousel">
+    <div class="carousel-inner px-4 pt-5 mb-5">
+        <div class="carousel-item active">
+            <div class="row">
+                <div class="col-7 p-5 mt-1">
+                    <h2 class="mb-4" >Life of the wild</h2>
+                    <p class="mb-4 pe-5" id="aboutPar">something</p>
+                 
+                </div>
+                <div class="col-5 pattern-overlay">
+                    <img src="../../assets/main/images/main-banner1.jpg" class=""/>
+                </div>
             </div>
+            
+            
         </div>
+
+        <div class="carousel-item active">
+            <div class="row">
+                <div class="col-7 p-5 mt-1">
+                    <h2 class="mb-4" >Life of the wild</h2>
+                    <p class="mb-4 pe-5" id="aboutPar">something</p>
+                 
+                </div>
+                <div class="col-5 pattern-overlay">
+                    <img src="../../assets/main/images/main-banner1.jpg" class=""/>
+                </div>
+            </div>
+            
+            
+        </div>
+
+
+    </div>
+
+    <div class="">
+        <button class="carousel-control-prev" type="button" data-bs-target="#about-slider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#about-slider" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+          </button>
+    </div>
+    
+    <div class="d-flex justify-content-center">
     </div>
 
 </section>
