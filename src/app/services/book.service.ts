@@ -18,8 +18,12 @@ export class BookService {
     public dialog: MatDialog
   ) { }
 
-  books: any = [{}];
-
+  
+  books:any =[{}]
+  topRatedBooks:any=[{}]
+  allCategoriesBooks:any=[{}]
+  bestSellingBook:any;
+  borrowedBooks:any;
   GetAllBooks() {
     this.http.get('https://localhost:7131/api/Book/GetAllBooks').subscribe((resp: any) => {
       this.books = resp;
@@ -80,5 +84,45 @@ export class BookService {
 
     this.uploadAttachment(formData);
   }
+  GetTopBooks(){
+    this.http.get("https://localhost:7131/api/Book/TopBooks").subscribe((resp)=>{
+      this.topRatedBooks = resp;
+    },err=>{ 
+      console.log(err.message);
+      console.log(err.status);
+      
+     
+    })
+  }
+ 
+  GetAllCategoryBooks(){
+      this.http.get("https://localhost:7131/api/Book/CategoryBooks").subscribe((resp)=>{
+        this.allCategoriesBooks = resp;
+      },err=>{ 
+        console.log(err.message);
+        console.log(err.status);
+      })
+    
+  }
 
+  GetFindBestSellingBook()
+  {
+    this.http.get("https://localhost:7131/api/Book/FindBestSellingBook").subscribe((resp)=>{
+        this.bestSellingBook = resp;
+        console.log(resp)
+      },err=>{ 
+        console.log(err.message);
+        console.log(err.status);
+      })
+  }
+ //-----------------------------------------------BorrowedBooks Operations-----------------------------------------------
+ GetAllBorrowedBooks(){
+  this.http.get("https://localhost:7131/api/BorrowedBook/GetAllBorrowedBooks").subscribe((resp: any) => {
+    this.borrowedBooks = resp;
+  },
+    (error: any) => {
+      this.toastr.error("Error Occured");
+    })
+
+ }
 }

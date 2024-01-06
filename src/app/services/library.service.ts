@@ -97,4 +97,7 @@ export class LibraryService {
   
       this.uploadAttachment(formData);
     }
+    GetBorrowedBooksCountInLibraries(){
+      return this.http.get("https://localhost:7131/api/Library/GetBorrowedBooksCountInLibraries");
+    }
 }

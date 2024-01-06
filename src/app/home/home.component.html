@@ -82,7 +82,7 @@
 
                 <div class="product-list" >
                     <div class="row">
-                        <ng-container *ngFor="let obj of mainService.topRatedBooks">
+                        <ng-container *ngFor="let obj of bookService.topRatedBooks">
                         <div class="col-md-3">
                             <div class="product-item">
                                 <figure class="product-style">
@@ -129,7 +129,7 @@
                     <div class="col-md-6">
                         <div class="product-item" >
                             <figure class="product-style">
-                            <img src="../../assets/images/{{this.mainService.bestSellingBook.book_Img_Path}}" alt="book" class="single-image">
+                            <img src="../../assets/images/{{this.bookService.bestSellingBook.book_Img_Path}}" alt="book" class="single-image">
                         </figure>
                         </div>
                     </div>
@@ -139,10 +139,10 @@
                             <h2 class="section-title divider">Best Selling Book</h2>
 
                             <div class="products-content">
-                                <div class="author-name">By {{this.mainService.bestSellingBook.author}}</div>
-                                <h3 class="item-title">{{this.mainService.bestSellingBook.title}}</h3>
-                                <p>{{this.mainService.bestSellingBook.description}}.</p>
-                                <div class="item-price">$ {{this.mainService.bestSellingBook.price_Per_Day}}</div>
+                                <div class="author-name">By {{this.bookService.bestSellingBook.author}}</div>
+                                <h3 class="item-title">{{this.bookService.bestSellingBook.title}}</h3>
+                                <p>{{this.bookService.bestSellingBook.description}}.</p>
+                                <div class="item-price">$ {{this.bookService.bestSellingBook.price_Per_Day}}</div>
                                 <div class="btn-wrap">
                                     <a href="#" class="btn-accent-arrow">shop it now <i
                                             class="icon icon-ns-arrow-right"></i></a>
@@ -176,7 +176,7 @@
                 <!-- <ng-container *ngFor="let cat of manageBooks.allCatBooks"> -->
                 <!-- Cat Tabs -->
                 <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" dynamicHeight>
-                    <mat-tab  [label]="selectedCategory.category_Name" *ngFor="let selectedCategory of this.mainService.allCategoriesBooks">
+                    <mat-tab  [label]="selectedCategory.category_Name" *ngFor="let selectedCategory of this.bookService.allCategoriesBooks">
                       <br>
                       <br>
                       <br>
@@ -425,7 +425,7 @@
                 <div class="row">
 
                     
-                    <div class="col-md-4" *ngFor="let library of this.mainService.allLibaries.slice(0,3)">
+                    <div class="col-md-4" *ngFor="let library of this.libraryService.libraries.slice(0,3)">
 
                         <article class="column"  data-aos-delay="400">
                             <figure>

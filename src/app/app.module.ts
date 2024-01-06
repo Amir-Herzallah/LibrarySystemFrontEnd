@@ -33,10 +33,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AboutusFormComponent,
     ContactUsDialogComponent,
     LibrariesComponent,
-    BooksComponent
-
-  
-  ],
+    BooksComponent    ],
   imports: [
     BrowserModule,
     RouterModule,
@@ -49,7 +46,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppRoutingModule,
     MatTabsModule,
     MatInputModule ,
-    MatDialogModule
+    MatDialogModule,
+    BrowserModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
