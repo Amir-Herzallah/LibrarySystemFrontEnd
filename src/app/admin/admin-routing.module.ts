@@ -7,6 +7,7 @@ import { LibrariesManagementComponent } from './libraries-management/libraries-m
 import { CategoriesManagementComponent } from './categories-management/categories-management.component';
 import { ReportsManagementComponent } from './reports-management/reports-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BorrowedbooksComponent } from './borrowedbooks/borrowedbooks.component';
 import { AboutusPageComponent } from './aboutus-page/aboutus-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ContactusPageComponent } from './contactus-page/contactus-page.component';
@@ -38,6 +39,11 @@ const routes: Routes = [
     path: 'reports',
     component: ReportsManagementComponent
   },
+{
+  path:'borrowedbooks' ,
+  component: BorrowedbooksComponent,
+ 
+},
   {
     path: 'home-page',
     component: HomePageComponent

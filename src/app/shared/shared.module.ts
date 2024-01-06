@@ -9,11 +9,13 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-
+ 
+ 
 @NgModule({
   declarations: [
     NavbarComponent,
     FooterComponent
+  
   ],
   imports: [
     CommonModule,
@@ -34,6 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     NavbarComponent,
     FooterComponent
+    
   ]
 })
 export class SharedModule { }

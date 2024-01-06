@@ -1,0 +1,36 @@
+.form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  
+  /* Responsive design adjustments */
+  @media (max-width: 768px) {
+    .form-group {
+      width: 100%;
+    }
+  }
+  .book-image {
+    height: auto;
+    width: 100px; /* or set max-width to ensure responsiveness */
+    display: block;
+    margin: 0 auto; /* centers the image in the td */
+    border-radius: 4px; /* optional: rounds the corners */
+    border: 1px solid #ddd; /* optional: adds a border */
+    padding: 4px; /* optional: adds space around the image */
+    object-fit: cover; /* This will cover the area without losing aspect ratio */
+    object-position: center; /* Adjust the position as needed */
+  }
+  

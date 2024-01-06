@@ -10,6 +10,7 @@ import { LibrariesManagementComponent } from './libraries-management/libraries-m
 import { CategoriesManagementComponent } from './categories-management/categories-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from './shared/shared.module';
+import { BorrowedbooksComponent } from './borrowedbooks/borrowedbooks.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AboutusPageComponent } from './aboutus-page/aboutus-page.component';
 import { TestimonialPageComponent } from './testimonial-page/testimonial-page.component';
@@ -25,6 +26,7 @@ import { ProfileComponent } from './profile/profile.component';
     LibrariesManagementComponent,
     CategoriesManagementComponent,
     DashboardComponent,
+    BorrowedbooksComponent,
     HomePageComponent,
     AboutusPageComponent,
     TestimonialPageComponent,
