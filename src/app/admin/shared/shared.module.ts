@@ -10,13 +10,16 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ViewChild} from '@angular/core';
+import { DateRangePipe } from 'src/app/pipes/date-range.pipe';
+
 
 
 @NgModule({
   declarations: [
     AdminNavbarComponent,
     AdminSidebarComponent,
-    AdminFooterComponent
+    AdminFooterComponent,
+    DateRangePipe
   ],
   imports: [
     CommonModule,
@@ -48,7 +51,8 @@ import {ViewChild} from '@angular/core';
     MatFormFieldModule,
     MatInputModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DateRangePipe
 
   ]
 })

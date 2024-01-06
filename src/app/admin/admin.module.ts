@@ -11,6 +11,7 @@ import { CategoriesManagementComponent } from './categories-management/categorie
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from './shared/shared.module';
 import { PagesManagementComponent } from './pages-management/pages-management.component';
+import { BorrowedbooksComponent } from './borrowedbooks/borrowedbooks.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PagesManagementComponent } from './pages-management/pages-management.co
     LibrariesManagementComponent,
     CategoriesManagementComponent,
     DashboardComponent,
-    PagesManagementComponent
+    PagesManagementComponent,
+    BorrowedbooksComponent
   ],
   imports: [
     CommonModule,

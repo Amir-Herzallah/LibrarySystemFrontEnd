@@ -8,6 +8,7 @@ import { CategoriesManagementComponent } from './categories-management/categorie
 import { ReportsManagementComponent } from './reports-management/reports-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesManagementComponent } from './pages-management/pages-management.component';
+import { BorrowedbooksComponent } from './borrowedbooks/borrowedbooks.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,11 @@ const routes: Routes = [
 {
   path:'pages',
   component:PagesManagementComponent
+},
+{
+  path:'borrowedbooks' ,
+  component: BorrowedbooksComponent,
+ 
 }
 ];
 
