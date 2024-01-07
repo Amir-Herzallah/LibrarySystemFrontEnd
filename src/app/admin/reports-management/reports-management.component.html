@@ -1,1 +1,111 @@
-<p>reports-management works!</p>
+<router-outlet></router-outlet>
+<app-admin-navbar></app-admin-navbar>
+<div class="container-fluid page-body-wrapper">
+    <app-admin-sidebar></app-admin-sidebar>
+    <div class="main-panel">
+        <div class="content-wrapper p-4" style="margin-top: 5rem;">
+            
+            <div class="row">
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Users With Reservation</h4>
+                            <!-- app.component.html -->
+
+<div>
+    <label for="months" style="font-size: 12px">Select a month:</label>
+    <select id="months" name="months" [(ngModel)]="selectedMonth">
+      <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+    </select>
+  
+    <label for="years" style="font-size: 12px">Select a year:</label>
+    <select id="years" name="years" [(ngModel)]="selectedYear">
+      <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+    </select>
+  </div>
+  
+  
+                            <!-- <div style="position: relative;">
+                                <mat-label> select date range </mat-label>
+]                                <div class="demo-button-container">
+                                    <mat-form-field style=" width: 200px; border: 1px ; margin-left: 8px;">
+                                      <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                                        <input matStartDate formControlName="start" placeholder="Start date" [(ngModel)]="this.startDate" style="font-size: 12px;">
+                                        <input matEndDate formControlName="end" placeholder="End date" [(ngModel)]="this.endDate" style="font-size: 12px;">
+                                      </mat-date-range-input>
+                                      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                      <mat-date-range-picker #picker></mat-date-range-picker>
+                                      <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                                      <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+                                    </mat-form-field>
+                                  </div> -->
+                              
+                              <!-- <p>Selected range: {{range.value | json}}</p> -->
+                              
+                              
+                            <div class="table-responsive">
+                                
+                                <table class="table text-nowrap mb-0 align-middle" id="table-data" >
+                                    <thead class="text-dark fs-4">
+                                        <tr> 
+                                            
+                                            <th class="border-bottom-0">
+                                                <h4 class="fw-semibold mb-0">FirstName</h4>
+                                            </th>
+                                            <th class="border-bottom-0">
+                                                <h4 class="fw-semibold mb-0">LastName</h4>
+                                            </th>
+                                            <th class="border-bottom-0">
+                                                <h4 class="fw-semibold mb-0">Email</h4>
+                                            </th>
+                                            <th class="border-bottom-0">
+                                                <h4 class="fw-semibold mb-0">Reservation Date</h4>
+                                            </th>
+                                           
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr *ngFor="let obj of (this.usersWithRervations | dateReportsFilter:selectedMonth:selectedYear).filteredItems">
+                                            
+                                            <td>{{obj.first_Name}}</td>
+                                            <td>{{obj.last_Name}}</td>
+                                            <td>{{obj.email}}</td>
+                                            <td>{{obj.returned_Date|date}}</td>
+                                           
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Number Of Users</th>
+                                            <th >{{ (this.usersWithRervations | dateReportsFilter:selectedMonth:selectedYear).itemCount }} </th> 
+                                        </tr>
+                                        
+
+                                    </tfoot>
+                                </table>
+                                  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-admin-footer></app-admin-footer>
+    </div>
+    <!-- main-panel ends -->
+</div>
+<!-- page-body-wrapper ends -->
+<!-- content-wrapper ends -->
+
+<ng-template #callDeleteDailog>
+    <h1 mat-dialog-title>Delete Book</h1>
+    <div mat-dialog-content>Are you sure you want to delete this book?</div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close="yes" class="btn btn-primary m-1">Yes</button>
+        <button mat-button mat-dialog-close="no" class="btn btn-danger m-1">No</button>
+    </div>
+</ng-template>
+

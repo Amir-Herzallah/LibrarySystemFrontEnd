@@ -34,7 +34,9 @@
               "src/assets/admin/vendors/mdi/css/materialdesignicons.min.css",
               "src/assets/admin/vendors/css/vendor.bundle.base.css",
               "src/assets/admin/css/style.css",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ng2-daterangepicker/assets/daterangepicker.css"
             ],
             "scripts": [
               "src/assets/main/js/jquery-1.11.0.min.js",
@@ -47,7 +49,9 @@
               "src/assets/admin/js/hoverable-collapse.js",
               "src/assets/admin/js/misc.js",
               "src/assets/admin/js/dashboard.js",
-              "src/assets/admin/js/todolist.js"
+              "src/assets/admin/js/todolist.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/jquery/dist/jquery.min.js"
             ]
           },
           "configurations": {

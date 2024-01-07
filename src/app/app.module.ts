@@ -20,6 +20,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import { MatTableModule } from '@angular/material/table';  // Add this line for MatTableModule
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +36,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     AboutusFormComponent,
     ContactUsDialogComponent,
     LibrariesComponent,
-    BooksComponent    ],
+    BooksComponent,
+    //DateReportsFilterPipe,
+    // DateFilterPipe,
+      ],
   imports: [
     BrowserModule,
     RouterModule,
@@ -45,8 +53,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatTabsModule,
     MatInputModule ,
     MatDialogModule,
-    BrowserModule
-
+    BrowserModule, 
+     MatTableModule,
+     MatDatepickerModule,
+     MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

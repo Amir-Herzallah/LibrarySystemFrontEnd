@@ -19,6 +19,7 @@ export class UserService {
 
   users: any = [{}];
   numOfRegisterUsers:any;
+  usersWithRervations:any;
   GetAllUsers() {
     this.http.get('https://localhost:7131/api/User/GetAllUsers').subscribe((resp: any) => {
       this.users = resp;
@@ -89,5 +90,10 @@ export class UserService {
       console.log(err.status);
      
     })
+  }
+
+  GetUsersWithReservations(){
+  return  this.http.get("https://localhost:7131/api/User/GetUsersWithReservations");
+  
   }
 }

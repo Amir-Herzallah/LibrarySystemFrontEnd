@@ -15,7 +15,14 @@ import { AboutusPageComponent } from './aboutus-page/aboutus-page.component';
 import { TestimonialPageComponent } from './testimonial-page/testimonial-page.component';
 import { ContactusPageComponent } from './contactus-page/contactus-page.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatButtonModule} from '@angular/material/button';
+import { DateReportsFilterPipe } from 'src/app/pipes/date-reports-filter.pipe';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -29,12 +36,20 @@ import { ProfileComponent } from './profile/profile.component';
     AboutusPageComponent,
     TestimonialPageComponent,
     ContactusPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    DateReportsFilterPipe,
+   
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatSelectModule
   ],
 
 })

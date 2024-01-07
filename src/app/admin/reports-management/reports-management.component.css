@@ -1,0 +1,33 @@
+/* Add this CSS to your component's styles or your global styles file */
+
+/* Adjust the font size and padding for the date range input */
+.mat-date-range-input {
+    font-size: 12px; /* Adjust the font size to your preference */
+  }
+  
+  /* Adjust the padding for the date range picker toggle */
+  .mat-datepicker-toggle {
+    padding: 4px; /* Adjust the padding to your preference */
+  }
+  
+  /* Adjust the padding and font size for the date range picker calendar */
+  .mat-calendar {
+    font-size: 12px; /* Adjust the font size to your preference */
+    padding: 8px; /* Adjust the padding to your preference */
+  }
+  
+  /* Adjust the font size for the date range picker header */
+  .mat-calendar-header {
+    font-size: 14px; /* Adjust the font size to your preference */
+  }
+  
+  /* Adjust the font size for the date range picker cells */
+  .mat-calendar-body-cell {
+    font-size: 12px; /* Adjust the font size to your preference */
+  }
+  
+  /* Adjust the font size for the date range picker error messages */
+  .mat-error {
+    font-size: 10px; /* Adjust the font size to your preference */
+  }
+  
