@@ -9,13 +9,14 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
- 
- 
+//import { DateFilterPipe } from '../pipes/date-filter.pipe';
+
 @NgModule({
   declarations: [
     NavbarComponent,
-    FooterComponent
-  
+    FooterComponent,
+   // DateFilterPipe
+
   ],
   imports: [
     CommonModule,
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatInputModule,
     ReactiveFormsModule,
+    
   ],
   exports:[
     CommonModule,
@@ -35,8 +37,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     ReactiveFormsModule,
     NavbarComponent,
+    FooterComponent,
     FooterComponent
-    
   ]
 })
 export class SharedModule { }
