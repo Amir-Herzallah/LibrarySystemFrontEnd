@@ -11,6 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ViewChild} from '@angular/core';
 //import { DateReportsFilterPipe } from 'src/app/pipes/date-reports-filter.pipe';
+import { DateRangePipe } from 'src/app/pipes/date-range.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {ViewChild} from '@angular/core';
     AdminSidebarComponent,
     AdminFooterComponent,
    // DateReportsFilterPipe
+    DateRangePipe
   ],
   imports: [
     CommonModule,
@@ -52,6 +54,7 @@ import {ViewChild} from '@angular/core';
     FormsModule, 
     ReactiveFormsModule,
     // DateReportsFilterPipe
+    DateRangePipe
   ]
 })
 export class SharedModule { }

@@ -38,7 +38,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     NavbarComponent,
     FooterComponent,
-   // DateFilterPipe
+    FooterComponent
   ]
 })
 export class SharedModule { }
