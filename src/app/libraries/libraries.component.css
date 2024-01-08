@@ -1,22 +1,81 @@
-/* Category List Styles */
-.category-list {
-    list-style: none; /* Removes default list styling */
-    padding: 0; /* Removes default padding */
-    margin: 0; /* Removes default margin */
-    max-width: 300px; /* Adjust based on your layout */
+.mat-tab-group {
+  margin: auto;
+  width: 80%;
+}
+
+.tab-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.tab-content {
+  text-align: center;
+}
+
+.book-item {
+  display: inline-block;
+  margin: 10px;
+  text-align: left;
+}
+
+.book-item img {
+  width: 100px; /* Adjust as necessary */
+  height: 150px; /* Adjust as necessary */
+}
+
+.book-title {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.book-author {
+  font-size: 0.8em;
+}
+/* search  */
+.search-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 600px; /* You can adjust this based on your design preference */
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 20px 0 0 20px; /* Rounded left corners */
+  outline: none;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #0056b3;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 20px 20px 0; /* Rounded right corners */
+  outline: none;
+}
+
+.search-button i {
+  margin-right: 5px;
+}
+
+/* Hover effects for button */
+.search-button:hover {
+  background-color: #003d82;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-input,
+  .search-button {
+    font-size: 14px;
   }
-  
-  .category-list li {
-    background-color: #f9f9f9; /* Light background for each item */
-    margin-bottom: 5px; /* Space between items */
-    padding: 10px 15px; /* Padding inside each item */
-    border-left: 4px solid #007bff; /* Highlight line - use your primary color */
-    font-size: 0.9rem; /* Adjust font size as necessary */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  .search-button i {
+    margin-right: 0;
   }
-  
-  .category-list li:hover {
-    background-color: #f1f1f1; /* Slightly darker background on hover */
-    cursor: pointer; /* Changes cursor to indicate interactiveness */
-  }
-  
+}

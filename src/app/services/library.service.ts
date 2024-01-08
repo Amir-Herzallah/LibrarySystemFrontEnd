@@ -20,7 +20,7 @@ export class LibraryService {
  
   libraries : any=[];  
   Categories : any=[];   
-
+   Books :any= [];
   GetAllLibraries() {
     this.http.get('https://localhost:7131/api/Library/GetAllLibraries').subscribe((resp) => { 
         this.libraries = resp;
@@ -35,6 +35,7 @@ export class LibraryService {
   }
 
     GetCategoriesByLibraryId(id: number) {
+      debugger;
       this.http.get(`https://localhost:7131/api/Category/GetCategoriesByLibraryId?id=${id}`)
        .subscribe((res:any) =>{
         this.Categories = res;
@@ -45,7 +46,26 @@ export class LibraryService {
         }
       );
     }
+
+
+    GetBooksByCategoryId(id: number){
+      debugger;
+    this.http.get(`  https://localhost:7131/api/Category/GetBooksByCategoryId?id=${id}`)
+ 
+    .subscribe((res:any) =>{
     
+     this.Books = res;
+     console.log("Fetched Books: ", this.Books);
+   } ,
+     error => {
+       console.error("Failed to fetch Books: ", error);
+  }
+  );
+}
+  
+
+
+
     DeleteLibrary(id: number) {
       this.http.delete('https://localhost:7131/api/Library/DeleteLibrary?id=' + id).subscribe((resp: any) => {
         window.location.reload();
@@ -98,4 +118,6 @@ export class LibraryService {
     GetBorrowedBooksCountInLibraries(){
       return this.http.get("https://localhost:7131/api/Library/GetBorrowedBooksCountInLibraries");
     }
-}
+
+
+  }

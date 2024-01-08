@@ -22,6 +22,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';  // Add this line for MatTableModule
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CategoriesComponent } from './categories/categories.component';
+import { MultiSearchPipe } from './pipes/multi-search.pipe';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     ContactUsDialogComponent,
     LibrariesComponent,
     BooksComponent,
+    CategoriesComponent,
+    MultiSearchPipe,
     //DateReportsFilterPipe,
     // DateFilterPipe,
       ],

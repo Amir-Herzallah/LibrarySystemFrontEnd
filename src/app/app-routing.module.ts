@@ -6,6 +6,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { LibrariesComponent } from './libraries/libraries.component';
 import { BooksComponent } from './books/books.component';
 import { NgModule } from '@angular/core';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 const routes: Routes = [
