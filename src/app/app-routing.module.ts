@@ -6,6 +6,9 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { LibrariesComponent } from './libraries/libraries.component';
 import { BooksComponent } from './books/books.component';
 import { NgModule } from '@angular/core';
+import { TestimonialComponent } from './testimonial/testimonial.component';
+import { AccountComponent } from './account/account.component';
+import { MyBooksComponent } from './my-books/my-books.component';
 
 
 const routes: Routes = [
@@ -36,6 +39,18 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  { 
+    path: 'Testimonial',
+    component: TestimonialComponent
+  },
+  {
+    path:'Account',
+    component:AccountComponent
+  },
+  {
+    path:'MyBooks',
+    component:MyBooksComponent
   }
 ];
 

@@ -24,6 +24,7 @@ export class BookService {
   allCategoriesBooks:any=[{}]
   bestSellingBook:any;
   borrowedBooks:any;
+  
   GetAllBooks() {
     this.http.get('https://localhost:7131/api/Book/GetAllBooks').subscribe((resp: any) => {
       this.books = resp;

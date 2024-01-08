@@ -22,8 +22,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';  // Add this line for MatTableModule
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
-
+import { TestimonialComponent } from './testimonial/testimonial.component';
+import { AccountComponent } from './account/account.component';
+import { MyBooksComponent } from './my-books/my-books.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     ContactUsDialogComponent,
     LibrariesComponent,
     BooksComponent,
+    TestimonialComponent,
+    AccountComponent,
+    MyBooksComponent
     //DateReportsFilterPipe,
     // DateFilterPipe,
       ],

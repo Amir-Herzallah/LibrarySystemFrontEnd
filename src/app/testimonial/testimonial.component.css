@@ -1,0 +1,77 @@
+/* Add animation to input fields on hover */
+input:hover,
+input:focus {
+    border-color: #d9b99b; /* Change border color on hover */
+    transition: border-color 0.3s ease; /* Add smooth transition */
+}
+
+/* Style links */
+a {
+    text-decoration: none;
+    color: #d9b99b;
+    transition: color 0.3s ease; /* Add transition to link color */
+}
+
+a:hover {
+    color: #a8795e; /* Change link color on hover */
+}
+
+/* Style the heading and span elements */
+h2 {
+    color: #d9b99b;
+    /* If you intended to change the font size, use 'font-size' property instead of 'size' */
+    font-size: 35px; /* Modify the font size as desired */
+}
+
+/* Style the menu item on hover */
+.menu-item:hover {
+    color: #d9b99b;
+    transition: color 0.3s ease; /* Add transition to menu item color */
+}
+
+/* Adjust margin for rows */
+.row {
+    margin: 10px 0; /* Modify margin as needed */
+}
+
+/* Beautify the button */
+.btn-wrap {
+    text-align: center;
+}
+/* Optional: Add box-shadow for a more pronounced effect */
+.btn-accent-arrow {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Optional: Adjust padding and margins for better spacing */
+.form {
+    padding: 20px;
+}
+
+/* Optional: Add box-shadow to input fields for a subtle effect */
+input[type="text"],
+input[type="email"],
+textarea {
+    border: 1px solid #d9b99b;
+    padding: 8px;
+    transition: border-color 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Add box-shadow on focus for input fields */
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #a8795e; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+textarea{
+    border-radius: 50px;
+    padding: 25px;
+    color: #a8795e;
+    border-color: #a8795e;
+}
+textarea:focus {
+    border-color: #a8795e;
+    outline: none;
+}
