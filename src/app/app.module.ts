@@ -24,7 +24,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CategoriesComponent } from './categories/categories.component';
 import { MultiSearchPipe } from './pipes/multi-search.pipe';
-
+import { TestimonialComponent } from './testimonial/testimonial.component';
+import { AccountComponent } from './account/account.component';
+import { MyBooksComponent } from './my-books/my-books.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +42,9 @@ import { MultiSearchPipe } from './pipes/multi-search.pipe';
     BooksComponent,
     CategoriesComponent,
     MultiSearchPipe,
-    //DateReportsFilterPipe,
-    // DateFilterPipe,
+    TestimonialComponent,
+    AccountComponent,
+    MyBooksComponent
       ],
   imports: [
     BrowserModule,

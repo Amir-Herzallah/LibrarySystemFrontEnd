@@ -92,8 +92,6 @@ export class MainService {
     },err=>{ 
       console.log(err.message);
       console.log(err.status);
-      
-     
     })
  }
 }
