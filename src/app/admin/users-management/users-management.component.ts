@@ -37,9 +37,10 @@ export class UsersManagementComponent {
 
   OpenCreateDialog() {
     this.dialog.open(this.callCreateDialog);
-  }
+  }                       
   
   CreateUser() {
+    console.log(this.createUser.value);
     this.user.CreateUser(this.createUser.value);
   }
   
@@ -80,6 +81,7 @@ export class UsersManagementComponent {
   }
 
   uploadImage(file: any) {
+    debugger;
     if (file.length === 0)
       return;
 

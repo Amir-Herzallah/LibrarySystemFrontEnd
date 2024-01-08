@@ -44,6 +44,8 @@ export class BookService {
   }
   
   CreateBook(body: any) {
+    debugger;
+    body.book_Img_Path=this.display_image;
     this.http.post('https://localhost:7131/api/Book/CreateBook', body).subscribe((resp: any) => {
       window.location.reload();  
       this.toastr.success("Book Created Successfully");
@@ -55,7 +57,8 @@ export class BookService {
 
   display_image: any;
   UpdateBook(id:any, body: any) {
-    body.book_Img_Path = this.display_image;        
+    body.book_Img_Path=this.display_image;
+  
     this.http.put('https://localhost:7131/api/Book/UpdateBook?id='+ id ,body).subscribe((resp: any) => {
       window.location.reload();
       this.toastr.success("Book Updated Successfully");
@@ -65,8 +68,9 @@ export class BookService {
       })
   }
   uploadAttachment(file: FormData) {
-    this.http.post('https://localhost:7131/api/AboutUsPage/uploadImage', file).subscribe((resp: any) => {
-      this.display_image = resp.imagename;
+    
+    this.http.post('https://localhost:7131/api/Book/UploadImageBook', file).subscribe((resp: any) => {
+      this.display_image = resp.book_Img_Path;
       this.toastr.success("Image Uploaded Successfully");
     },
       (error: any) => {
@@ -74,16 +78,7 @@ export class BookService {
       })
   }
 
-  uploadImage(file: any) {
-    if (file.length === 0)
-      return;
-
-    let fileToUpload = <File>file[0];
-    const formData = new FormData();
-    formData.append('file', fileToUpload, fileToUpload.name);
-
-    this.uploadAttachment(formData);
-  }
+ 
   GetTopBooks(){
     this.http.get("https://localhost:7131/api/Book/TopBooks").subscribe((resp)=>{
       this.topRatedBooks = resp;
