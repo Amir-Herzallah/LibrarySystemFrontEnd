@@ -40,18 +40,23 @@ export class UserService {
   }
 
   CreateUser(body: any) {
+     debugger;
+    body.profile_Img_Path=this.display_image;
     this.http.post('https://localhost:7131/api/User/CreateUser', body).subscribe((resp: any) => {
-      window.location.reload();
+
+    window.location.reload();
       this.toastr.success("User Created Successfully");
     },
       (error: any) => {
+        error.status;
         this.toastr.error("Error Occured");
       })
   }
 
-  display_image: any;
+ 
   UpdateUser(id:any, body: any) {
-    body.book_Img_Path = this.display_image;        
+    body.profile_Img_Path=this.display_image;
+     
     this.http.put('https://localhost:7131/api/User/UpdateUser?id='+ id ,body).subscribe((resp: any) => {
       window.location.reload();
       this.toastr.success("User Updated Successfully");
@@ -60,17 +65,17 @@ export class UserService {
         this.toastr.error("Error Occured");
       })
   }
-
+  display_image: any;
   uploadAttachment(file: FormData) {
-    this.http.post('https://localhost:7131/api/AboutUsPage/uploadImage', file).subscribe((resp: any) => {
-      this.display_image = resp.imagename;
+    this.http.post('https://localhost:7131/api/User/uploadImage', file).subscribe((resp: any) => {
+      this.display_image = resp.profile_Img_Path;
       this.toastr.success("Image Uploaded Successfully");
     },
       (error: any) => {
         this.toastr.error("Error Occured");
       })
   }
-
+/* 
   uploadImage(file: any) {
     if (file.length === 0)
       return;
@@ -80,7 +85,7 @@ export class UserService {
     formData.append('file', fileToUpload, fileToUpload.name);
 
     this.uploadAttachment(formData);
-  }
+  } */
   GetNumberOfRegisteredUsers(){
     this.http.get("https://localhost:7131/api/User/NumberOfRegisteredUsers").subscribe((resp)=>{
       this.numOfRegisterUsers = resp;

@@ -24,8 +24,8 @@
                                     <tbody>
                                         <tr *ngFor="let obj of book.books">
                                             <td>
-                                                <!-- <img src="../../../assets/images/{{obj.book_Img_Path}}" class="me-2"
-                                                    alt="image">  -->
+                                               <img src="../../../assets/LibraryImages/{{obj.book_Img_Path}}" class="me-2"
+                                                    alt="image"> 
                                                     {{obj.title}}
                                             </td>
                                             <td> {{obj.author}}</td>
@@ -90,14 +90,14 @@
                     Description is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-
+<!-- 
             <mat-form-field class="example-full-width">
                 <mat-label>Book Img Path</mat-label>
                 <input type="text" matInput formControlName="book_Img_Path">
                 <mat-error *ngIf="createBook.controls['book_Img_Path'].hasError('required')">
                     Book Image Path is <strong>required</strong>
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
 
             <mat-form-field class="example-full-width">
                 <mat-label>Book PDF Path</mat-label>
@@ -138,7 +138,9 @@
                     Category ID is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-           
+            <div>
+                <input type="file" #file formControlName="book_Img_Path" (change)="uploadImage(file.files)" />
+            </div>
         </form>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
@@ -178,13 +180,13 @@
             </mat-form-field>
 
 
-            <mat-form-field class="example-full-width">
+      <!--       <mat-form-field class="example-full-width">
                 <mat-label>book Img Path</mat-label>
                 <input type="text" matInput formControlName="book_Img_Path" [(ngModel)]="pData.book_Img_Path">
                 <mat-error *ngIf="updateBook.controls['book_Img_Path'].hasError('required')">
                     Book Image Path is <strong>required</strong>
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
 
             <mat-form-field class="example-full-width">
                 <mat-label>Book PDF Path</mat-label>
