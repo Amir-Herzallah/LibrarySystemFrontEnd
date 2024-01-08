@@ -41,7 +41,6 @@ export class UserService {
   }
 
   CreateUser(body: any) {
-     debugger;
     body.profile_Img_Path=this.display_image;
     this.http.post('https://localhost:7131/api/User/CreateUser', body).subscribe((resp: any) => {
 
