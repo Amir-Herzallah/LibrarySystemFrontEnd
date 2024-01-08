@@ -39,8 +39,7 @@ import {MatSelectModule} from '@angular/material/select';
     TestimonialPageComponent,
     ContactusPageComponent,
     ProfileComponent,
-    DateReportsFilterPipe,
-   
+    DateReportsFilterPipe
   ],
   imports: [
     CommonModule,
