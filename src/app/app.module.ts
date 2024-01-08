@@ -22,9 +22,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';  // Add this line for MatTableModule
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CategoriesComponent } from './categories/categories.component';
+import { MultiSearchPipe } from './pipes/multi-search.pipe';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AccountComponent } from './account/account.component';
 import { MyBooksComponent } from './my-books/my-books.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,11 +40,11 @@ import { MyBooksComponent } from './my-books/my-books.component';
     ContactUsDialogComponent,
     LibrariesComponent,
     BooksComponent,
+    CategoriesComponent,
+    MultiSearchPipe,
     TestimonialComponent,
     AccountComponent,
     MyBooksComponent
-    //DateReportsFilterPipe,
-    // DateFilterPipe,
       ],
   imports: [
     BrowserModule,

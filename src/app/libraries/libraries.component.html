@@ -2,6 +2,23 @@
 <app-navbar>
 
 </app-navbar>
+<div class="search-container">
+  <input 
+    type="text"  [(ngModel)]="searchText" 
+    class="search-input" 
+
+    placeholder="Search libraries, books, categories..." 
+    aria-label="Search"
+  /> 
+ 
+    <i class="fas fa-search"></i> <!-- Using Font Awesome for search icon -->
+
+</div>
+
+
+
+ 
+
 <section id="popular-books" class="bookshelf py-5 my-5">
     <!-- ... -->
     <div *ngIf="libraryService.libraries.length; else noData" class="container">
@@ -13,15 +30,18 @@
           <div id="all-genre" data-tab-content class="active">
             <div class="row">
               <!-- Loop through each book and display its details -->
-              <div *ngFor="let library of libraryService.libraries" class="col-md-3">
+              <div *ngFor="let library of (libraryService.libraries| multiSearch:searchText:['name', 'location_Latitude','email'])" class="col-md-3">
                 <div class="product-item">
                   <figure class="product-style">
-                   <img src="../../../assets/Uploded-Images/{{library.image_Path1}}" alt="library img" class="product-item">  
+                   <img src="../../../assets/LibraryImages/{{library.image_Path1}}" alt="library img" class="product-item">  
                   <!--   <img [src]="'../../../assets/Uploded-Images/' + book.book_Img_Path" alt="Book cover" class="product-item">
  -->
+
+                    <button type="button"  (click)="showCategories(library.library_Id)"    class="add-to-cart">Show The Category
                     <button type="button"  (click)="showCategories(library.library_Id)"  href="/categories"  class="add-to-cart">Show The Category
                      <!--  <span>{{library.library_Id}}</span> -->
                     </button>
+             
 
                   </figure> 
                   <figcaption>
@@ -44,11 +64,60 @@
     </div>
     <ng-template #noData><p>No popular books found.</p></ng-template>
     
-  
-    <ul class="category-list">
-      <li *ngFor="let category of libraryService.Categories">{{ category.category_Name }}</li>
-    </ul>
+ 
+     
     
   </section>
+  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" dynamicHeight>
+    <mat-tab *ngFor="let cat of (libraryService.Categories | multiSearch:searchText:['category_Name'])">
+      <ng-template mat-tab-label>
+        <div class="tab-title">{{ cat.category_Name }}</div>
+      </ng-template>
+      <div class="tab-content">
+        <br>
+        <br> <br>
+      
+       
+        <button mat-raised-button color="primary" (click)="showBooks(cat.category_Id)">Show the Books</button>
+        <br>  <br>
+        <br>  <br>
+        <br>
+        <br>
+      </div>
+    </mat-tab>  
+  </mat-tab-group>
+        <!-- You might want to list books here using another *ngFor directive -->
+        <div *ngIf="libraryService.libraries.length; else noData" class="container">
+          <div class="row">
+            <!-- ... header and tabs ... -->
+      
+            <!-- Replace static content with dynamic books from the API -->
+            <div class="tab-content">
+              <div id="all-genre" data-tab-content class="active">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let book of (libraryService.Books | multiSearch:searchText:['title', 'author',])">
+            <div class="product-item">
+              <figure class="product-style">
+                <img src="../../assets/BookImages/{{book.book_Img_Path}}" alt="Books" class="product-item">
+                <button type="button" class="add-to-cart" data-product-tile="add-to-cart">
+                  Borrow Now 
+                </button>
+              </figure>
+              <figcaption>
+                <h3>{{ book.title }}</h3>
+                <span>{{ book.author }}</span>
+                <div class="item-price">$ {{ book.price_Per_Day }}</div>
+              </figcaption>
+            </div>
+          </div>
+        </div>
+              </div>
+            </div>
+        </div>
+        </div>
+        
+      
+      
+   
   
   <app-footer></app-footer>
