@@ -1,5 +1,5 @@
 
-<body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
+<div data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
 
     <div id="header-wrap">
         <div class="top-content">
@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="right-element">
-                            <a href="#" class="user-account for-buy"><i
+                            <a routerLink="/Account" class="user-account for-buy"><i
                                     class="icon icon-user"></i><span>Account</span></a>
                             <a href="#" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart:(0
                                     $)</span></a>
@@ -65,6 +65,7 @@
                                 <ul class="menu-list">
                                     <li class="menu-item active"><a routerLink="/">Home</a></li>
                                     <li class="menu-item"><a routerLink="/aboutus" class="nav-link">About Us</a></li>
+                                    <li class="menu-item"><a routerLink="/Testimonial" class="nav-link">Testimonials</a></li>
                                     <!-- <li class="menu-item has-sub">
                                         <a href="#pages" class="nav-link">Pages</a>
 
@@ -89,15 +90,11 @@
 
                                     </li> -->
                                     <li class="menu-item"><a href="/contactus" class="nav-link">Contact Us</a></li>
-                                    <li class="menu-item"><a href="/auth/login" class="nav-link">Login</a></li>
-                                    <li class="menu-item"><a href="#featured-books" class="nav-link">Featured</a></li>
-                                    <li class="menu-item"><a href="#popular-books" class="nav-link">Popular</a></li>
-                                    <li class="menu-item"><a href="#latest-blog" class="nav-link">Articles</a></li>
-                                    <li class="menu-item"><a href="#download-app" class="nav-link">Download App</a></li>
+                                    <li class="menu-item"><a routerLink="/libraries" class="nav-link">libraries </a></li>
+                                    <li class="menu-item"><a routerLink="/MyBooks" class="nav-link">My Books</a></li>
                                     <li class="menu-item"><a
-                                            href="https://templatesjungle.gumroad.com/l/booksaw-free-html-bookstore-template"
-                                            class="nav-link btn btn-outline-dark rounded-pill m-0" target="_blank">Get
-                                            PRO</a></li>
+                                            href="/auth/register"
+                                            class="nav-link btn btn-outline-dark rounded-pill m-0" target="_blank">Sign up</a></li>
                                 </ul>
 
                                 <div class="hamburger">
@@ -116,4 +113,4 @@
         </header>
 
     </div><!--header-wrap-->
-</body>
+</div>

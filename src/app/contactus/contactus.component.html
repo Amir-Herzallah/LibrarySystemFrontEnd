@@ -2,7 +2,6 @@
 <section class="ftco-section">
   <div class="container  mb-5">
     <div class="row justify-content-center">
-
     </div>
     <div class="row justify-content-center">
       <div class="col-md-12">
@@ -15,35 +14,56 @@
                 <div id="form-message-success" class="mb-4">
                   Your message was sent, thank you!
                 </div>
-                <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                <form [formGroup]="contactUsMessage" method="POST" id="contactForm" name="contactForm" class="contactForm">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="label" for="name">Full Name</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Name" formControlName="fullName">
+                        <mat-error *ngIf="contactUsMessage.controls['fullName'].hasError('required')">
+                          Name is <strong>required</strong>
+                      </mat-error>
                       </div>
                     </div>
                     <div class="col-md-6"> 
                       <div class="form-group">
                         <label class="label" for="email">Email Address</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" formControlName="email">
+                        <mat-error *ngIf="contactUsMessage.controls['email'].hasError('required')">
+                          Email is <strong>required</strong>
+                        </mat-error>
                       </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label class="label" for="subject">Subject</label>
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" formControlName="subject">
+                        <mat-error *ngIf="contactUsMessage.controls['subject'].hasError('required')">
+                          Subject is <strong>required</strong>
+                        </mat-error>
+                      </div>
+                    </div>
+                    <div class="col-md-6"> 
+                      <div class="form-group">
+                        <label class="label" for="phone">Phone</label>
+                        <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone" formControlName="phoneNumber">
+                        <mat-error *ngIf="contactUsMessage.controls['phoneNumber'].hasError('required')">
+                          Phone is <strong>required</strong>
+                        </mat-error>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
                         <label class="label" for="#">Message</label>
-                        <textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+                        <input name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message" formControlName="message">
+                        <mat-error *ngIf="contactUsMessage.controls['message'].hasError('required')">
+                          Message is <strong>required</strong>
+                        </mat-error>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <input type="submit" value="Send Message" class="btn btn-outline btn-primary">
+                        <button type="submit" value="Send Message" class="btn btn-outline btn-primary" id="editButton" (click)="CreateContactUsRequest()" [disabled]="!contactUsMessage.valid">Send</button>
                         <div class="submitting"></div>
                       </div>
                     </div>
@@ -51,16 +71,16 @@
                 </form>
               </div>
             </div>
-            <div class="col-lg-4 col-md-5 d-flex align-items-stretch">
+            <div class="col-lg-4 col-md-5 d-flex align-items-stretch" *ngFor="let data of contactUs.contactUsData">
               <div class="info-wrap w-100 p-md-5 p-4">
-                <h3>Let's get in touch</h3>
-                <p class="mb-4">We're open for any suggestion or just to have a chat</p>
+                 <h3>{{data.headeR_COMPONENT1}}</h3>
+                 <p class="mb-4">{{data.paragraph1}}</p>
                 <div class="dbox w-100 d-flex align-items-start">
                   <div class="icon d-flex align-items-center justify-content-center">
                     <span class="fa fa-map-marker" style="color: #000000;"></span>
                   </div>
                   <div class="text pl-3">
-                    <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+                    <p><span>Address:</span> {{data.message}}</p>
                   </div>
                 </div>
                 <div class="dbox w-100 d-flex align-items-center">
@@ -68,7 +88,7 @@
                     <span class="fa fa-phone"></span>
                   </div>
                   <div class="text pl-3">
-                    <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                    <p><span>Phone:</span> <a href="tel://1234567920">{{data.subject}}</a></p>
                   </div>
                 </div>
                 <div class="dbox w-100 d-flex align-items-center">
@@ -76,18 +96,14 @@
                     <span class="fa fa-paper-plane"></span>
                   </div>
                   <div class="text pl-3">
-                    <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                    <p><span>Email:</span> <a href="mailto:info@yoursite.com">{{data.email}}</a></p>
                   </div>
                 </div>
-                <div class="dbox w-100 d-flex align-items-center">
-                  <div class="icon d-flex align-items-center justify-content-center">
-                    <span class="fa fa-globe"></span>
-                  </div>
-                  <div class="text pl-3">
-                    <p><span>Website</span> <a href="#">yoursite.com</a></p>
-                  </div>
-                </div>
+
+              <button class="btn btn-primary ms-3" id="editButton" (click)="openDialog(data)">Edit</button>
+
               </div>
+
             </div>
           </div>
         </div>

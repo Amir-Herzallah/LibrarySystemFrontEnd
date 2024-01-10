@@ -1,0 +1,43 @@
+
+<app-navbar>
+
+</app-navbar>
+<section id="popular-books" class="bookshelf py-5 my-5">
+    <!-- ... -->
+    <div *ngIf="books.length; else noData" class="container">
+      <div class="row">
+        <!-- ... header and tabs ... -->
+  
+        <!-- Replace static content with dynamic books from the API -->
+        <div class="tab-content">
+          <div id="all-genre" data-tab-content class="active">
+            <div class="row">
+              <!-- Loop through each book and display its details -->
+              <div *ngFor="let book of books" class="col-md-3">
+                <div class="product-item">
+                  <figure class="product-style">
+               <img src="../../../assets/Uploded-Images/{{book.book_Img_Path}}" alt="Book cover" class="product-item">  
+                  <!--   <img [src]="'../../../assets/Uploded-Images/' + book.book_Img_Path" alt="Book cover" class="product-item">
+ -->
+                    <button type="button" class="add-to-cart">Add to Cart</button>
+                  </figure>
+                  <figcaption>
+                    <h3>{{book.title}}</h3>
+                    <span>{{book.author}}</span>
+                    <h4>{{book.description}}</h4>
+                    
+                    <div class="item-price">{{book.price}}</div>
+                  </figcaption>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ... other tabs ... -->
+        </div>
+      </div>
+    </div>
+    <ng-template #noData><p>No popular books found.</p></ng-template>
+    <!-- ... -->
+  </section>
+  
+  <app-footer></app-footer>

@@ -1,0 +1,244 @@
+<router-outlet></router-outlet>
+<app-admin-navbar></app-admin-navbar>
+<div class="container-fluid page-body-wrapper">
+    <app-admin-sidebar></app-admin-sidebar>
+    <div class="main-panel">
+        <div class="content-wrapper p-4" style="margin-top: 5rem;">
+            <div class="row">
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">All Books</h4>
+                            <button mat-button (click)="OpenCreateDialog()">Create Course</button>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th> Title </th>
+                                            <th> Author </th>
+                                            <th> Publication Date</th>
+                                            <th> Book Category ID </th>
+                                            <th> Price Per Day </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let obj of book.books">
+                                            <td>
+                                               <img src="../../../assets/LibraryImages/{{obj.book_Img_Path}}" class="me-2"
+                                                    alt="image"> 
+                                                    {{obj.title}}
+                                            </td>
+                                            <td> {{obj.author}}</td>
+                                            <td>
+                                                {{obj.publication_Date|date}}
+                                            </td>
+                                            <td> {{obj.category_Id}} </td>
+                                            <td> ${{obj.price_Per_Day}} </td>
+                                            <td>
+                                                <button mat-button (click)="OpenUpdateDialog(obj)" class="btn btn-success m-1">Update</button>
+                                                <button mat-button (click)="DeleteBook(obj.book_Id)" class="btn btn-danger m-1">Delete</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-admin-footer></app-admin-footer>
+    </div>
+    <!-- main-panel ends -->
+</div>
+<!-- page-body-wrapper ends -->
+<!-- content-wrapper ends -->
+
+<ng-template #callDeleteDailog>
+    <h1 mat-dialog-title>Delete Book</h1>
+    <div mat-dialog-content>Are you sure you want to delete this book?</div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close="yes" class="btn btn-primary m-1">Yes</button>
+        <button mat-button mat-dialog-close="no" class="btn btn-danger m-1">No</button>
+    </div>
+</ng-template>
+
+<ng-template #callCreateDailog>
+    <h2 mat-dialog-title>Create Book</h2>
+    <mat-dialog-content class="mat-typography">
+        <form class="example-form" [formGroup]="createBook">
+            <mat-form-field class="example-full-width">
+                <mat-label>Title</mat-label>
+                <input type="text" matInput formControlName="title">
+                <mat-error *ngIf="createBook.controls['title'].hasError('required')">
+                    Book title is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Author</mat-label>
+                <input type="text" matInput formControlName="author">
+                <mat-error *ngIf="createBook.controls['author'].hasError('required')">
+                    Author name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Description</mat-label>
+                <input type="text" matInput formControlName="description">
+                <mat-error *ngIf="createBook.controls['description'].hasError('required')">
+                    Description is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+<!-- 
+            <mat-form-field class="example-full-width">
+                <mat-label>Book Img Path</mat-label>
+                <input type="text" matInput formControlName="book_Img_Path">
+                <mat-error *ngIf="createBook.controls['book_Img_Path'].hasError('required')">
+                    Book Image Path is <strong>required</strong>
+                </mat-error>
+            </mat-form-field> -->
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Book PDF Path</mat-label>
+                <input type="text" matInput formControlName="book_Pdf_Path">
+                <mat-error *ngIf="createBook.controls['book_Pdf_Path'].hasError('required')">
+                    Book PDF Path is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Publication Date</mat-label>
+                <input type="date" matInput formControlName="publication_Date">
+                <mat-error *ngIf="createBook.controls['publication_Date'].hasError('required')">
+                    Publication Date is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field class="example-full-width">
+                <mat-label>Price Per Day</mat-label>
+                <input type="number" matInput formControlName="price_Per_Day">
+                <mat-error *ngIf="createBook.controls['price_Per_Day'].hasError('required')">
+                    Price Per Day is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        
+            <mat-form-field class="example-full-width">
+                <mat-label>Avg Rate</mat-label>
+                <input type="number" matInput formControlName="avg_Rating">
+                <mat-error *ngIf="createBook.controls['avg_Rating'].hasError('required')">
+                    Avg Rate is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        
+            <mat-form-field class="example-full-width">
+                <mat-label>Category ID</mat-label>
+                <input type="text" matInput formControlName="category_Id">
+                <mat-error *ngIf="createBook.controls['category_Id'].hasError('required')">
+                    Category ID is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <div>
+                <input type="file" #file formControlName="book_Img_Path" (change)="uploadImage(file.files)" />
+            </div>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="CreateBook()">Create</button>
+    </mat-dialog-actions>
+
+</ng-template>
+
+
+<ng-template #callUpdateDailog>
+    <h2 mat-dialog-title>Update Book</h2>
+    <mat-dialog-content class="mat-typography">
+        <form class="example-form" [formGroup]="updateBook">
+            <mat-form-field class="example-full-width">
+                <mat-label>Title</mat-label>
+                <input type="text" matInput formControlName="title" [(ngModel)]="pData.title">
+                <mat-error *ngIf="updateBook.controls['title'].hasError('required')">
+                    Book title is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Author</mat-label>
+                <input type="text" matInput formControlName="author" [(ngModel)]="pData.author">
+                <mat-error *ngIf="updateBook.controls['author'].hasError('required')">
+                    Author name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Description</mat-label>
+                <input type="text" matInput formControlName="description" [(ngModel)]="pData.description">
+                <mat-error *ngIf="updateBook.controls['description'].hasError('required')">
+                    Description is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+      <!--       <mat-form-field class="example-full-width">
+                <mat-label>book Img Path</mat-label>
+                <input type="text" matInput formControlName="book_Img_Path" [(ngModel)]="pData.book_Img_Path">
+                <mat-error *ngIf="updateBook.controls['book_Img_Path'].hasError('required')">
+                    Book Image Path is <strong>required</strong>
+                </mat-error>
+            </mat-form-field> -->
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Book PDF Path</mat-label>
+                <input type="text" matInput formControlName="book_Pdf_Path" [(ngModel)]="pData.book_Img_Path">
+                <mat-error *ngIf="updateBook.controls['book_Pdf_Path'].hasError('required')">
+                    Book PDF Path is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Publication Date</mat-label>
+                <input type="date" matInput formControlName="publication_Date" [(ngModel)]="pData.publication_Date">
+                <mat-error *ngIf="updateBook.controls['publication_Date'].hasError('required')">
+                    Publication Date is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Price Per Day</mat-label>
+                <input type="number" matInput formControlName="price_Per_Day" [(ngModel)]="pData.price_Per_Day">
+                <mat-error *ngIf="updateBook.controls['price_Per_Day'].hasError('required')">
+                    Price Per Day is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            
+            
+            <mat-form-field class="example-full-width">
+                <mat-label>Avg Rating</mat-label>
+                <input type="text" matInput formControlName="avg_Rating" [(ngModel)]="pData.avg_Rating">
+                <mat-error *ngIf="updateBook.controls['avg_Rating'].hasError('required')">
+                    Avg Rating is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Category ID</mat-label>
+                <input type="number" matInput formControlName="category_Id" [(ngModel)]="pData.category_Id">
+                <mat-error *ngIf="updateBook.controls['category_Id'].hasError('required')">
+                    Category ID is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+                        
+            <div>
+                <input type="file" #file formControlName="book_Img_Path" (change)="uploadImage(file.files)" />
+            </div>
+
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="UpdateCourse()">Update</button>
+    </mat-dialog-actions>
+
+</ng-template>

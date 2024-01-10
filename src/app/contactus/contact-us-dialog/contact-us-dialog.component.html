@@ -1,0 +1,51 @@
+<div mat-dialog-content >
+    <form [formGroup]="editContactus" class="row">
+
+        <mat-form-field class="col-12">
+            <mat-label>Header</mat-label>
+            <input matInput formControlName="headeR_COMPONENT1" [(ngModel)]="data.header">
+            <mat-error *ngIf="editContactus.controls['headeR_COMPONENT1'].hasError('required')">
+                Course Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-12">
+            <mat-label>Paragraph</mat-label>
+            <input matInput formControlName="paragraph1" [(ngModel)]="data.paragraph">
+            <mat-error *ngIf="editContactus.controls['paragraph1'].hasError('required')">
+                Course Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-12">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="message" [(ngModel)]="data.message">
+            <mat-error *ngIf="editContactus.controls['message'].hasError('required')">
+                Course Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    
+        <mat-form-field class="col-12">
+            <mat-label>Phone Number</mat-label>
+            <input rows="10" matInput formControlName="subject" [(ngModel)]="data.subject">
+            <mat-error *ngIf="editContactus.controls['subject'].hasError('required')">
+                Course Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-12">
+            <mat-label>Email</mat-label>
+            <input rows="10" matInput formControlName="email" [(ngModel)]="data.email">
+            <mat-error *ngIf="editContactus.controls['email'].hasError('required')">
+                Course Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button class="btn btn-primary" id="editButton" [mat-dialog-close]=""  mat-button >No Thanks</button>
+    <button class="btn btn-primary ms-2 px-3" id="editButton" mat-button [mat-dialog-close]="" (click)="Save()" [disabled]="!editContactus.valid" cdkFocusInitial>Save</button>
+</div>
+

@@ -1,0 +1,71 @@
+ 
+
+
+  <router-outlet></router-outlet>
+  <app-admin-navbar></app-admin-navbar>
+  
+  <div class="container-fluid page-body-wrapper">
+      <app-admin-sidebar></app-admin-sidebar>
+      
+      <div class="main-panel">
+  
+      
+        
+          <div class="row">
+            <br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br>
+           
+            <h1></h1>
+            <div class="form-group">
+              <label for="startDate">Start Date:</label>
+              <input type="date"  [(ngModel)]="startDate"  class="form-control" id="startDate" placeholder="mm/dd/yyyy">
+            </div>
+            <div class="form-group">
+              <label for="endDate">End Date:</label>
+              <input type="date" class="form-control"  [(ngModel)]="endDate" id="endDate" placeholder="mm/dd/yyyy">
+            </div>
+            
+            <div class="col-lg-12 stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Borrowedbooks</h4>
+                  <p class="card-description"> Borrowedbooks
+                  </p>
+                  <table class="table table-bordered" >
+                    <thead>
+                      <tr>
+                        <th> # </th>
+                        <th> borrow Date From  </th>
+                        <th> borrow Date To </th>
+                        <th>     title   </th>
+                        <th>     author   </th>
+                        <th>    email   </th>
+                        <th>     Returned On   </th>
+                        <th>image</th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let book of Borrowedbooksservice.Borrowedbooks |dateRange:startDate:endDate; let i = index" [ngClass]="{'table-info': i % 5 === 0, 'table-warning': i % 5 === 1, 'table-danger': i % 5 === 2, 'table-success': i % 5 === 3, 'table-primary': i % 5 === 4}">
+                      <tr class="table-warning">
+                        <td>{{i+1}} </td>
+                        <td> {{book.borrow_Date_From |date }} </td>
+                        <td> {{ book.borrow_Date_To |date  }} </td>
+                        <td> {{ book.title }} </td>
+                        <td> {{ book.author }} </td>
+                        <td>  {{ book.email }} </td>
+                        <td> {{ book.returned_Date |date }} </td>
+                        <td>   <img src="../../../assets/Uploded-Images/{{book.book_Img_Path}}" alt=" book image"  class="book-image">  </td>
+                      </tr>
+         
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   

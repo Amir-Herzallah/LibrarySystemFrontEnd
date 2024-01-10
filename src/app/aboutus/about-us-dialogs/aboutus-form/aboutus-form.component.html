@@ -1,0 +1,31 @@
+<div mat-dialog-content >
+    <form [formGroup]="editAboutUs" class="row">
+
+        <mat-form-field class="col-12">
+            <mat-label>Title</mat-label>
+            <textarea matInput formControlName="header_component1" [(ngModel)]="data.title"></textarea>
+            <mat-error *ngIf="editAboutUs.controls['header_component1'].hasError('required')">
+                Course Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    
+        <mat-form-field class="col-12">
+            <mat-label>Content</mat-label>
+            <textarea rows="10" matInput formControlName="paragraph1" [(ngModel)]="data.content"></textarea>
+            <mat-error *ngIf="editAboutUs.controls['paragraph1'].hasError('required')">
+                Course Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        
+        <div>
+            <input type="file" class="btn btn-primry" id="imageButton" #file formControlName="image_path1" (change)="UploadImage(file.files)"/>
+        </div>
+
+
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button class="btn btn-primary" id="editButton" [mat-dialog-close]=""  mat-button >No Thanks</button>
+    <button class="btn btn-primary ms-2 px-3" id="editButton" mat-button [mat-dialog-close]="" (click)="Save()" [disabled]="!editAboutUs.valid" cdkFocusInitial>Save</button>
+</div>
+

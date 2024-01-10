@@ -2,7 +2,7 @@
 <section class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form class="login100-form validate-form"  >
+            <form class="login100-form validate-form"  [formGroup]="loginForm">
                 <span class="login100-form-title p-b-26 mb-5">
                     Welcome
                 </span>
@@ -11,16 +11,16 @@
                 </span>
 
                 <div class="wrap-input100 " >
-                    <input class="input100" type="text" name="username"  required>
-                    <span class="focus-input100" data-placeholder="Username"></span>
+                    <input class="input100" type="text" name="username" placeholder="Username" formControlName="username"  >
+                    <span class="focus-input100" ></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Enter username">
                     <span class="btn-show-pass">
                         <i class="zmdi zmdi-eye"></i>
                     </span>
-                    <input class="input100" type="password" name="pass">
-                    <span class="focus-input100" data-placeholder="Password"></span>
+                    <input class="input100" type="password"  placeholder="Password" name="pass" formControlName="password">
+                    <span class="focus-input100"></span>
                 </div>
                 
                 <div class="ps-4">
@@ -32,7 +32,7 @@
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bg btn"></div>
-                        <button class="login100-form-btn">
+                        <button class="login100-form-btn" (click)="Login()">
                             Login
                         </button>
                     </div>
@@ -43,7 +43,7 @@
                         Don’t have an account?
                     </span>
 
-                    <a class="txt2" href="#">
+                    <a class="txt2" href="/auth/register">
                         Sign Up
                     </a>
                 </div>
