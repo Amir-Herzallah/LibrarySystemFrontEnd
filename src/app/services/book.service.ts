@@ -79,6 +79,18 @@ export class BookService {
       })
   }
 
+  BookPDF:any;
+  uploadPDFBook(file: FormData) {
+    
+    this.http.post('https://localhost:7131/api/Book/UploadPDFBook', file).subscribe((resp: any) => {
+      this.BookPDF = resp.book_Img_Path;
+      this.toastr.success("PDF Uploaded Successfully");
+    },
+      (error: any) => {
+        this.toastr.error("Error Occured");
+      })
+  }
+
  
   GetTopBooks(){
     this.http.get("https://localhost:7131/api/Book/TopBooks").subscribe((resp)=>{
