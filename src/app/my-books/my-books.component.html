@@ -25,9 +25,9 @@
                             <article class="post-item">
  
                                 <figure>
-                                    <a href="#" class="image-hvr-effect">
+                                    <a [routerLink]="['/book-detail', book.book_Id]" class="image-hvr-effect">
                                        
-                                        <img src="../../../assets/BookImages/{{book.book_Img_Path}}" alt="post" class="post-image">
+                                        <img src="../../../assets/images/{{book.book_Img_Path}}" alt="post" class="post-image">
                                         
                                     </a>
                                 </figure>

@@ -10,10 +10,7 @@ import { BookService } from '../services/book.service';
 export class BookDetailComponent implements OnInit {
   constructor(private router: Router,public Bookservice: BookService,  private route: ActivatedRoute,) { }
   ngOnInit(): void {
-    debugger;
     const bookId = Number(this.route.snapshot.paramMap.get('id'));
     this.Bookservice.GetBookById(bookId);
   }
-
- 
 }

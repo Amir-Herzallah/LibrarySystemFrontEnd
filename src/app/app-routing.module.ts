@@ -11,6 +11,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AccountComponent } from './account/account.component';
 import { MyBooksComponent } from './my-books/my-books.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookReviewComponent } from './book-review/book-review.component';
 
 
 
@@ -51,13 +52,19 @@ const routes: Routes = [
     path:'Account',
     component:AccountComponent
   },
-  { path: 'book-detail/:id',
-   component: BookDetailComponent
+  { 
+    path: 'book-detail/:id',
+    component: BookDetailComponent
    }
-  ,{ path: 'MyBooks/:userId',
-   component: MyBooksComponent },
+  ,{
+     path: 'MyBooks/:userId',
+    component: MyBooksComponent 
+  },
+  {
+    path:'BookReview',
+    component:BookReviewComponent
+  },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

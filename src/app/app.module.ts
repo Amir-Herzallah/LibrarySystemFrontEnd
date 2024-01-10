@@ -29,6 +29,7 @@ import { AccountComponent } from './account/account.component';
 import { MyBooksComponent } from './my-books/my-books.component';
 import { ProfileEditComponent } from './account/profile-edit/profile-edit.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookReviewComponent } from './book-review/book-review.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
     TestimonialComponent,
     AccountComponent,
     MyBooksComponent,
+    BookReviewComponent,
     ProfileEditComponent,
     BookDetailComponent
       ],

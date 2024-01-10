@@ -15,7 +15,6 @@ export class MyBooksComponent {
   constructor(private route: ActivatedRoute, public borrowedbooks: BorrowedbooksService ) {}
 
   ngOnInit() {
- debugger;
     this.route.params.subscribe(params => {
       const userId = +params['userId']; // '+' converts the parameter to a number
       this.borrowedbooks.GetBorrowedBooksByIdUser(userId);

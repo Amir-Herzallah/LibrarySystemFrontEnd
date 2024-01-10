@@ -24,7 +24,7 @@ export class BookService {
   allCategoriesBooks:any=[{}]
   bestSellingBook:any;
   borrowedBooks:any;
-   BookDetails:any;
+  BookDetails:any;
  
   
   GetAllBooks() {
