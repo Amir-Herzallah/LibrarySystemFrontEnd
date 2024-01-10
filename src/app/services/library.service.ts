@@ -60,11 +60,9 @@ export class LibraryService {
      error => {
        console.error("Failed to fetch Books: ", error);
   }
-  );
-}
+    );
+  }
   
-
-
 
     DeleteLibrary(id: number) {
       this.http.delete('https://localhost:7131/api/Library/DeleteLibrary?id=' + id).subscribe((resp: any) => {
@@ -112,9 +110,7 @@ export class LibraryService {
           this.toastr.error("Error Occured");
         })
     }
-  
-  
- 
+
     GetBorrowedBooksCountInLibraries(){
       return this.http.get("https://localhost:7131/api/Library/GetBorrowedBooksCountInLibraries");
     }
