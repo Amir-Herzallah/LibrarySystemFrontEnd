@@ -24,6 +24,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
 import { DateReportsFilterPipe } from 'src/app/pipes/date-reports-filter.pipe';
 import {MatSelectModule} from '@angular/material/select';
+import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {MatSelectModule} from '@angular/material/select';
     TestimonialPageComponent,
     ContactusPageComponent,
     ProfileComponent,
-    DateReportsFilterPipe
+    DateReportsFilterPipe,
+    ProfileEditComponent
   ],
   imports: [
     CommonModule,
