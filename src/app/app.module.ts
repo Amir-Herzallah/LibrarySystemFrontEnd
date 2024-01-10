@@ -27,6 +27,7 @@ import { MultiSearchPipe } from './pipes/multi-search.pipe';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AccountComponent } from './account/account.component';
 import { MyBooksComponent } from './my-books/my-books.component';
+import { ProfileEditComponent } from './account/profile-edit/profile-edit.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 
 @NgModule({
@@ -46,6 +47,7 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
     TestimonialComponent,
     AccountComponent,
     MyBooksComponent,
+    ProfileEditComponent,
     BookDetailComponent
       ],
   imports: [

@@ -8943,6 +8943,11 @@ textarea:focus, input:focus {
   line-height: 75px;
 }
 
+#profile-image{
+  height: 150px;
+  width:  150px;
+}
+
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; }
 input:focus::-moz-placeholder { color:transparent; }
