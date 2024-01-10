@@ -24,6 +24,7 @@ export class BookService {
   allCategoriesBooks:any=[{}]
   bestSellingBook:any;
   borrowedBooks:any;
+  bookInfoById:any;
   GetAllBooks() {
     this.http.get('https://localhost:7131/api/Book/GetAllBooks').subscribe((resp: any) => {
       this.books = resp;
@@ -115,6 +116,13 @@ export class BookService {
         console.log(err.status);
       })
   }
+GetBookByID(id:Number){
+  debugger
+   return this.http.get("https://localhost:7131/api/Book/GetBookById/"+id)
+   
+  
+}
+
  //-----------------------------------------------BorrowedBooks Operations-----------------------------------------------
  GetAllBorrowedBooks(){
   this.http.get("https://localhost:7131/api/BorrowedBook/GetAllBorrowedBooks").subscribe((resp: any) => {

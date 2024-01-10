@@ -1,20 +1,13 @@
 
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {CurrencyPipe} from '@angular/common';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from 'src/app/services/user.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { jsPDF } from "jspdf";
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
 
-interface Car {
-  value: string;
-  viewValue: string;
-}
 
 
 
@@ -24,6 +17,8 @@ interface Car {
   styleUrls: ['./reports-management.component.css']
 })
 export class ReportsManagementComponent {
+
+  @ViewChild('contentPDF', { static: false })pdfElement!:ElementRef;
 
   usersWithRervations:any;
   startDate!:Date;
@@ -52,5 +47,14 @@ export class ReportsManagementComponent {
   }
 
   
-   
+  createPDF(){
+    let pdf = new jsPDF('l','pt','a4',true);
+    pdf.text("Users With Reservations Report",10,10);
+    pdf.html(this.pdfElement.nativeElement,{
+      callback:(pdf)=>{
+        pdf.save('Users With Reservations Report.pdf');
+      }
+    });
+  }
+
 }
