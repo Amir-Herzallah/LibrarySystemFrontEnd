@@ -24,6 +24,8 @@ export class BookService {
   allCategoriesBooks:any=[{}]
   bestSellingBook:any;
   borrowedBooks:any;
+   BookDetails:any;
+ 
   
   GetAllBooks() {
     this.http.get('https://localhost:7131/api/Book/GetAllBooks').subscribe((resp: any) => {
@@ -120,5 +122,21 @@ export class BookService {
       this.toastr.error("Error Occured");
     })
 
+ }
+ //
+ GetBookById(id :number){
+  debugger;
+  this.http.get(`https://localhost:7131/api/Book/GetBookById?id=${id}`).subscribe((resp: any) => {
+    this.BookDetails = resp;
+ 
+    console.log("Fetched BookDetails: ", this.BookDetails);
+    
+  },
+    (error: any) => {
+      this.toastr.error("Error Occured");
+      console.error("Failed to fetch book: ", error);
+      console.log(error.status);
+    })
+   
  }
 }

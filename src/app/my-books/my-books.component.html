@@ -18,175 +18,32 @@
 
                 <!-- post grid -->
                 <div class="post-grid">
-                    <div class="row">
+                    <div class="row" >
 
-                        <div class="col-md-4">
+                        <div class="col-md-4" *ngFor="let book of borrowedbooks.BorrowedbooksByIdUser" >
 
                             <article class="post-item">
-
+ 
                                 <figure>
                                     <a href="#" class="image-hvr-effect">
-                                        <img src="images/post-img1.jpg" alt="post" class="post-image">
+                                       
+                                        <img src="../../../assets/BookImages/{{book.book_Img_Path}}" alt="post" class="post-image">
+                                        
                                     </a>
                                 </figure>
 
                                 <div class="post-content">
-                                    <div class="meta-date">Mar 30, 2021</div>
-                                    <h3 class="post-title"><a href="#">modern vibes bedrooms, todays trending
-                                            design</a></h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis
-                                        nulla blandit dui.</p>
+                                    <div class="meta-date"> {{book.borrow_Date_To | date }}</div>
+                                    <h3 class="post-title"><a  >{{book.title}} 
+                                             </a></h3>
+                                    <p>{{book.description}}</p>
                                 </div>
                             </article>
-
+                                    <button [routerLink]="['/book-detail', book.book_Id]">Details</button> 
+                                    
                         </div>
 
-                        <div class="col-md-4">
-
-                            <article class="post-item">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="images/post-img2.jpg" alt="post" class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 29, 2021</div>
-                                    <h3 class="post-title"><a href="#">How to make minimalist living rooms
-                                            pop-out</a></h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis
-                                        nulla blandit dui.</p>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="post-item">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="images/post-img3.jpg" alt="post" class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 27, 2021</div>
-                                    <h3 class="post-title"><a href="#">how to make your resort that looks
-                                            outstanding</a></h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis
-                                        nulla blandit dui.</p>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-md-4">
-
-                            <article class="post-item">
-
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="images/post-img1.jpg" alt="post" class="post-image">
-                                    </a>
-                                </figure>
-
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 30, 2021</div>
-                                    <h3 class="post-title"><a href="#">modern vibes bedrooms, todays trending
-                                            design</a></h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis
-                                        nulla blandit dui.</p>
-                                </div>
-                            </article>
-
-                        </div>
-
-                        <div class="col-md-4">
-
-                            <article class="post-item">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="images/post-img2.jpg" alt="post" class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 29, 2021</div>
-                                    <h3 class="post-title"><a href="#">How to make minimalist living rooms
-                                            pop-out</a></h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis
-                                        nulla blandit dui.</p>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="post-item">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="images/post-img3.jpg" alt="post" class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 27, 2021</div>
-                                    <h3 class="post-title"><a href="#">how to make your resort that looks
-                                            outstanding</a></h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis
-                                        nulla blandit dui.</p>
-                                </div>
-                            </article>
-                        </div>
-                        
-                        <div class="col-md-4">
-
-                            <article class="post-item">
-
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="images/post-img1.jpg" alt="post" class="post-image">
-                                    </a>
-                                </figure>
-
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 30, 2021</div>
-                                    <h3 class="post-title"><a href="#">modern vibes bedrooms, todays trending
-                                            design</a></h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis
-                                        nulla blandit dui.</p>
-                                </div>
-                            </article>
-
-                        </div>
-
-                        <div class="col-md-4">
-
-                            <article class="post-item">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="images/post-img2.jpg" alt="post" class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 29, 2021</div>
-                                    <h3 class="post-title"><a href="#">How to make minimalist living rooms
-                                            pop-out</a></h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis
-                                        nulla blandit dui.</p>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="post-item">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="images/post-img3.jpg" alt="post" class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-content">
-                                    <div class="meta-date">Mar 27, 2021</div>
-                                    <h3 class="post-title"><a href="#">how to make your resort that looks
-                                            outstanding</a></h3>
-                                    <p>Lectus molestie id enim ipsum. Netus sed cursus nibh iaculis ipsum turpis
-                                        nulla blandit dui.</p>
-                                </div>
-                            </article>
-                        </div>
-
+  
                     </div>
                 </div>
                 <!-- / post grid -->
