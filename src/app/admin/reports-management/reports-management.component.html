@@ -22,6 +22,8 @@
     <select id="years" name="years" [(ngModel)]="selectedYear">
       <option *ngFor="let year of years" [value]="year">{{ year }}</option>
     </select>
+    <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn"
+                                    id="add-task" (click)="createPDF()">PDF</button>
   </div>
   
   
@@ -43,7 +45,7 @@
                               <!-- <p>Selected range: {{range.value | json}}</p> -->
                               
                               
-                            <div class="table-responsive">
+                            <div class="table-responsive" #contentPDF >
                                 
                                 <table class="table text-nowrap mb-0 align-middle" id="table-data" >
                                     <thead class="text-dark fs-4">
