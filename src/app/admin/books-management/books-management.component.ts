@@ -31,7 +31,7 @@ export class BooksManagementComponent {
     book_Pdf_Path: new FormControl('', Validators.required),
     publication_Date: new FormControl('', Validators.required),
     price_Per_Day: new FormControl('', Validators.required),
-    avg_Rating: new FormControl('', Validators.required),
+    avg_Rating: new FormControl(0, Validators.required),
     category_Id: new FormControl('', Validators.required)
   });
 
@@ -40,6 +40,8 @@ export class BooksManagementComponent {
   }
   
   CreateBook() {
+    console.log(this.createBook.value);
+    
     this.book.CreateBook(this.createBook.value);
   }
   
@@ -64,7 +66,7 @@ export class BooksManagementComponent {
     book_Pdf_Path: new FormControl('', Validators.required),
     publication_Date: new FormControl('', Validators.required),
     price_Per_Day: new FormControl('', Validators.required),
-    avg_Rating: new FormControl('', Validators.required),
+    avg_Rating: new FormControl("", Validators.required),
     category_Id: new FormControl('', Validators.required)
   });
 
@@ -81,14 +83,26 @@ export class BooksManagementComponent {
   }
 
   uploadImage(file: any) {
-    if (file.length === 0)
+    if (!file || file.length === 0)
       return;
-
+  
     let fileToUpload = <File>file[0];
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
-
+  
     this.book.uploadAttachment(formData);
   }
+  
+  uploadPDF(file: any) {
+    if (!file || file.length === 0)
+      return;
+  
+    let fileToUpload = <File>file[0];
+    const formData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+  
+    this.book.uploadPDFBook(formData);
+  }
+  
 }
       

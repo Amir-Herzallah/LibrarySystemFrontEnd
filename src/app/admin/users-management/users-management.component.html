@@ -14,13 +14,14 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
+                                            <th> User Image </th>
                                             <th> First Name </th>
                                             <th> Last Name </th>
                                             <th> Email </th>
                                             <th> location_Latitude </th>
                                             <th> location_Longitude </th>
                                             <th> Phone Number </th>
-                                            <th> Profile Img Path </th>
+                                         
                                             <th> Registration Date </th>
                                             <th> Activated </th>
                                         </tr>
@@ -28,16 +29,17 @@
                                     <tbody>
                                         <tr *ngFor="let obj of user.users">
                                             <td>
-                                                <!-- <img src="../../../assets/images/{{obj.book_Img_Path}}" class="me-2"
-                                                    alt="image">  -->
-                                                    {{obj.first_Name}}
+                                                 <img src="../../../assets/UserImages/{{obj.profile_Img_Path}}" class="me-2"
+                                                    alt="image">  
+                                                
                                             </td>
+                                            <td> {{obj.first_Name}}</td>
                                             <td> {{obj.last_Name}}</td>
                                             <td> {{obj.email}} </td>
                                             <td> {{obj.location_Latitude}} </td>
                                             <td> {{obj.location_Longitude}} </td>
                                             <td> {{obj.phone_Number}} </td>
-                                            <td> {{obj.profile_Img_Path}} </td>
+                                          
                                             <td> {{obj.registration_Date}} </td>
                                             <td> {{obj.is_Activated}} </td>
                                             <td>
@@ -117,13 +119,13 @@
                     Phone Number <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>Profile Img Path</mat-label>
-                <input type="text" matInput formControlName="profile_Img_Path">
+          <!--   <mat-form-field class="example-full-width">
+                <mat-label>Profile Img Path</mat-label>            
+                <input type="file" #file matInput formControlName="profile_Img_Path" (change)="uploadImage(file.files)">
                 <mat-error *ngIf="createUser.controls['profile_Img_Path'].hasError('required')">
                     Profile Img Path is <strong>required</strong>
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
             <mat-form-field class="example-full-width">
                 <mat-label>Registration Date</mat-label>
                 <input type="date" matInput formControlName="registration_Date">
@@ -139,7 +141,11 @@
                     Is Activated is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-
+            <div>
+                <mat-label>User Image(Png,Jpeg,Jpg)</mat-label>
+                <br>
+                <input type="file" #file formControlName="book_Img_Path" (change)="uploadImage(file.files)" />
+            </div>
         </form>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
@@ -150,8 +156,8 @@
 </ng-template>
 
 
-<ng-template #callUpdateDailog>
-    <h2 mat-dialog-title>Update Library</h2>
+<ng-template #callUpdateDailog> 
+    <h2 mat-dialog-title>Update User</h2>
     <mat-dialog-content class="mat-typography">
         <form class="example-form" [formGroup]="updateUser">
             <mat-form-field class="example-full-width">
@@ -201,14 +207,14 @@
                     Phone Number is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-
+<!-- 
             <mat-form-field class="example-full-width">
                 <mat-label>Profile Img Path</mat-label>
                 <input type="text" matInput formControlName="image_Path1" [(ngModel)]="pData.profile_Img_Path">
                 <mat-error *ngIf="updateUser.controls['profile_Img_Path'].hasError('required')">
                     Profile Img Path is <strong>required</strong>
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
 
             <mat-form-field class="example-full-width">
                 <mat-label>Registration Date</mat-label>
@@ -228,6 +234,8 @@
             
 
             <div>
+                <mat-label>User Image(Png,Jpeg,Jpg)</mat-label>
+                <br>
                 <input type="file" #file formControlName="book_Img_Path" (change)="uploadImage(file.files)" />
             </div>
 

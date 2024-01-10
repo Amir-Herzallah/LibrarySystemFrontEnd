@@ -223,6 +223,17 @@
                         </mat-form-field>
 
                         <div>
+                            <mat-label>Image Path 1</mat-label>
+                            <input type="file" #file formControlName="imagE_PATH1"
+                                (change)="UploadAboutUspageImage(file.files)" [(ngModel)]="aboutUspage_pData.imagE_PATH1">
+                        </div>
+                        <div>
+                            <mat-label>Image Path 2</mat-label>
+                            <input type="file" #file formControlName="imagE_PATH2"
+                                (change)="UploadAboutUspageImage(file.files)" [(ngModel)]="aboutUspage_pData.imagE_PATH2">
+                        </div>
+                        <div>
+                            <mat-label>Logo Path</mat-label>
                             <input type="file" #file formControlName="logO_PATH"
                                 (change)="UploadAboutUspageImage(file.files)" [(ngModel)]="aboutUspage_pData.logO_PATH">
                         </div>

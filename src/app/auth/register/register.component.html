@@ -1,1 +1,84 @@
-<p>register works!</p>
+<app-navbar></app-navbar>
+<section class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 col-5">
+            <form class="login100-form validate-form" [formGroup]="regForm">
+                <div class="header">
+                    <span class="login100-form-title p-b-26 mb-5">
+                        Welcome
+                    </span>
+                    <span class="login100-form-title p-b-48">
+                        <i class="zmdi zmdi-font"></i>
+                    </span>
+                </div>
+
+                <div class="form-fields">
+                    <div class="form-group">
+                        <input class="input100" type="text" name="first-name" placeholder="First Name"
+                            formControlName="first_Name">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="input100" type="text" name="last-name" placeholder="Last Name"
+                            formControlName="last_Name">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="input100" type="text" name="email" placeholder="Email" formControlName="email">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="input100" type="text" name="latitude" placeholder="Latitude"
+                            formControlName="location_Latitude" hidden>
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="input100" type="text" name="longitude" placeholder="Longitude"
+                            formControlName="location_Longitude" hidden>
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="input100" type="text" name="phone" placeholder="Phone Number"
+                            formControlName="phone_Number">
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="mb-2">
+                        <input type="file" #file formControlName="book_Img_Path" (change)="uploadImage(file.files)" />
+                    </div>
+                    <div #mapContainer style="height: 400px; width: 100%; border: 1px solid #ccc;"></div>
+                </div>
+
+                <div class="remember-me mt-2">
+                    <input type="checkbox" class="form-check-input" id="login-save" name="login-save" value="">
+                    <label for="form-check-label" class="fs-6 ms-2 fw-normal"> Remember me </label><br>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-3 text-center">
+                        <button class="login100-form-btn" (click)="Register()">
+                            Sign Up
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-3 text-center">
+                        <span class="txt1">
+                            Already have an account?
+                        </span>
+                        <a class="txt2" href="/auth/login">
+                            Login
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>

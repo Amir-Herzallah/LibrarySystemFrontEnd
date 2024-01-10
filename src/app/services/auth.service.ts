@@ -33,12 +33,27 @@ export class AuthService {
       console.log(data);
       localStorage.setItem("user", JSON.stringify(data));
 
-      if(data.roleId == "1") {
-        this.router.navigate(["admin/dashboard"])
+      let userData: any = localStorage.getItem("user");
+      userData = JSON.parse(userData);
+      
+      if(userData.roleID === "1") {
+        this.router.navigate(["admin/"])
+      } else {
+        this.router.navigate([""])
       }
     }, (err) => {
       this.toastr.error("Something went wrong")
       console.log(err);
     })
+  }
+
+  AccessLocal() {
+
+    /*let userDataObject: any = {
+      roleID: userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"],
+      userid: userData["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"]
+    }
+
+    return userDataObject;*/
   }
 }

@@ -8,7 +8,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TestimonialComponent } from '../testimonial/testimonial.component';
+import { AccountComponent } from '../account/account.component';
 //import { DateFilterPipe } from '../pipes/date-filter.pipe';
 
 @NgModule({
@@ -26,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatInputModule,
     ReactiveFormsModule,
+    FormsModule,
     
   ],
   exports:[
@@ -38,7 +41,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     NavbarComponent,
     FooterComponent,
-    FooterComponent
+    FooterComponent,
+    FormsModule,
+
   ]
 })
 export class SharedModule { }

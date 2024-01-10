@@ -25,6 +25,8 @@ export class BookService {
   bestSellingBook:any;
   borrowedBooks:any;
   bookInfoById:any;
+  BookDetails:any;
+
   GetAllBooks() {
     this.http.get('https://localhost:7131/api/Book/GetAllBooks').subscribe((resp: any) => {
       this.books = resp;
@@ -45,8 +47,9 @@ export class BookService {
   }
   
   CreateBook(body: any) {
+    body.book_Img_Path=this.display_image;
+    body.book_Pdf_Path=this.BookPDF;
     this.http.post('https://localhost:7131/api/Book/CreateBook', body).subscribe((resp: any) => {
-      window.location.reload();  
       this.toastr.success("Book Created Successfully");
     },
       (error: any) => {
@@ -56,7 +59,8 @@ export class BookService {
 
   display_image: any;
   UpdateBook(id:any, body: any) {
-    body.book_Img_Path = this.display_image;        
+    body.book_Img_Path=this.display_image;
+  
     this.http.put('https://localhost:7131/api/Book/UpdateBook?id='+ id ,body).subscribe((resp: any) => {
       window.location.reload();
       this.toastr.success("Book Updated Successfully");
@@ -66,8 +70,9 @@ export class BookService {
       })
   }
   uploadAttachment(file: FormData) {
-    this.http.post('https://localhost:7131/api/AboutUsPage/uploadImage', file).subscribe((resp: any) => {
-      this.display_image = resp.imagename;
+    
+    this.http.post('https://localhost:7131/api/Book/UploadImageBook', file).subscribe((resp: any) => {
+      this.display_image = resp.book_Img_Path;
       this.toastr.success("Image Uploaded Successfully");
     },
       (error: any) => {
@@ -75,16 +80,21 @@ export class BookService {
       })
   }
 
-  uploadImage(file: any) {
-    if (file.length === 0)
-      return;
-
-    let fileToUpload = <File>file[0];
-    const formData = new FormData();
-    formData.append('file', fileToUpload, fileToUpload.name);
-
-    this.uploadAttachment(formData);
+  BookPDF:any;
+  uploadPDFBook(file: FormData) {
+    console.log(file);
+    
+    this.http.post('https://localhost:7131/api/Book/UploadPDFBook', file).subscribe((resp: any) => {
+      this.BookPDF = resp.book_Pdf_Path;
+      this.toastr.success("PDF Uploaded Successfully");
+    },
+      (error: any) => {
+        console.log(error);
+        this.toastr.error("Error Occured");
+      })
   }
+
+ 
   GetTopBooks(){
     this.http.get("https://localhost:7131/api/Book/TopBooks").subscribe((resp)=>{
       this.topRatedBooks = resp;
@@ -132,5 +142,21 @@ GetBookByID(id:Number){
       this.toastr.error("Error Occured");
     })
 
+ }
+ //
+ GetBookById(id :number){
+  debugger;
+  this.http.get(`https://localhost:7131/api/Book/GetBookById?id=${id}`).subscribe((resp: any) => {
+    this.BookDetails = resp;
+ 
+    console.log("Fetched BookDetails: ", this.BookDetails);
+    
+  },
+    (error: any) => {
+      this.toastr.error("Error Occured");
+      console.error("Failed to fetch book: ", error);
+      console.log(error.status);
+    })
+   
  }
 }

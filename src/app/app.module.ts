@@ -22,7 +22,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';  // Add this line for MatTableModule
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { CategoriesComponent } from './categories/categories.component';
+import { MultiSearchPipe } from './pipes/multi-search.pipe';
+import { TestimonialComponent } from './testimonial/testimonial.component';
+import { AccountComponent } from './account/account.component';
+import { MyBooksComponent } from './my-books/my-books.component';
+import { ProfileEditComponent } from './account/profile-edit/profile-edit.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookReviewComponent } from './book-review/book-review.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +43,14 @@ import { MatNativeDateModule } from '@angular/material/core';
     ContactUsDialogComponent,
     LibrariesComponent,
     BooksComponent,
-    //DateReportsFilterPipe,
-    // DateFilterPipe,
+    CategoriesComponent,
+    MultiSearchPipe,
+    TestimonialComponent,
+    AccountComponent,
+    MyBooksComponent,
+    BookReviewComponent,
+    ProfileEditComponent,
+    BookDetailComponent
       ],
   imports: [
     BrowserModule,

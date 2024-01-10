@@ -33,9 +33,6 @@ export class AboutUsService {
 
     })
 
-    window.location.reload();
-
-
   }
 
   CreateAboutUsPageData(body: any) {
@@ -50,18 +47,15 @@ export class AboutUsService {
 
     })
 
-
-    window.location.reload();
-
   }
 
     DeleteAboutUsPageData(id: Number){
       this.http.delete(`https://localhost:7131/api/AboutUsPage/DeleteAboutUsPageData/${id}`).subscribe(resp => {
       console.log(resp);
-      //this.toastr.success("Deleted")
+      this.toastr.success("Deleted")
     }, err => {
       console.log(err);
-      //this.toastr.error("Somethong went wrong")
+      this.toastr.error("Somethong went wrong")
 
     })
     }
@@ -70,7 +64,7 @@ export class AboutUsService {
     this.http.post(`https://localhost:7131/api/AboutUsPage/uploadImage`, file).subscribe((resp:any) => {
       this.display_image = resp.imagE_PATH1;
     }, err => {
-     // this.toastr.error("Something went wrong");
+      this.toastr.error("Something went wrong");
     })
   }
 }

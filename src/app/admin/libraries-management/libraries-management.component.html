@@ -26,8 +26,8 @@
                                     <tbody>
                                         <tr *ngFor="let obj of lib.libraries">
                                             <td>
-                                                <!-- <img src="../../../assets/images/{{obj.book_Img_Path}}" class="me-2"
-                                                    alt="image">  -->
+                                                <img src="../../../assets/images/{{obj.image_Path1}}" class="me-2"
+                                                    alt="image"> 
                                                     {{obj.name}}
                                             </td>
                                             <td> {{obj.location_Latitude}}</td>
@@ -99,20 +99,20 @@
                     Book Image Path is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-            <mat-form-field class="example-full-width">
+  <!--           <mat-form-field class="example-full-width">
                 <mat-label>Image Path 1</mat-label>
                 <input type="text" matInput formControlName="image_Path1">
                 <mat-error *ngIf="createLibrary.controls['image_Path1'].hasError('required')">
                     Book Image Path 1 is <strong>required</strong>
                 </mat-error>
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
+            </mat-form-field> -->
+      <!--       <mat-form-field class="example-full-width">
                 <mat-label>Image Path 2</mat-label>
                 <input type="text" matInput formControlName="image_Path2">
                 <mat-error *ngIf="createLibrary.controls['image_Path2'].hasError('required')">
                     Book Image Path 2 is <strong>required</strong>
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
            
             <mat-form-field class="example-full-width">
                 <mat-label>Description</mat-label>
@@ -129,7 +129,14 @@
                     Email is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-
+            <div>
+                <mat-label>Library Image(Png,Jpeg,Jpg)</mat-label>
+                <br>
+                <input type="file" #file formControlName="image_Path1" (change)="uploadImage(file.files)" />
+            </div>
+<!--             <div>
+                <input type="file" #file formControlName="image_Path2" (change)="uploadImage(file.files)" />
+            </div> -->
         </form>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
@@ -177,7 +184,7 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+  <!--           <mat-form-field class="example-full-width">
                 <mat-label>Image Path 1</mat-label>
                 <input type="text" matInput formControlName="image_Path1" [(ngModel)]="pData.image_Path1">
                 <mat-error *ngIf="updateLibrary.controls['image_Path1'].hasError('required')">
@@ -191,11 +198,11 @@
                 <mat-error *ngIf="updateLibrary.controls['image_Path2'].hasError('required')">
                     Image Path 2 is <strong>required</strong>
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
 
             <mat-form-field class="example-full-width">
                 <mat-label>Description</mat-label>
-                <input type="number" matInput formControlName="description" [(ngModel)]="pData.description">
+                <input type="text" matInput formControlName="description" [(ngModel)]="pData.description">
                 <mat-error *ngIf="updateLibrary.controls['description'].hasError('required')">
                     Description is <strong>required</strong>
                 </mat-error>
@@ -211,8 +218,13 @@
             </mat-form-field>
 
             <div>
-                <input type="file" #file formControlName="book_Img_Path" (change)="uploadImage(file.files)" />
+                <mat-label>Library Image(Png,Jpeg,Jpg)</mat-label>
+                <br>
+                <input type="file" #file formControlName="image_Path1" (change)="uploadImage(file.files)" />
             </div>
+   <!--          <div>
+                <input type="file" #file formControlName="image_Path2" (change)="uploadImage(file.files)" />
+            </div> -->
 
         </form>
     </mat-dialog-content>
