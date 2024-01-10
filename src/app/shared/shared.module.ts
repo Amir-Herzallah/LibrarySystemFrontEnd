@@ -28,7 +28,8 @@ import { AccountComponent } from '../account/account.component';
     MatDialogModule,
     MatInputModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
   ],
   exports:[
     CommonModule,

@@ -97,7 +97,7 @@ export class BooksManagementComponent {
     if (!file || file.length === 0)
       return;
   
-    let fileToUpload = <File>file[0]; // As there should be only one file for PDF upload
+    let fileToUpload = <File>file[0];
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
   

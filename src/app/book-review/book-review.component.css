@@ -1,0 +1,25 @@
+.radio-buttons {
+  display: flex;
+  align-items: center;
+}
+
+input[type="radio"] {
+  display: none; /* Hide default radio buttons */
+}
+
+label {
+  display: inline-block;
+  width: 30px; /* Width of the shape */
+  height: 30px; /* Height of the shape */
+  margin: 0 5px; /* Adjust spacing */
+  border-radius: 50%; /* Make the shape circular */
+  border: 2px solid #000; /* Border for the shape */
+  position: relative;
+  cursor: pointer;
+}
+
+/* Change background color or other styles when the radio button is checked */
+input[type="radio"]:checked + label {
+  background-color: #000; /* Change background color when checked */
+  border-color: #000; /* Change border color when checked */
+}

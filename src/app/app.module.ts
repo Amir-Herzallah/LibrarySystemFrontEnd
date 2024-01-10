@@ -28,6 +28,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AccountComponent } from './account/account.component';
 import { MyBooksComponent } from './my-books/my-books.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookReviewComponent } from './book-review/book-review.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,9 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
     TestimonialComponent,
     AccountComponent,
     MyBooksComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    BookReviewComponent,
+    
       ],
   imports: [
     BrowserModule,
