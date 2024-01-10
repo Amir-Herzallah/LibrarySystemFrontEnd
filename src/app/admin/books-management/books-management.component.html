@@ -16,6 +16,8 @@
                                         <tr>
                                             <th> Title </th>
                                             <th> Author </th>
+                                            <th>PDF</th>
+                                            <th>Rate</th>
                                             <th> Publication Date</th>
                                             <th> Book Category ID </th>
                                             <th> Price Per Day </th>
@@ -24,11 +26,17 @@
                                     <tbody>
                                         <tr *ngFor="let obj of book.books">
                                             <td>
-                                               <img src="../../../assets/LibraryImages/{{obj.book_Img_Path}}" class="me-2"
+                                               <img src="../../../assets/images/{{obj.book_Img_Path}}" class="me-2"
                                                     alt="image"> 
                                                     {{obj.title}}
                                             </td>
                                             <td> {{obj.author}}</td>
+                                            <td>
+                                                <a href="../../../assets/PDF/{{obj.book_Pdf_Path}}">Book PDF</a>
+                                            </td>
+                                            <td>
+                                                {{obj.avg_Rating}}
+                                            </td>
                                             <td>
                                                 {{obj.publication_Date|date}}
                                             </td>
@@ -46,6 +54,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
         <app-admin-footer></app-admin-footer>
     </div>
@@ -59,7 +68,7 @@
     <div mat-dialog-content>Are you sure you want to delete this book?</div>
     <div mat-dialog-actions>
         <button mat-button mat-dialog-close="yes" class="btn btn-primary m-1">Yes</button>
-        <button mat-button mat-dialog-close="no" class="btn btn-danger m-1">No</button>
+        <button mat-button mat-dialog-close="no" class="btn btn-danger m-1  ">No</button>
     </div>
 </ng-template>
 
@@ -100,14 +109,6 @@
             </mat-form-field> -->
 
             <mat-form-field class="example-full-width">
-                <mat-label>Book PDF Path</mat-label>
-                <input type="text" matInput formControlName="book_Pdf_Path">
-                <mat-error *ngIf="createBook.controls['book_Pdf_Path'].hasError('required')">
-                    Book PDF Path is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width">
                 <mat-label>Publication Date</mat-label>
                 <input type="date" matInput formControlName="publication_Date">
                 <mat-error *ngIf="createBook.controls['publication_Date'].hasError('required')">
@@ -123,7 +124,7 @@
                 </mat-error>
             </mat-form-field>
         
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width"hidden>
                 <mat-label>Avg Rate</mat-label>
                 <input type="number" matInput formControlName="avg_Rating">
                 <mat-error *ngIf="createBook.controls['avg_Rating'].hasError('required')">
@@ -139,7 +140,15 @@
                 </mat-error>
             </mat-form-field>
             <div>
-                <input type="file" #file formControlName="book_Img_Path" (change)="uploadImage(file.files)" />
+                <mat-label>Book Image(Png,Jpeg,Jpg)</mat-label>
+                <br>
+                <input type="file" #file formControlName="book_Img_Path"(change)="uploadImage(file.files)" />
+            </div>
+            <br>
+            <div>
+                <mat-label>Book (PDF)</mat-label>
+                <br>
+                <input type="file"  #file formControlName="book_Pdf_Path" (change)="uploadPDF(file.files)" />
             </div>
         </form>
     </mat-dialog-content>
@@ -213,7 +222,7 @@
             </mat-form-field>
             
             
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width"hidden>
                 <mat-label>Avg Rating</mat-label>
                 <input type="text" matInput formControlName="avg_Rating" [(ngModel)]="pData.avg_Rating">
                 <mat-error *ngIf="updateBook.controls['avg_Rating'].hasError('required')">
@@ -229,9 +238,17 @@
                     Category ID is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-                        
+
             <div>
-                <input type="file" #file formControlName="book_Img_Path" (change)="uploadImage(file.files)" />
+                <mat-label>Book Image(Png,Jpeg,Jpg)</mat-label>
+                <br>
+                <input type="file" #file formControlName="book_Img_Path"(change)="uploadImage(file.files)" />
+            </div>
+            <br>
+            <div>
+                <mat-label>Book (PDF)</mat-label>
+                <br>
+                <input type="file" #file formControlName="book_Pdf_Path"(change)="uploadPDF(file.files)" />
             </div>
 
         </form>

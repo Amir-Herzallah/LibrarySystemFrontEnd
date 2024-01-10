@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AdminService {
   constructor(private http: HttpClient, private toastr: ToastrService) { }
   //----------------------------Homepage Operations------------------
+
   display_image: any;
   homePageData: any = [{}]
   GetAllHomepageData() {

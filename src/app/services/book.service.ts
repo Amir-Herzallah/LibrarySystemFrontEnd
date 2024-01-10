@@ -47,10 +47,9 @@ export class BookService {
   }
   
   CreateBook(body: any) {
-    debugger;
     body.book_Img_Path=this.display_image;
+    body.book_Pdf_Path=this.BookPDF;
     this.http.post('https://localhost:7131/api/Book/CreateBook', body).subscribe((resp: any) => {
-      window.location.reload();  
       this.toastr.success("Book Created Successfully");
     },
       (error: any) => {
@@ -77,6 +76,20 @@ export class BookService {
       this.toastr.success("Image Uploaded Successfully");
     },
       (error: any) => {
+        this.toastr.error("Error Occured");
+      })
+  }
+
+  BookPDF:any;
+  uploadPDFBook(file: FormData) {
+    console.log(file);
+    
+    this.http.post('https://localhost:7131/api/Book/UploadPDFBook', file).subscribe((resp: any) => {
+      this.BookPDF = resp.book_Pdf_Path;
+      this.toastr.success("PDF Uploaded Successfully");
+    },
+      (error: any) => {
+        console.log(error);
         this.toastr.error("Error Occured");
       })
   }
