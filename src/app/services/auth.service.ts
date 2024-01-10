@@ -36,11 +36,10 @@ export class AuthService {
       let userData: any = localStorage.getItem("user");
       userData = JSON.parse(userData);
       
-      
       if(userData.roleID === "1") {
         this.router.navigate(["admin/"])
       } else {
-        //this.router.navigate([""])
+        this.router.navigate([""])
       }
     }, (err) => {
       this.toastr.error("Something went wrong")
@@ -48,11 +47,7 @@ export class AuthService {
     })
   }
 
-
   AccessLocal() {
-
-    
-
 
     /*let userDataObject: any = {
       roleID: userData["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"],
