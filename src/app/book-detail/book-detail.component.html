@@ -1,0 +1,45 @@
+
+<app-navbar></app-navbar>
+ 
+
+
+
+    <section id="best-selling" class="leaf-pattern-overlay">
+        <div class="corner-pattern-overlay"></div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-6">
+                  <figure class="products-thumb">
+                   
+                
+                    <img src="../../../assets/BookImages/{{ Bookservice.BookDetails?.book_Img_Path }}" class="single-image">
+                </figure>
+                </div>
+                <div class="col-md-6">
+                  <div class="product-entry">
+                    <h2 class="section-title divider">{{ Bookservice.BookDetails?.title }}</h2>
+                    <div class="products-content">
+                      <div class="author-name">By {{ Bookservice.BookDetails?.author }}</div>
+                      <h3 class="item-title">{{ Bookservice.BookDetails?.title }}</h3>
+                      <p>{{ Bookservice.BookDetails?.description }}</p>
+                      <div class="item-price">$ {{ Bookservice.BookDetails?.price }}</div>
+                      <div class="btn-wrap">
+                        <button (click)=" Bookservice.BookDetails?.id" class="btn-accent-arrow">
+                          shop it now <i class="icon icon-ns-arrow-right"></i>
+                        </button>
+                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- / row -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+<app-footer></app-footer>
