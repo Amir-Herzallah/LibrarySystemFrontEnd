@@ -28,6 +28,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AccountComponent } from './account/account.component';
 import { MyBooksComponent } from './my-books/my-books.component';
 import { ProfileEditComponent } from './account/profile-edit/profile-edit.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ProfileEditComponent } from './account/profile-edit/profile-edit.compon
     TestimonialComponent,
     AccountComponent,
     MyBooksComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    BookDetailComponent
       ],
   imports: [
     BrowserModule,

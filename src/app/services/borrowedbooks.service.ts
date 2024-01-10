@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class BorrowedbooksService {
   Borrowedbooks:any =[] ;
+  BorrowedbooksByIdUser :any= [];
   constructor(
     private http: HttpClient,
     private toastr: ToastrService,
@@ -29,5 +30,21 @@ export class BorrowedbooksService {
         console.log(error.status);
       }
     );
+}
+// To get the Borrowed books for User 
+GetBorrowedBooksByIdUser(id: number){
+  debugger;
+this.http.get(`  https://localhost:7131/api/BorrowedBook/BorrowedbooksByIdUser?id=${id}`)
+ 
+.subscribe((res:any) =>{
+
+ this.BorrowedbooksByIdUser = res;
+ console.log("Fetched BorrowedbooksByIdUserks: ", this.BorrowedbooksByIdUser);
+} ,
+ error => {
+   console.error("Failed to fetch BorrowedbooksByIdUser: ", error);
+   console.log(error.status);
+}
+);
 }
 }

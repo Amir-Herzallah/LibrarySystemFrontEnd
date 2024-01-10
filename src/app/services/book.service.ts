@@ -24,6 +24,8 @@ export class BookService {
   allCategoriesBooks:any=[{}]
   bestSellingBook:any;
   borrowedBooks:any;
+   BookDetails:any;
+ 
   
   GetAllBooks() {
     this.http.get('https://localhost:7131/api/Book/GetAllBooks').subscribe((resp: any) => {
@@ -45,10 +47,9 @@ export class BookService {
   }
   
   CreateBook(body: any) {
-    debugger;
     body.book_Img_Path=this.display_image;
+    body.book_Pdf_Path=this.BookPDF;
     this.http.post('https://localhost:7131/api/Book/CreateBook', body).subscribe((resp: any) => {
-      window.location.reload();  
       this.toastr.success("Book Created Successfully");
     },
       (error: any) => {
@@ -75,6 +76,20 @@ export class BookService {
       this.toastr.success("Image Uploaded Successfully");
     },
       (error: any) => {
+        this.toastr.error("Error Occured");
+      })
+  }
+
+  BookPDF:any;
+  uploadPDFBook(file: FormData) {
+    console.log(file);
+    
+    this.http.post('https://localhost:7131/api/Book/UploadPDFBook', file).subscribe((resp: any) => {
+      this.BookPDF = resp.book_Pdf_Path;
+      this.toastr.success("PDF Uploaded Successfully");
+    },
+      (error: any) => {
+        console.log(error);
         this.toastr.error("Error Occured");
       })
   }
@@ -120,5 +135,21 @@ export class BookService {
       this.toastr.error("Error Occured");
     })
 
+ }
+ //
+ GetBookById(id :number){
+  debugger;
+  this.http.get(`https://localhost:7131/api/Book/GetBookById?id=${id}`).subscribe((resp: any) => {
+    this.BookDetails = resp;
+ 
+    console.log("Fetched BookDetails: ", this.BookDetails);
+    
+  },
+    (error: any) => {
+      this.toastr.error("Error Occured");
+      console.error("Failed to fetch book: ", error);
+      console.log(error.status);
+    })
+   
  }
 }
