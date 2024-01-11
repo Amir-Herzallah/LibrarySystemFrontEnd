@@ -139,16 +139,16 @@
                     Category ID is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-            <div>
-                <mat-label>Book Image(Png,Jpeg,Jpg)</mat-label>
+            <br>
+            <mat-label>Book Image (PNJ,JPG,JPEG)</mat-label>
                 <br>
-                <input type="file" #file formControlName="book_Img_Path"(change)="uploadImage(file.files)" />
-            </div>
+                <input type="file"  #file formControlName="book_Img_Path" (change)="uploadImage(file.files)" />
+            <br>
             <br>
             <div>
                 <mat-label>Book (PDF)</mat-label>
                 <br>
-                <input type="file"  #file formControlName="book_Pdf_Path" (change)="uploadPDF(file.files)" />
+                <input type="file"  #file2 formControlName="book_Pdf_Path" (change)="uploadPDF(file2.files)" />
             </div>
         </form>
     </mat-dialog-content>
@@ -187,15 +187,6 @@
                     Description is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-
-
-      <!--       <mat-form-field class="example-full-width">
-                <mat-label>book Img Path</mat-label>
-                <input type="text" matInput formControlName="book_Img_Path" [(ngModel)]="pData.book_Img_Path">
-                <mat-error *ngIf="updateBook.controls['book_Img_Path'].hasError('required')">
-                    Book Image Path is <strong>required</strong>
-                </mat-error>
-            </mat-form-field> -->
 
             <mat-form-field class="example-full-width">
                 <mat-label>Book PDF Path</mat-label>
@@ -248,7 +239,7 @@
             <div>
                 <mat-label>Book (PDF)</mat-label>
                 <br>
-                <input type="file" #file formControlName="book_Pdf_Path"(change)="uploadPDF(file.files)" />
+                <input type="file" #file2 formControlName="book_Pdf_Path"(change)="uploadPDF(file2.files)" />
             </div>
 
         </form>
