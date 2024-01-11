@@ -25,6 +25,7 @@
     "chart.js": "^4.4.1",
     "i": "^0.3.7",
     "jquery": "^3.7.1",
+    "jspdf": "^2.5.1",
     "jwt-decode": "^4.0.0",
     "ng2-daterangepicker": "^3.0.1",
     "ngx-spinner": "^16.0.2",

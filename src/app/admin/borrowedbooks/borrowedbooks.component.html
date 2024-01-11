@@ -30,11 +30,13 @@
             
             <div class="col-lg-12 stretch-card">
               <div class="card">
-                <div class="card-body">
+                <div class="card-body" >
                   <h4 class="card-title">Borrowedbooks</h4>
-                  <p class="card-description"> Borrowedbooks
+                  <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn"
+                  id="add-task" (click)="createPDF()">PDF</button>
+                  <p class="card-description" > Borrowedbooks
                   </p>
-                  <table class="table table-bordered" >
+                  <table class="table table-bordered" #contentPDF >
                     <thead>
                       <tr>
                         <th> # </th>
