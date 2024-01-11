@@ -12,6 +12,7 @@ export class BooksManagementComponent {
   @ViewChild('callCreateDailog') callCreateDialog !: TemplateRef<any>;
   @ViewChild('callDeleteDailog') callDeleteDialog !: TemplateRef<any>;
   @ViewChild('callUpdateDailog') callUpdateDialog !: TemplateRef<any>;
+  @ViewChild('callUploadDailog') callUploadDailog !: TemplateRef<any>;
 
   
   constructor(public book: BookService, public dialog: MatDialog) { }
@@ -41,7 +42,6 @@ export class BooksManagementComponent {
   
   CreateBook() {
     console.log(this.createBook.value);
-    
     this.book.CreateBook(this.createBook.value);
   }
   
@@ -75,10 +75,10 @@ export class BooksManagementComponent {
     this.pData = book;
     this.updateBook.controls['book_Id'].setValue(this.pData.book_Id);
     this.book.display_image = this.pData.book_Img_Path;
+    this.book.BookPDF=this.pData.book_Pdf_Path;
     this.dialog.open(this.callUpdateDialog);
   }
   UpdateCourse() {
-    
     this.book.UpdateBook(this.updateBook.value.book_Id ,this.updateBook.value);
   }
 

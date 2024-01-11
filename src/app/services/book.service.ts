@@ -60,7 +60,7 @@ export class BookService {
   display_image: any;
   UpdateBook(id:any, body: any) {
     body.book_Img_Path=this.display_image;
-  
+    body.book_Pdf_Path=this.BookPDF;
     this.http.put('https://localhost:7131/api/Book/UpdateBook?id='+ id ,body).subscribe((resp: any) => {
       window.location.reload();
       this.toastr.success("Book Updated Successfully");
@@ -101,8 +101,6 @@ export class BookService {
     },err=>{ 
       console.log(err.message);
       console.log(err.status);
-      
-     
     })
   }
  
@@ -113,7 +111,6 @@ export class BookService {
         console.log(err.message);
         console.log(err.status);
       })
-    
   }
 
   GetFindBestSellingBook()
@@ -134,11 +131,9 @@ export class BookService {
     (error: any) => {
       this.toastr.error("Error Occured");
     })
-
  }
  //
  GetBookById(id :number){
-  debugger;
   this.http.get(`https://localhost:7131/api/Book/GetBookById?id=${id}`).subscribe((resp: any) => {
     this.BookDetails = resp;
  
@@ -150,6 +145,5 @@ export class BookService {
       console.error("Failed to fetch book: ", error);
       console.log(error.status);
     })
-   
  }
 }
