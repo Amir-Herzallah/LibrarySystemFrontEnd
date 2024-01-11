@@ -16,15 +16,15 @@ import { BookReviewComponent } from './book-review/book-review.component';
 
 
 const routes: Routes = [
-  { 
+  {
     path: '',
-    component: HomeComponent 
+    component: HomeComponent
   },
-  { 
+  {
     path: 'aboutus',
     component: AboutusComponent
   },
-  { 
+  {
     path: 'contactus',
     component: ContactusComponent
   },
@@ -32,11 +32,11 @@ const routes: Routes = [
     path: 'libraries',
     component: LibrariesComponent
   },
-  { 
+  {
     path: 'Books',
     component: BooksComponent
   },
-  { 
+  {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
@@ -44,26 +44,26 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
-  { 
+  {
     path: 'Testimonial',
     component: TestimonialComponent
   },
   {
-    path:'Account',
-    component:AccountComponent
-  },
-  { 
-    path: 'book-detail/:id',
-    component: BookDetailComponent
-   }
-  ,{
-     path: 'MyBooks/:userId',
-    component: MyBooksComponent 
+    path: 'Account',
+    component: AccountComponent
   },
   {
-    path:'BookReview',
-    component:BookReviewComponent
+    path: 'book-detail/:id',
+    component: BookDetailComponent
   },
+  {
+    path: 'MyBooks/:userId',
+    component: MyBooksComponent
+  },
+  {
+    path: 'BookReview',
+    component: BookReviewComponent
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
