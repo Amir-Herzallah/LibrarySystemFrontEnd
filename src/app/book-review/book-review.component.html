@@ -5,29 +5,29 @@
 			<div class="container">
 				<div class="row g-5">
 					<div class="col-md-12 mb-3">
-						<div class="col-md-8">
+						<div class="col-md-8 mx-auto"> <!-- Use mx-auto to center the column horizontally -->
 							<div class="form">
 								<form name="contactform"[formGroup]="CreateForm" class="form-group contact-form mt-4">
 									<div class="row">
-
-                                        
-                                          <br>
-                                          <br>
-										<div class="col-md-8 text-center"> <!-- Added text-center class -->
-											<textarea class="form-control center-textarea" name="message" style="height: 150px;" placeholder="Your Feedback" formControlName="text" rows="5"></textarea>
-											<span [ngStyle]="{'color':'red', 'size':'5px'}" *ngIf="CreateForm.controls['review_Text'].hasError('required')">
-												Feedback is required
+										<div class="col-md-12">
+											<igc-rating formControlName="rating"  name="userRating"></igc-rating>
+											<br>
+											<br>
+										</div>
+										<div class="col-md-12 text-center">
+											<textarea class="form-control center-textarea" name="message" style="height: 150px;" placeholder="Your Feedback" formControlName="review_Text" rows="5"></textarea>
+											<span [ngStyle]="{'color':'red', 'font-size':'12px'}" *ngIf="CreateForm.controls['review_Text'].hasError('required')">
+												Feedback is <strong>required</strong>
 											</span>
 										</div>
-
 										<div class="col-md-12">
-											<input type="number" formControlName="user_Id" hidden/>
-											<input type="text" formControlName="status" hidden>
-											<input type="text" formControlName="submission_Date" hidden>
+											<input type="number" formControlName="review_Date" hidden/>
+											<input type="text" formControlName="borrow_Id" hidden>
+											<input type="text" formControlName="book_Id" hidden>
+											<input type="text" formControlName="book_Id" hidden>
 										</div>
-
-										<div class="col-md-12">
-											<div class="btn-wrap align-center">
+										<div class="col-md-12 text-center">
+											<div class="btn-wrap">
 												<a href="#" class="btn btn-outline-accent btn-accent-arrow" tabindex="0" (click)="saveReview()">Send Your Feedback
 													<i class="icon icon-ns-arrow-right"></i>
 												</a>
@@ -36,7 +36,7 @@
 									</div>
 								</form>
 							</div><!--contact-information-->
-						</div><!--col-md-6-->
+						</div><!--col-md-8-->
 					</div>
 				</div>
 			</div>
