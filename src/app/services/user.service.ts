@@ -47,11 +47,10 @@ export class UserService {
     this.http.post('https://localhost:7131/api/User/CreateUserLogin', body).subscribe(
       (resp: any) => {
         this.router.navigate(['/auth/login']);
-        this.toastr.success('Signed Up Successfully');
-        this.toastr.info('Please Login To Continue');
+        
+        this.toastr.success('Signed Up Successfully, Please Login To Continue');
       },
       (error: any) => {
-        console.error(error);
         this.toastr.error('Error Occurred');
       }
     );
