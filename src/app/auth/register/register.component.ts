@@ -32,7 +32,10 @@ export class RegisterComponent implements AfterViewInit {
     email: new FormControl("", Validators.required),
     profile_Img_Path: new FormControl("", Validators.required),
     registration_Date : new FormControl(),
-    is_Activated : new FormControl()
+    is_Activated : new FormControl(),
+    username : new FormControl("", Validators.required),
+    password : new FormControl("", Validators.required),
+    role_Id : new FormControl("", Validators.required)
   });
 
   loadGoogleMaps() {
@@ -95,11 +98,18 @@ export class RegisterComponent implements AfterViewInit {
   }
 
   Register() {
+    const usernameControl = this.regForm.get('username');
+    const emailControl = this.regForm.get('email');
+
+    if (usernameControl && emailControl) {
+      usernameControl.setValue(emailControl.value);
+    }
+
     this.regForm.value.is_Activated = "1";
     this.regForm.value.registration_Date = new DatePipe('en-US').transform(new Date(), 'yyyy-MM-dd');
-    console.log(this.regForm.value);
     this.regForm.value.location_Latitude = String(this.regForm.value.location_Latitude);
     this.regForm.value.location_Longitude = String(this.regForm.value.location_Longitude);
+    this.regForm.value.role_Id = "2";
 
     this.userService.CreateUser(this.regForm.value);
   }
