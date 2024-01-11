@@ -33,11 +33,10 @@ export class MainService {
     //       });
   }
 
-
+  
   UpdateBank(bankInfo:any){
          this.http.put("https://localhost:7131/api/Bank/UpdateBankAccount",bankInfo).subscribe((resp)=>{
           this.toastr.success('Updated !!'); 
-         
         }, err=>{
           this.toastr.error('Error !!');
          

@@ -127,9 +127,7 @@ export class BookService {
       })
   }
 GetBookByID(id:Number){
-  debugger
    return this.http.get("https://localhost:7131/api/Book/GetBookById/"+id)
-   
   
 }
 
@@ -148,9 +146,7 @@ GetBookByID(id:Number){
   debugger;
   this.http.get(`https://localhost:7131/api/Book/GetBookById?id=${id}`).subscribe((resp: any) => {
     this.BookDetails = resp;
- 
     console.log("Fetched BookDetails: ", this.BookDetails);
-    
   },
     (error: any) => {
       this.toastr.error("Error Occured");

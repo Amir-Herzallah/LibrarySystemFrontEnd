@@ -10,8 +10,6 @@ import { BookService } from '../services/book.service';
 })
 export class MyBooksComponent {
   
-  
- 
   constructor(private route: ActivatedRoute, public borrowedbooks: BorrowedbooksService ) {}
 
   ngOnInit() {
