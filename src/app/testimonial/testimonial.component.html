@@ -44,6 +44,28 @@
 										<input type="text" formControlName="submission_Date" hidden>
 									</div>
 
+<!-- 					<div class="contact-detail d-flex flex-wrap mt-4">
+						<div class="detail mr-6 mb-4">
+							<p><span [ngStyle]="{'color': '#d9b99b', 'font-size': '24px'}">{{this.manageTestimonialPage.testimonialPageData[0].header_Component1}}</span> 
+								{{this.manageTestimonialPage.testimonialPageData[0].paragraph1}}</p>
+							<ul class="list-unstyled list-icon">
+								<li><i class="icon icon-envelope-o"></i><a href="mailto:info@yourcompany.com">info@yourcompany.com</a></li>
+								<li><i class="icon icon-location2"></i>{{this.manageTestimonialPage.testimonialPageData[0].footer_Component1}}</li>
+							</ul>
+						</div><!--detail-->
+					</div><!--contact-detail-->
+				</div><!--col-md-6-->
+				<div class="col-md-6">
+					<div class="form">
+						<form name="contactform"[formGroup]="CreateForm" class="form-group contact-form mt-4">
+							<div class="row">
+								<div class="col-md-12">
+									<textarea class="form-control" name="message" style="height: 150px;" placeholder="Your Feedback" formControlName="text" rows="5"></textarea>
+									<span [ngStyle]="{'color':'red', 'size':'5px'}" *ngIf="CreateForm.controls['text'].hasError('required')">
+										Feedback is required
+									</span>
+								</div> -->
+
 									<div class="col-md-12">
 										<div class="btn-wrap align-center">
 											<a href="#" class="btn btn-outline-accent btn-accent-arrow" tabindex="0"
@@ -61,7 +83,8 @@
 	</div>
 
 
-	<section id="latest-blog" class="py-5 my-5">
+
+<!-- 	<section id="latest-blog" class="py-5 my-5">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -80,7 +103,18 @@
 									<h4>{{obj.text}}</h4>
 									<div class="links-element">
 										<div class="categories">{{obj.user_Id}}</div>
-									</div>
+									</div> -->
+
+								<div class="col-md-12">
+									<div class="btn-wrap align-center">
+                                        <a href="#" class="btn btn-outline-accent btn-accent-arrow" tabindex="0" *ngIf="userID!=null" (click)="saveFeedback()">Send Your Feedback
+											<i class="icon icon-ns-arrow-right"></i></a>
+                                    </div>
+									<div class="btn-wrap align-center">
+                                        <a href="/auth/login" class="btn btn-outline-accent btn-accent-arrow" tabindex="0" *ngIf="userID==null" >Sign Up/ Login To Send Your Feedback
+											<i class="icon icon-ns-arrow-right"></i></a>
+                                    </div>
+
 								</div>
 							</article>
 						</div>

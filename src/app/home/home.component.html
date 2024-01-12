@@ -3,15 +3,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-
-                <button class="prev slick-arrow">
-                    <i class="icon icon-arrow-left"></i>
-                </button>
-
                 <div class="main-slider pattern-overlay">
                     <div class="slider-item ">
                         <div class="banner-content">
-                            <h2 class="banner-title">Life of the Wild</h2>
+                            <h2 class="banner-title" style="line-height: normal;">Life of the Wild</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero
                                 ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
                                 urna, a eu.</p>
@@ -22,26 +17,8 @@
                         </div><!--banner-content-->
                         <img src="../../assets/main/images/main-banner1.jpg" alt="banner" class="banner-image">
                     </div><!--slider-item-->
-
-                    <div class="slider-item">
-                        <div class="banner-content">
-                            <h2 class="banner-title">Birds gonna be Happy</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero
-                                ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
-                                urna, a eu.</p>
-                            <div class="btn-wrap">
-                                <a href="#" class="btn btn-outline-accent btn-accent-arrow">Read More<i
-                                        class="icon icon-ns-arrow-right"></i></a>
-                            </div>
-                        </div><!--banner-content-->
-                        <!-- <img src="../../assets/main/images/main-banner2.jpg" alt="banner" class="banner-image"> -->
-                    </div><!--slider-item-->
-
+    
                 </div><!--slider-->
-
-                <button class="next slick-arrow">
-                    <i class="icon icon-arrow-right"></i>
-                </button>
 
             </div>
         </div>
@@ -237,8 +214,8 @@
                             <p>{{this.manageHome.homePageData[0].paragraph3}}</p>
                             <form id="form">
 
-                                <button class="btn-subscribe">
-                                    <span href="/contactus">Contact Us</span>
+                                <button class="btn-subscribe" mt-2 href="/contactus">
+                                    <span> Contact Us</span>
                                     <i class="icon icon-send"></i>
                                 </button>
                             </form>
@@ -259,7 +236,7 @@
 
                 <div class="section-header align-center">
                     <div class="title">
-                        <span>Our Partners</span>
+                        <span>Libraries</span>
                     </div>
                     <h2 class="section-title">{{this.manageHome.homePageData[0].headeR_COMPONENT3}}</h2>
                 </div>
@@ -377,9 +354,17 @@
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bg btn"></div>
+
                         <button class="login100-form-btn"
                             style="background-color: #C5A992; color: white; padding: 15px 20px; border: none; border-radius: 4px; cursor: pointer;"
                             (click)="payBook()">Confirm Payment</button>
+
+                       <!-- <button class="login100-form-btn" style="background-color: #C5A992; color: white; padding: 15px 20px; border: none; border-radius: 4px; cursor: pointer;" (click)="payBook()">Confirm Payment</button>
+                        <span *ngIf="this.canPaid;else elseStatement" style="color:green">Paid Done!</span>
+                        <ng-template #elseStatement> 
+                            <span style="color:red">Not enough balance</span> 
+                        </ng-template> -->
+
                     </div>
                 </div>
                 <mat-dialog-actions align="end">
@@ -390,3 +375,4 @@
     </section>
 </ng-template>
 <app-footer></app-footer>
+

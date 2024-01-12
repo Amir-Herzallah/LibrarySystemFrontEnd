@@ -10,25 +10,28 @@
             <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
               <div class="contact-wrap w-100 p-md-5 p-4">
                 <h3 class="mb-4">Get in touch</h3>
-                <div id="form-message-warning" class="mb-4"></div> 
+                <div id="form-message-warning" class="mb-4"></div>
                 <div id="form-message-success" class="mb-4">
                   Your message was sent, thank you!
                 </div>
-                <form [formGroup]="contactUsMessage" method="POST" id="contactForm" name="contactForm" class="contactForm">
+                <form [formGroup]="contactUsMessage" method="POST" id="contactForm" name="contactForm"
+                  class="contactForm">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="label" for="name">Full Name</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Name" formControlName="fullName">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Name"
+                          formControlName="fullName">
                         <mat-error *ngIf="contactUsMessage.controls['fullName'].hasError('required')">
                           Name is <strong>required</strong>
-                      </mat-error>
+                        </mat-error>
                       </div>
                     </div>
-                    <div class="col-md-6"> 
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label class="label" for="email">Email Address</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" formControlName="email">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                          formControlName="email">
                         <mat-error *ngIf="contactUsMessage.controls['email'].hasError('required')">
                           Email is <strong>required</strong>
                         </mat-error>
@@ -37,16 +40,18 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="label" for="subject">Subject</label>
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" formControlName="subject">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                          formControlName="subject">
                         <mat-error *ngIf="contactUsMessage.controls['subject'].hasError('required')">
                           Subject is <strong>required</strong>
                         </mat-error>
                       </div>
                     </div>
-                    <div class="col-md-6"> 
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label class="label" for="phone">Phone</label>
-                        <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone" formControlName="phoneNumber">
+                        <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone"
+                          formControlName="phoneNumber">
                         <mat-error *ngIf="contactUsMessage.controls['phoneNumber'].hasError('required')">
                           Phone is <strong>required</strong>
                         </mat-error>
@@ -55,7 +60,8 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label class="label" for="#">Message</label>
-                        <input name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message" formControlName="message">
+                        <input name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"
+                          formControlName="message">
                         <mat-error *ngIf="contactUsMessage.controls['message'].hasError('required')">
                           Message is <strong>required</strong>
                         </mat-error>
@@ -63,7 +69,8 @@
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <button type="submit" value="Send Message" class="btn btn-outline btn-primary" id="editButton" (click)="CreateContactUsRequest()" [disabled]="!contactUsMessage.valid">Send</button>
+                        <button type="submit" value="Send Message" class="btn btn-outline btn-primary" id="editButton"
+                          (click)="CreateContactUsRequest()" [disabled]="!contactUsMessage.valid">Send</button>
                         <div class="submitting"></div>
                       </div>
                     </div>
@@ -73,8 +80,8 @@
             </div>
             <div class="col-lg-4 col-md-5 d-flex align-items-stretch" *ngFor="let data of contactUs.contactUsData">
               <div class="info-wrap w-100 p-md-5 p-4">
-                 <h3>{{data.headeR_COMPONENT1}}</h3>
-                 <p class="mb-4">{{data.paragraph1}}</p>
+                <h3>{{data.headeR_COMPONENT1}}</h3>
+                <p class="mb-4">{{data.paragraph1}}</p>
                 <div class="dbox w-100 d-flex align-items-start">
                   <div class="icon d-flex align-items-center justify-content-center">
                     <span class="fa fa-map-marker" style="color: #000000;"></span>
@@ -99,11 +106,7 @@
                     <p><span>Email:</span> <a href="mailto:info@yoursite.com">{{data.email}}</a></p>
                   </div>
                 </div>
-
-              <button class="btn btn-primary ms-3" id="editButton" (click)="openDialog(data)">Edit</button>
-
               </div>
-
             </div>
           </div>
         </div>
@@ -113,7 +116,11 @@
 
   <div class="col-lg-12 m-5 pt-5">
     <div class="me-5 pe-5" id="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12469.776493332698!2d-80.14036379941481!3d25.907788681148624!2m3!1f357.26927939317244!2f20.870722720054623!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x88d9add4b4ac788f%3A0xe77469d09480fcdb!2sSunny%20Isles%20Beach!5e1!3m2!1sen!2sth!4v1642869952544!5m2!1sen!2sth" width="100%" height="500px" frameborder="0" style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);" allowfullscreen=""></iframe>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12469.776493332698!2d-80.14036379941481!3d25.907788681148624!2m3!1f357.26927939317244!2f20.870722720054623!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x88d9add4b4ac788f%3A0xe77469d09480fcdb!2sSunny%20Isles%20Beach!5e1!3m2!1sen!2sth!4v1642869952544!5m2!1sen!2sth"
+        width="100%" height="500px" frameborder="0"
+        style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);"
+        allowfullscreen=""></iframe>
     </div>
   </div>
 </section>
