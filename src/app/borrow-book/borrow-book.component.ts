@@ -6,7 +6,8 @@ import { BorrowedbooksService } from '../services/borrowedbooks.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MainService } from '../services/main.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { EmailService } from '../services/email.service';
+import { waitForAsync } from '@angular/core/testing';
 @Component({
   selector: 'app-borrow-book',
   templateUrl: './borrow-book.component.html',
@@ -20,6 +21,7 @@ export class BorrowBookComponent {
   borrowBookInfo:any;
   currentDate!: Date;
   localData: any;
+  invoiceInfo: any
 
   bookPrice: any;
   bankInfo: any;
@@ -29,7 +31,7 @@ export class BorrowBookComponent {
   canPaid: any;
 
   constructor(private router: Router,  private route: ActivatedRoute,public bookService:BookService,public borrowbookservice:BorrowedbooksService,
-    public dialog: MatDialog, public bankService:MainService, private toastr: ToastrService) { 
+    public dialog: MatDialog, public bankService:MainService, public emailService: EmailService,  private toastr: ToastrService) { 
     this.localData = localStorage.getItem("user");
     this.localData = JSON.parse(this.localData);
   }
@@ -56,6 +58,8 @@ export class BorrowBookComponent {
     if (this.bookId) {
       this.currentDate = new Date();
       this.bookService.GetBookById(this.bookId);
+
+
       this.borrowBookForm.controls['user_Id'].setValue(parseInt(this.localData.userID));
       this.borrowBookForm.controls['book_Id'].setValue(this.bookId);
       this.borrowBookForm.controls['borrow_Date_From'].setValue(this.currentDate.toISOString().split('T')[0]);
@@ -73,6 +77,7 @@ export class BorrowBookComponent {
   this.bookPrice = book.price_Per_Day;
   this.dialog.open(this.callPaymentDialog);
   this.paymentForm.controls['card_Id'].setValue(1);
+  
 
   this.bankService.GetBankByID(1).subscribe(res => {
 
@@ -119,6 +124,7 @@ payBook() {
     this.bankService.UpdateBank(this.bankInfo);
     this.createBorrowBook();
     this.dialog.closeAll();
+
     this.toastr.success('Borrow Book Successfully!')
   }
   else {
