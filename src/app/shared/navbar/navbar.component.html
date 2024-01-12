@@ -28,11 +28,13 @@
                     </div>
                     <div class="col-md-6">
                         <div class="right-element">
-                            <a routerLink="/Account" class="user-account for-buy"><i
+                            <a routerLink="/Account" *ngIf="isLoggedIn" class="user-account for-buy"><i
                                     class="icon icon-user"></i><span>Account</span></a>
-                            <a href="#" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Cart:(0
-                                    $)</span></a>
-
+                        <!--     <a routerLink="/signin" *ngIf="!isLoggedIn" class="cart for-buy"><i class="icon icon-clipboard"></i><span>Sign In
+                                     </span></a> -->
+                                  
+                                    
+<!-- 
                             <div class="action-menu">
 
                                 <div class="search-bar">
@@ -44,7 +46,7 @@
                                             type="search">
                                     </form>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div><!--top-right-->
                     </div>
@@ -57,7 +59,7 @@
                 <div class="row">
                     <div class="col-md-2">
                         <div class="main-logo">
-                            <a href="index.html"><img src="../../assets/main/images/main-logo.png" alt="logo"></a>
+                            <a  ><img src="../../../assets/main/images/{{this.manageHome.homePageData[0].logO_PATH}}" alt="logo"></a>
                         </div>
                     </div>
                     
@@ -94,10 +96,12 @@
                                     </li> -->
                                     <li class="menu-item"><a href="/contactus" class="nav-link">Contact Us</a></li>
                                     <li class="menu-item"><a routerLink="/libraries" class="nav-link">libraries </a></li>
-                                    <li class="menu-item"><a [routerLink]="['/MyBooks', userID]" class="nav-link">My Books</a></li>
-                                    <li class="menu-item"><a
-                                            href="/auth/register"
-                                            class="nav-link btn btn-outline-dark rounded-pill m-0" target="_blank">Sign up</a></li>
+                                    <li class="menu-item"><a [routerLink]="['/MyBooks', 37]" *ngIf="isLoggedIn" class="nav-link">My Books</a></li>
+                                    <li class="menu-item">
+                                        <a  href="/auth/register" class="nav-link btn btn-outline-dark rounded-pill m-0" *ngIf="!isLoggedIn" target="_blank">Sign up</a></li>
+                                        <li class="menu-item" class="nav-link btn btn-outline-dark rounded-pill m-0"  *ngIf="isLoggedIn"><a (click)="signOut()">Sign Out</a></li>
+                                   
+                                            
                                 </ul>
 
                                 <div class="hamburger">

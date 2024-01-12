@@ -28,8 +28,6 @@ UpdateProfile(){
   this.editProfile.controls["user_Id"].setValue(this.profile.userInfo.user_Id);
   this.profile.UpdateProfile(this.editProfile.value);
   console.log(this.editProfile.value);
-
-
 }
 
 UploadImage(file: any){

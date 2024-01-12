@@ -52,18 +52,18 @@ const routes: Routes = [
     path: 'Account',
     component: AccountComponent
   },
-  {
+  { 
     path: 'book-detail/:id',
     component: BookDetailComponent
+   }
+  ,{
+     path: 'MyBooks/:userId',
+    component: MyBooksComponent 
   },
   {
-    path: 'MyBooks/:userId',
-    component: MyBooksComponent
+    path:'BookReview',
+    component:BookReviewComponent
   },
-  {
-    path: 'BookReview',
-    component: BookReviewComponent
-  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -17,7 +17,7 @@ export class ProfileService {
 
   GetUserProfile() {
     console.log(this.localData.roleID);
-    this.http.get(`https://localhost:7131/api/User/GetUserById?id=${this.localData.roleID}`).subscribe((resp) => {
+    this.http.get(`https://localhost:7131/api/User/GetUserById?id=${this.localData.userID}`).subscribe((resp) => {
       this.userInfo = resp;
       console.log(this.userInfo)
     })
@@ -26,7 +26,7 @@ export class ProfileService {
   UpdateProfile(body: any) {
     console.log(this.localData.roleID);
     body.profile_Img_Path = this.display_image;
-    this.http.put(`https://localhost:7131/api/User/UpdateUser?id=${this.localData.roleID}`, body).subscribe((resp) => {
+    this.http.put(`https://localhost:7131/api/User/UpdateUser?id=${this.localData.userID}`, body).subscribe((resp) => {
       this.toastr.success("Profile updated")
     }, err => {
       this.toastr.error("something went wrong")

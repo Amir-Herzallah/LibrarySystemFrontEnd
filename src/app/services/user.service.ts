@@ -3,23 +3,25 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class UserService {
-  
+
   constructor(
     private http: HttpClient,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
   ) { }
 
   users: any = [{}];
-  numOfRegisterUsers:any;
-  usersWithRervations:any;
+  numOfRegisterUsers: any;
+  usersWithRervations: any;
   GetAllUsers() {
     this.http.get('https://localhost:7131/api/User/GetAllUsers').subscribe((resp: any) => {
       this.users = resp;
@@ -41,22 +43,23 @@ export class UserService {
   }
 
   CreateUser(body: any) {
-    body.profile_Img_Path=this.display_image;
-    this.http.post('https://localhost:7131/api/User/CreateUser', body).subscribe((resp: any) => {
-      window.location.reload();
-      this.toastr.success("User Created Successfully");
-    },
+    body.profile_Img_Path = this.display_image;
+    this.http.post('https://localhost:7131/api/User/CreateUserLogin', body).subscribe(
+      (resp: any) => {
+        this.router.navigate(['/auth/login']);
+        
+        this.toastr.success('Signed Up Successfully, Please Login To Continue');
+      },
       (error: any) => {
-        error.status;
-        this.toastr.error("Error Occured");
-      })
+        this.toastr.error('Error Occurred');
+      }
+    );
   }
 
- 
-  UpdateUser(id:any, body: any) {
-    body.profile_Img_Path=this.display_image;
-     
-    this.http.put('https://localhost:7131/api/User/UpdateUser?id='+ id ,body).subscribe((resp: any) => {
+  UpdateUser(id: any, body: any) {
+    body.profile_Img_Path = this.display_image;
+
+    this.http.put('https://localhost:7131/api/User/UpdateUser?id=' + id, body).subscribe((resp: any) => {
       window.location.reload();
       this.toastr.success("User Updated Successfully");
     },
@@ -74,29 +77,29 @@ export class UserService {
         this.toastr.error("Error Occured");
       })
   }
-/* 
-  uploadImage(file: any) {
-    if (file.length === 0)
-      return;
-
-    let fileToUpload = <File>file[0];
-    const formData = new FormData();
-    formData.append('file', fileToUpload, fileToUpload.name);
-
-    this.uploadAttachment(formData);
-  } */
-  GetNumberOfRegisteredUsers(){
-    this.http.get("https://localhost:7131/api/User/NumberOfRegisteredUsers").subscribe((resp)=>{
+  /* 
+    uploadImage(file: any) {
+      if (file.length === 0)
+        return;
+  
+      let fileToUpload = <File>file[0];
+      const formData = new FormData();
+      formData.append('file', fileToUpload, fileToUpload.name);
+  
+      this.uploadAttachment(formData);
+    } */
+  GetNumberOfRegisteredUsers() {
+    this.http.get("https://localhost:7131/api/User/NumberOfRegisteredUsers").subscribe((resp) => {
       this.numOfRegisterUsers = resp;
-    },err=>{ 
+    }, err => {
       console.log(err.message);
       console.log(err.status);
-     
+
     })
   }
 
-  GetUsersWithReservations(){
-  return  this.http.get("https://localhost:7131/api/User/GetUsersWithReservations");
-  
+  GetUsersWithReservations() {
+    return this.http.get("https://localhost:7131/api/User/GetUsersWithReservations");
+
   }
 }
