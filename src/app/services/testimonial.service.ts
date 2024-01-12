@@ -10,6 +10,7 @@ export class TestimonialService {
   testimonial:any=[{}];
   constructor(private http:HttpClient,private toastr: ToastrService) { }
   CreateTestimonial(body:any){
+    
     this.http.post('https://localhost:7131/api/Testimonial/CreateTestimonial',body)
     .subscribe((resp:any)=>
     {

@@ -53,21 +53,21 @@ const routes: Routes = [
     path: 'Account',
     component: AccountComponent
   },
-  { 
-    path: 'book-detail/:id',
-    component: BookDetailComponent
-   }
-  ,{
-     path: 'MyBooks/:userId',
-    component: MyBooksComponent 
-  },
   {
-    path:'BookReview',
-    component:BookReviewComponent
+    path: 'book-detail/:bookId/:borrowId',
+    component: BookDetailComponent
+  }
+  , {
+    path: 'MyBooks/:userId',
+    component: MyBooksComponent
   },
   {
     path: 'borrow-book/:id',
-    component:BorrowBookComponent
+    component: BorrowBookComponent
+  },
+  {
+    path: 'BookReview/:bookId/:borrowId',
+    component: BookReviewComponent
   }
 ];
 @NgModule({

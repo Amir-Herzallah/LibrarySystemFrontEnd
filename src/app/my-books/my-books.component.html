@@ -34,24 +34,18 @@
 
                                 <div class="post-content">
                                     <div class="meta-date"> {{book.borrow_Date_To | date }}</div>
-                                    <h3 class="post-title"><a  >{{book.title}} 
+                                    <h3 class="post-title"><a>{{book.title}} 
                                              </a></h3>
                                     <p>{{book.description}}</p>
                                 </div>
                             </article>
                                     <button (click)="navigateToBookDetail(book.book_Id, book.borrow_Id)">Details</button> 
-                                    
                         </div>
-
-  
                     </div>
                 </div>
                 <!-- / post grid -->
-
             </div>
-
         </div>
-
     </div>
 </section>
 <app-footer></app-footer>
