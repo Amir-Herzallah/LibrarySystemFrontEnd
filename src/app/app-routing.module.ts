@@ -12,19 +12,20 @@ import { AccountComponent } from './account/account.component';
 import { MyBooksComponent } from './my-books/my-books.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookReviewComponent } from './book-review/book-review.component';
+import { BorrowBookComponent } from './borrow-book/borrow-book.component';
 
 
 
 const routes: Routes = [
-  { 
+  {
     path: '',
-    component: HomeComponent 
+    component: HomeComponent
   },
-  { 
+  {
     path: 'aboutus',
     component: AboutusComponent
   },
-  { 
+  {
     path: 'contactus',
     component: ContactusComponent
   },
@@ -32,11 +33,11 @@ const routes: Routes = [
     path: 'libraries',
     component: LibrariesComponent
   },
-  { 
+  {
     path: 'Books',
     component: BooksComponent
   },
-  { 
+  {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
@@ -44,30 +45,30 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
-  { 
+  {
     path: 'Testimonial',
     component: TestimonialComponent
   },
   {
-    path:'Account',
-    component:AccountComponent
+    path: 'Account',
+    component: AccountComponent
   },
   { 
-    path: 'book-detail/:bookId/:borrowId',
+    path: 'book-detail/:id',
     component: BookDetailComponent
    }
-  /* ,{
+  ,{
      path: 'MyBooks/:userId',
     component: MyBooksComponent 
-  }, */
-  ,{
-    path: 'MyBooks/:userId',
-   component: MyBooksComponent 
- },
+  },
   {
-    path:'BookReview/:bookId/:borrowId',
+    path:'BookReview',
     component:BookReviewComponent
   },
+  {
+    path: 'borrow-book/:id',
+    component:BorrowBookComponent
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -93,7 +93,7 @@
             <div class="product-item">
               <figure class="product-style">
                 <img src="../../assets/images/{{book.book_Img_Path}}" alt="Books" class="product-item">
-                <button type="button" class="add-to-cart" data-product-tile="add-to-cart">
+                <button type="button" class="add-to-cart" data-product-tile="add-to-cart" (click)="navigateToBorrowBook(book.book_Id)">
                   Borrow Now
                 </button>
               </figure>

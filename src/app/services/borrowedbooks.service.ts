@@ -45,4 +45,13 @@ export class BorrowedbooksService {
         }
       );
   }
+  CreateBorrowedBook(body: any) {
+    debugger;
+    this.http.post('https://localhost:7131/api/BorrowedBook/CreateBorrowedBook', body).subscribe((resp: any) => {
+   //  console.log(resp)
+    },
+      (error: any) => {
+       
+      })
+  }
 }
