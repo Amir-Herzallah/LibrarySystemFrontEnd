@@ -12,6 +12,7 @@ import { AccountComponent } from './account/account.component';
 import { MyBooksComponent } from './my-books/my-books.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookReviewComponent } from './book-review/book-review.component';
+import { BorrowBookComponent } from './borrow-book/borrow-book.component';
 
 
 
@@ -64,6 +65,10 @@ const routes: Routes = [
     path:'BookReview',
     component:BookReviewComponent
   },
+  {
+    path: 'borrow-book/:id',
+    component:BorrowBookComponent
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
