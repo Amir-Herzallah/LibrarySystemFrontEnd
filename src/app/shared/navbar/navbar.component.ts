@@ -17,7 +17,6 @@ export class NavbarComponent {
   }
 
   initializeUser() {
-    debugger;
     if (this.user) {
       const userData = JSON.parse(this.user);
       this.userID = userData.userID;
@@ -32,7 +31,7 @@ export class NavbarComponent {
   }
 
   checkLoginStatus() {
-    debugger;
+
     const user = localStorage.getItem('user');
     this.isLoggedIn = !!user; 
   }

@@ -82,7 +82,6 @@ export class BookService {
   BookPDF:any;
   uploadPDFBook(file: FormData) {
     console.log(file);
-    
     this.http.post('https://localhost:7131/api/Book/UploadPDFBook', file).subscribe((resp: any) => {
       this.BookPDF = resp.book_Pdf_Path;
       this.toastr.success("PDF Uploaded Successfully");

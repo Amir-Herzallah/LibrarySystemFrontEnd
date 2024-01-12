@@ -7,6 +7,7 @@ import { LibraryService } from '../services/library.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { TestimonialService } from '../services/testimonial.service';
 
 @Component({
   selector: 'app-home',
@@ -17,16 +18,22 @@ export class HomeComponent {
   @ViewChild('callPaymentDialog') callPaymentDialog !: TemplateRef<any>
   constructor(public manageHome: AdminService,
     public libraryService: LibraryService,
-    public bookService: BookService, public bankService: MainService,
+
+    public bookService: BookService,
+     public bankService: MainService,
     private toastr: ToastrService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog, 
+    public testimonialService:TestimonialService) 
+    { }
 
   ngOnInit(): void {
-    this.manageHome.GetAllHomepageData()
-    this.bookService.GetTopBooks()
-    this.bookService.GetAllCategoryBooks()
-    this.bookService.GetFindBestSellingBook()
-    this.libraryService.GetAllLibraries()
+    this.manageHome.GetAllHomepageData();
+    this.bookService.GetTopBooks();
+    this.bookService.GetAllCategoryBooks();
+    this.bookService.GetFindBestSellingBook();
+    this.libraryService.GetAllLibraries();
+    this.testimonialService.GetAllTestimonials();
+
   }
   paymentForm: FormGroup = new FormGroup({
     card_Id: new FormControl(),
@@ -41,41 +48,52 @@ export class HomeComponent {
   cardName: any;
   cvv: any;
   activeCategory: string = '';
-  canPaid: any;
+
   isActiveTab(category: any): boolean {
     return category.category_Name === this.activeCategory;
   }
 
+  canPaid: any;
 
   openPaymentDialog(book: any) {
     this.bookPrice = book.price_Per_Day;
     this.dialog.open(this.callPaymentDialog);
     this.paymentForm.controls['card_Id'].setValue(1);
-
     this.bankService.GetBankByID(1).subscribe(res => {
+    this.bankInfo = res;
 
-      this.bankInfo = res;
     });
     this.bankInfo = this.bankService.bank;
     console.log(this.bankInfo)
   }
 
   payBook() {
-
     if (this.bookPrice <= this.bankInfo.balance) {
       this.bankInfo.balance = this.bankInfo.balance - this.bookPrice;
       this.bankService.UpdateBank(this.bankInfo);
-      this.canPaid = true;
+      this.toastr.success("Paid")
     }
     else {
       console.log('No balance in account')
-      this.canPaid = false;
+      this.toastr.error('Not Enough Balance');
     }
-
   }
-
-
   MatchError() {
+//   payBook() {
+
+//     if (this.bookPrice <= this.bankInfo.balance) {
+//       this.bankInfo.balance = this.bankInfo.balance - this.bookPrice;
+//       this.bankService.UpdateBank(this.bankInfo);
+//       this.canPaid = true;
+//     }
+//     else {
+//       console.log('No balance in account')
+//       this.canPaid = false;
+//     }
+
+//   }
+
+//   MatchError() {
     
     if (this.paymentForm.controls['cardholder_Name'].value ==
       this.bankInfo.cardholder_Name) {
@@ -86,9 +104,7 @@ export class HomeComponent {
         if (this.paymentForm.controls['cvv'].value ==
           this.bankInfo.cvv) {
           this.paymentForm.controls['cvv'].setErrors(null);
-
         }
-
         else {
           this.paymentForm.controls['cvv'].setErrors({ misMatch: true });
         }
@@ -99,8 +115,5 @@ export class HomeComponent {
     }
     else
       this.paymentForm.controls['cardholder_Name'].setErrors({ misMatch: true });
-
-
   }
 }
-

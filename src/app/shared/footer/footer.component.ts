@@ -13,7 +13,6 @@ export class FooterComponent implements OnInit {
   constructor(public manageHome:AdminService) {}
 
   ngOnInit() {
-    debugger;
     this.manageHome.GetAllHomepageData()
 
   }

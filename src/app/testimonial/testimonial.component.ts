@@ -24,5 +24,6 @@ export class TestimonialComponent implements OnInit {
   }
   ngOnInit(): void {
     this.manageTestimonialPage.GetAllTestimonialData();
+    this.testimonial.GetAllTestimonials();
   }
 }

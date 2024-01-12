@@ -73,7 +73,8 @@ import { PaymentComponent } from './payment/payment.component';
     BrowserModule, 
      MatTableModule,
      MatDatepickerModule,
-     MatNativeDateModule
+     MatNativeDateModule,
+     
   ],
   providers: [],
   bootstrap: [AppComponent]
