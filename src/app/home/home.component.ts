@@ -20,11 +20,10 @@ export class HomeComponent {
     public libraryService: LibraryService,
 
     public bookService: BookService,
-     public bankService: MainService,
+    public bankService: MainService,
     private toastr: ToastrService,
-    public dialog: MatDialog, 
-    public testimonialService:TestimonialService) 
-    { }
+    public dialog: MatDialog,
+    public testimonialService: TestimonialService) { }
 
   ngOnInit(): void {
     this.manageHome.GetAllHomepageData();
@@ -60,7 +59,7 @@ export class HomeComponent {
     this.dialog.open(this.callPaymentDialog);
     this.paymentForm.controls['card_Id'].setValue(1);
     this.bankService.GetBankByID(1).subscribe(res => {
-    this.bankInfo = res;
+      this.bankInfo = res;
 
     });
     this.bankInfo = this.bankService.bank;
@@ -79,22 +78,22 @@ export class HomeComponent {
     }
   }
   MatchError() {
-//   payBook() {
+    //   payBook() {
 
-//     if (this.bookPrice <= this.bankInfo.balance) {
-//       this.bankInfo.balance = this.bankInfo.balance - this.bookPrice;
-//       this.bankService.UpdateBank(this.bankInfo);
-//       this.canPaid = true;
-//     }
-//     else {
-//       console.log('No balance in account')
-//       this.canPaid = false;
-//     }
+    //     if (this.bookPrice <= this.bankInfo.balance) {
+    //       this.bankInfo.balance = this.bankInfo.balance - this.bookPrice;
+    //       this.bankService.UpdateBank(this.bankInfo);
+    //       this.canPaid = true;
+    //     }
+    //     else {
+    //       console.log('No balance in account')
+    //       this.canPaid = false;
+    //     }
 
-//   }
+    //   }
 
-//   MatchError() {
-    
+    //   MatchError() {
+
     if (this.paymentForm.controls['cardholder_Name'].value ==
       this.bankInfo.cardholder_Name) {
       this.paymentForm.controls['cardholder_Name'].setErrors(null);

@@ -5,7 +5,7 @@ import { LibraryService } from '../services/library.service';
 import { BookService } from '../services/book.service';
 import { TestimonialService } from '../services/testimonial.service';
 import { BookReviewService } from '../services/book-review.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-libraries',
@@ -18,7 +18,7 @@ export class LibrariesComponent implements OnInit {
   selectedBooksId: number | null = null;
   searchText: string = '';
 
-  constructor(public libraryService: LibraryService ,public bookService:BookService,public bookReviewService:BookReviewService) {}
+  constructor(public libraryService: LibraryService ,public bookService:BookService,public bookReviewService:BookReviewService, public router: Router) {}
 
   ngOnInit():void {
     this.libraryService.GetAllLibraries();
