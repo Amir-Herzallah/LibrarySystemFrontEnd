@@ -143,7 +143,7 @@ export class AdminService {
   GetAllTestimonialData() {
     this.http.get("https://localhost:7131/api/TestimonialPage/GetAllTestimonialPageData").subscribe((resp) => {   
       this.testimonialPageData = resp
-      this.toastr.success('Testimonial page loaded successfully');
+      // this.toastr.success('Testimonial page loaded successfully');
     }, err => {
       this.toastr.error('Something Went Wrong');
     })

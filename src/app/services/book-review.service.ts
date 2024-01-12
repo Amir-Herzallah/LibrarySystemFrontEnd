@@ -29,7 +29,7 @@ export class BookReviewService {
     GettAllReviews(){
       this.http.get('https://localhost:7131/api/BookReview/GetAllBookReviews').subscribe((resp:any)=>{
         this.reviews=resp;
-        this.toastr.success("Book Reviews Uploaded Successfully");
+        // this.toastr.success("Book Reviews Uploaded Successfully");
       },
       (error: any) => {
         this.toastr.error("Error Occured");

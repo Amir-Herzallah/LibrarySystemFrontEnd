@@ -2,20 +2,12 @@
 
 <body data-bs-spy="scroll" data-bs-target="#header" tabindex="0" data-aos-easing="ease" data-aos-duration="1200"
 	data-aos-delay="0" data-new-gr-c-s-check-loaded="14.1049.0" data-gr-ext-installed="">
-
-<body data-bs-spy="scroll" data-bs-target="#header" tabindex="0" data-aos-easing="ease" data-aos-duration="1200"
-	data-aos-delay="0" data-new-gr-c-s-check-loaded="14.1049.0" data-gr-ext-installed="">
 	<div id="header-wrap">
 		<section class=" padding-medium mt-3">
 			<div class="container">
 				<div class="row g-5">
 					<div class="col-md-6 mb-3">
-		<section class=" padding-medium mt-3">
-			<div class="container">
-				<div class="row g-5">
-					<div class="col-md-6 mb-3">
 
-						<h2>{{this.manageTestimonialPage.testimonialPageData[0].title}}</h2>
 						<h2>{{this.manageTestimonialPage.testimonialPageData[0].title}}</h2>
 
 						<div class="contact-detail d-flex flex-wrap mt-4">
@@ -55,12 +47,7 @@
 									<div class="col-md-12">
 										<div class="btn-wrap align-center">
 											<a href="#" class="btn btn-outline-accent btn-accent-arrow" tabindex="0"
-												*ngIf="userID!=null" (click)="saveFeedback()">Send Your Feedback
-												<i class="icon icon-ns-arrow-right"></i></a>
-										</div>
-										<div class="btn-wrap align-center">
-											<a href="/auth/login" class="btn btn-outline-accent btn-accent-arrow"
-												tabindex="0" *ngIf="userID==null">Sign Up/ Login To Send Your Feedback
+												(click)="saveFeedback()">Send Your Feedback
 												<i class="icon icon-ns-arrow-right"></i></a>
 										</div>
 									</div>
@@ -71,8 +58,9 @@
 				</div>
 			</div>
 		</section>
-
 	</div>
+
+
 	<section id="latest-blog" class="py-5 my-5">
 		<div class="container">
 			<div class="row">
@@ -85,10 +73,10 @@
 					</div>
 					<br>
 					<div class="row">
-						<div class="col-md-4" *ngFor="let obj of testimonial.testimonials">
+						<div class="col-md-4"*ngFor="let obj of testimonial.testimonials">
 							<article class="column aos-init aos-animate" data-aos="fade-up">
 								<div class="post-item">
-									<div class="meta-date">{{obj.submission_Date | date}}</div>
+									<div class="meta-date">{{obj.submission_Date}}</div>
 									<h4>{{obj.text}}</h4>
 									<div class="links-element">
 										<div class="categories">{{obj.user_Id}}</div>
