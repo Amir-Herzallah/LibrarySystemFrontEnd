@@ -21,8 +21,7 @@ export class HomeComponent {
     public bookService: BookService,
      public bankService: MainService,
     private toastr: ToastrService,
-    public dialog: MatDialog, 
-    public testimonialService:TestimonialService) 
+    public dialog: MatDialog) 
     { }
 
   ngOnInit(): void {
@@ -31,7 +30,6 @@ export class HomeComponent {
     this.bookService.GetAllCategoryBooks();
     this.bookService.GetFindBestSellingBook();
     this.libraryService.GetAllLibraries();
-    this.testimonialService.GetAllTestimonials();
   }
   paymentForm: FormGroup = new FormGroup({
     card_Id: new FormControl(),

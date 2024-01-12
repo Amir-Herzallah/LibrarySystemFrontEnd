@@ -12,7 +12,6 @@ export class TestimonialComponent implements OnInit {
   constructor(public testimonial:TestimonialService,
     public manageTestimonialPage:AdminService)
     {}
-  
   CreateForm: FormGroup=new FormGroup({
     text:new FormControl('Write your feedback',[Validators.required]),
     status:new FormControl('Pending',[Validators.required]),
