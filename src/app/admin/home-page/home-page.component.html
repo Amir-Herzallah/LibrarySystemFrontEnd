@@ -159,6 +159,7 @@
                         </mat-form-field>
 
                         <div>
+                            <label>Logo</label>
                             <input type="file" #file formControlName="logO_PATH"
                                 (change)="UploadHomepageImage(file.files)">
                         </div>
@@ -238,6 +239,7 @@
                         </mat-form-field>
 
                         <div>
+                            <label>Logo</label>
                             <input type="file" #file formControlName="logO_PATH"
                                 (change)="UploadHomepageImage(file.files)" [(ngModel)]="homepage_pData.logO_PATH">
                         </div>

@@ -13,7 +13,6 @@ export class AdminService {
   display_image: any;
   homePageData: any = [{}]
   GetAllHomepageData() {
-    debugger;
     this.http.get("https://localhost:7131/api/Homepage/GetAllHomePageData").subscribe((resp) => {
       this.homePageData = resp
       console.log("homePageData",this.homePageData )

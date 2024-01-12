@@ -34,13 +34,11 @@ export class NavbarComponent {
   checkLoginStatus() {
     debugger;
     const user = localStorage.getItem('user');
-    this.isLoggedIn = !!user; // Convert to boolean: true if user exists, false otherwise
+    this.isLoggedIn = !!user; 
   }
 
   signOut() {
-    debugger;
-    localStorage.removeItem('user');
+    localStorage.clear();
     this.isLoggedIn = false;
-    // Add any other logic needed when signing out, like redirecting the user
   }
 }
