@@ -8,9 +8,33 @@ import { BookService } from '../services/book.service';
   styleUrls: ['./book-detail.component.css']
 })
 export class BookDetailComponent implements OnInit {
+ 
+  bookId?: number;
+  borrowId?: number;
   constructor(private router: Router,public Bookservice: BookService,  private route: ActivatedRoute,) { }
   ngOnInit(): void {
-    const bookId = Number(this.route.snapshot.paramMap.get('id'));
-    this.Bookservice.GetBookById(bookId);
+    this.route.params.subscribe(params => {
+      this.bookId = +params['bookId'];
+      this.borrowId = +params['borrowId'];
+      console.log('Book ID:', this.bookId);
+      console.log('Borrow ID:', this.borrowId);
+
+      if (this.bookId) {
+        this.Bookservice.GetBookById(this.bookId);
+      } else {
+        console.error('Book ID is not defined');
+        // Handle the error, e.g., redirect or show a message
+      }
+    });
   }
-}
+
+  navigateToFeedback() {
+    if (this.bookId && this.borrowId) {
+      this.router.navigate(['/BookReview', this.bookId, this.borrowId]);
+    } else {
+      console.error('Invalid bookId or borrowId:', this.bookId, this.borrowId);
+      // Handle the error appropriately
+    }
+  }
+  
+} 
