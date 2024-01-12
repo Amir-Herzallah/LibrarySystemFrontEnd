@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { EmailService } from './email.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +12,14 @@ import { ToastrService } from 'ngx-toastr';
 export class BorrowedbooksService {
   Borrowedbooks: any = [];
   BorrowedbooksByIdUser: any = [];
+  emailInfo: any;
+  localData: any;
   constructor(
     private http: HttpClient,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public emailService: EmailService
   ) { }
 
 
@@ -46,9 +51,24 @@ export class BorrowedbooksService {
       );
   }
   CreateBorrowedBook(body: any) {
-    debugger;
     this.http.post('https://localhost:7131/api/BorrowedBook/CreateBorrowedBook', body).subscribe((resp: any) => {
-   //  console.log(resp)
+      console.log("EMAIL: " +this.emailInfo)
+      this.GetBorrowedBooksDetailsByUserIdAndBookID(body.book_Id);
+      
+
+    },
+      (error: any) => {
+       
+      })
+  }
+
+  GetBorrowedBooksDetailsByUserIdAndBookID(bookID: any) {
+    this.localData = localStorage.getItem("user");
+    this.localData = JSON.parse(this.localData);
+    this.http.get(`https://localhost:7131/api/BorrowedBook/GetBorrowedBooksDetailsByUserIdAndBookID?userID=${this.localData.userID}&bookID=${bookID}`).subscribe((resp: any) => {
+    this.emailInfo = resp;  
+    this.emailService.SendEmail(this.emailInfo);
+      
     },
       (error: any) => {
        
