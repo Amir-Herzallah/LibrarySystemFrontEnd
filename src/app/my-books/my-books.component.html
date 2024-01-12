@@ -25,7 +25,7 @@
                             <article class="post-item">
  
                                 <figure>
-                                    <a [routerLink]="['/book-detail', book.book_Id]" class="image-hvr-effect">
+                                    <a [routerLink]="['/book-detail', book.book_Id,book.borrow_Id]" class="image-hvr-effect">
                                        
                                         <img src="../../../assets/images/{{book.book_Img_Path}}" alt="post" class="post-image">
                                         
@@ -39,7 +39,7 @@
                                     <p>{{book.description}}</p>
                                 </div>
                             </article>
-                                    <button [routerLink]="['/book-detail', book.book_Id]">Details</button> 
+                                    <button (click)="navigateToBookDetail(book.book_Id, book.borrow_Id)">Details</button> 
                                     
                         </div>
 

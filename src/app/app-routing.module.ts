@@ -53,15 +53,19 @@ const routes: Routes = [
     component:AccountComponent
   },
   { 
-    path: 'book-detail/:id',
+    path: 'book-detail/:bookId/:borrowId',
     component: BookDetailComponent
    }
-  ,{
+  /* ,{
      path: 'MyBooks/:userId',
     component: MyBooksComponent 
-  },
+  }, */
+  ,{
+    path: 'MyBooks/:userId',
+   component: MyBooksComponent 
+ },
   {
-    path:'BookReview',
+    path:'BookReview/:bookId/:borrowId',
     component:BookReviewComponent
   },
 ];
