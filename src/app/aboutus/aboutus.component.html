@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>>
+<app-navbar></app-navbar>
     <section class="carousel slide container" id="about-slider" data-bs-ride="carousel">
         <div class="carousel-inner px-4 pt-5 mb-5">
             <div class="carousel-item" *ngFor="let slider of aboutUs.aboutUsSliders; let i = index" [ngClass]="{'active': i === 0}">
@@ -7,8 +7,8 @@
                         <h1 class="display-2 mb-4" >{{slider.headeR_COMPONENT1}}</h1>
                         <p class="mb-4 pe-5" id="aboutPar">{{slider.paragraph1}}</p>
                     </div>
-                    <div class="col-5 pattern-overlay">
-                        <img src="../../assets/AboutUsImages/{{slider.imagE_PATH1}}" class=""/>
+                    <div class="col-5 pattern-overlay" style="margin-top: 10rem;">
+                        <img src="../../assets/images/{{slider.imagE_PATH1}}" class=""/>
                     </div>
                 </div>
                 

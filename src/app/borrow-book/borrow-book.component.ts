@@ -22,7 +22,6 @@ export class BorrowBookComponent {
   currentDate!: Date;
   localData: any;
   invoiceInfo: any
-
   bookPrice: any;
   bankInfo: any;
   cardNO: any;
@@ -42,7 +41,7 @@ export class BorrowBookComponent {
     borrow_Date_To: new FormControl('',Validators.required),
     borrow_Date_From:new FormControl(),
     fine_Percentage: new FormControl(),
-   isfine_Paid:new FormControl()
+    isfine_Paid:new FormControl()
   });
 
   paymentForm: FormGroup = new FormGroup({
@@ -51,15 +50,13 @@ export class BorrowBookComponent {
     cardholder_Name: new FormControl('', Validators.required),
     cvv: new FormControl('', [Validators.required, Validators.maxLength(3), Validators.minLength(3)])
   });
+
  ngOnInit():void{
    this.route.params.subscribe(params=>{
     this.bookId= +params['id']
-    debugger
     if (this.bookId) {
       this.currentDate = new Date();
       this.bookService.GetBookById(this.bookId);
-
-
       this.borrowBookForm.controls['user_Id'].setValue(parseInt(this.localData.userID));
       this.borrowBookForm.controls['book_Id'].setValue(this.bookId);
       this.borrowBookForm.controls['borrow_Date_From'].setValue(this.currentDate.toISOString().split('T')[0]);
@@ -67,20 +64,15 @@ export class BorrowBookComponent {
       this.borrowBookForm.controls['isfine_Paid'].setValue("false");
     } else {
       console.error('Book ID is not defined');
-      
     }
    });
  }
 
  openPaymentDialog(book: any) {
-  debugger
   this.bookPrice = book.price_Per_Day;
   this.dialog.open(this.callPaymentDialog);
   this.paymentForm.controls['card_Id'].setValue(1);
-  
-
   this.bankService.GetBankByID(1).subscribe(res => {
-
     this.bankInfo = res;
   });
   this.bankInfo = this.bankService.bank;
@@ -90,8 +82,7 @@ closePaymentDialog(): void {
   this.dialog.closeAll();
 }
 
-MatchError() {
-    
+MatchError() {   
   if (this.paymentForm.controls['cardholder_Name'].value ==
     this.bankInfo.cardholder_Name) {
     this.paymentForm.controls['cardholder_Name'].setErrors(null);
@@ -101,9 +92,7 @@ MatchError() {
       if (this.paymentForm.controls['cvv'].value ==
         this.bankInfo.cvv) {
         this.paymentForm.controls['cvv'].setErrors(null);
-
       }
-
       else {
         this.paymentForm.controls['cvv'].setErrors({ misMatch: true });
       }
@@ -114,8 +103,6 @@ MatchError() {
   }
   else
     this.paymentForm.controls['cardholder_Name'].setErrors({ misMatch: true });
-
-
 }
 payBook() {
 

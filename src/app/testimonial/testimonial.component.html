@@ -24,7 +24,7 @@
 						<form name="contactform"[formGroup]="CreateForm" class="form-group contact-form mt-4">
 							<div class="row">
 								<div class="col-md-12">
-									<textarea class="form-control" name="message" style="height: 150px;"placeholder="Your Feedback" formControlName="text" rows="5"></textarea>
+									<textarea class="form-control" name="message" style="height: 150px;" placeholder="Your Feedback" formControlName="text" rows="5"></textarea>
 									<span [ngStyle]="{'color':'red', 'size':'5px'}" *ngIf="CreateForm.controls['text'].hasError('required')">
 										Feedback is required
 									</span>
@@ -38,7 +38,11 @@
 
 								<div class="col-md-12">
 									<div class="btn-wrap align-center">
-                                        <a href="#" class="btn btn-outline-accent btn-accent-arrow" tabindex="0" (click)="saveFeedback()">Send Your Feedback
+                                        <a href="#" class="btn btn-outline-accent btn-accent-arrow" tabindex="0" *ngIf="userID!=null" (click)="saveFeedback()">Send Your Feedback
+											<i class="icon icon-ns-arrow-right"></i></a>
+                                    </div>
+									<div class="btn-wrap align-center">
+                                        <a href="/auth/login" class="btn btn-outline-accent btn-accent-arrow" tabindex="0" *ngIf="userID==null" >Sign Up/ Login To Send Your Feedback
 											<i class="icon icon-ns-arrow-right"></i></a>
                                     </div>
 								</div>
