@@ -23,22 +23,16 @@ export class MainService {
   
   GetBankByID(id:number){
      return this.http.get("https://localhost:7131/api/Bank/GetBankAccountById/"+id);
-    //  .subscribe((resp)=>{
-    //         this.bank = resp;
-    //       },err=>{ 
-    //         console.log(err.message);
-    //         console.log(err.status);
-            
-           
-    //       });
+   
   }
 
   
   UpdateBank(bankInfo:any){
          this.http.put("https://localhost:7131/api/Bank/UpdateBankAccount",bankInfo).subscribe((resp)=>{
-          this.toastr.success('Updated !!'); 
+         // this.toastr.success('Updated !!'); 
+         
         }, err=>{
-          this.toastr.error('Error !!');
+        //  this.toastr.error('Error !!');
          
         })
   }
@@ -122,7 +116,5 @@ export class MainService {
      
 //     })
 //  }
-
-
 
 }

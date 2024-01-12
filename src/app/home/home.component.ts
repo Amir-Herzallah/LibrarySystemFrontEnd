@@ -18,6 +18,7 @@ export class HomeComponent {
   @ViewChild('callPaymentDialog') callPaymentDialog !: TemplateRef<any>
   constructor(public manageHome: AdminService,
     public libraryService: LibraryService,
+
     public bookService: BookService,
      public bankService: MainService,
     private toastr: ToastrService,
@@ -32,6 +33,7 @@ export class HomeComponent {
     this.bookService.GetFindBestSellingBook();
     this.libraryService.GetAllLibraries();
     this.testimonialService.GetAllTestimonials();
+
   }
   paymentForm: FormGroup = new FormGroup({
     card_Id: new FormControl(),
@@ -46,19 +48,25 @@ export class HomeComponent {
   cardName: any;
   cvv: any;
   activeCategory: string = '';
+
   isActiveTab(category: any): boolean {
     return category.category_Name === this.activeCategory;
   }
+
+  canPaid: any;
+
   openPaymentDialog(book: any) {
     this.bookPrice = book.price_Per_Day;
     this.dialog.open(this.callPaymentDialog);
     this.paymentForm.controls['card_Id'].setValue(1);
     this.bankService.GetBankByID(1).subscribe(res => {
     this.bankInfo = res;
+
     });
     this.bankInfo = this.bankService.bank;
     console.log(this.bankInfo)
   }
+
   payBook() {
     if (this.bookPrice <= this.bankInfo.balance) {
       this.bankInfo.balance = this.bankInfo.balance - this.bookPrice;
@@ -71,6 +79,22 @@ export class HomeComponent {
     }
   }
   MatchError() {
+//   payBook() {
+
+//     if (this.bookPrice <= this.bankInfo.balance) {
+//       this.bankInfo.balance = this.bankInfo.balance - this.bookPrice;
+//       this.bankService.UpdateBank(this.bankInfo);
+//       this.canPaid = true;
+//     }
+//     else {
+//       console.log('No balance in account')
+//       this.canPaid = false;
+//     }
+
+//   }
+
+//   MatchError() {
+    
     if (this.paymentForm.controls['cardholder_Name'].value ==
       this.bankInfo.cardholder_Name) {
       this.paymentForm.controls['cardholder_Name'].setErrors(null);

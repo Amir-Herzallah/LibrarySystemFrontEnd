@@ -30,6 +30,8 @@ import { MyBooksComponent } from './my-books/my-books.component';
 import { ProfileEditComponent } from './account/profile-edit/profile-edit.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookReviewComponent } from './book-review/book-review.component';
+import { BorrowBookComponent } from './borrow-book/borrow-book.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -51,7 +53,9 @@ import { BookReviewComponent } from './book-review/book-review.component';
     MyBooksComponent,
     BookReviewComponent,
     ProfileEditComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    BorrowBookComponent,
+    PaymentComponent
       ],
   imports: [
     BrowserModule,

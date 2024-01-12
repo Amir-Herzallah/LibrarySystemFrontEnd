@@ -11,7 +11,7 @@
                 <div class="main-slider pattern-overlay">
                     <div class="slider-item ">
                         <div class="banner-content">
-                            <h2 class="banner-title">Life of the Wild</h2>
+                            <h2 class="banner-title" style="line-height: normal;">Life of the Wild</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero
                                 ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
                                 urna, a eu.</p>
@@ -259,7 +259,7 @@
 
                 <div class="section-header align-center">
                     <div class="title">
-                        <span>Our Partners</span>
+                        <span>Libraries</span>
                     </div>
                     <h2 class="section-title">{{this.manageHome.homePageData[0].headeR_COMPONENT3}}</h2>
                 </div>
@@ -405,9 +405,17 @@
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bg btn"></div>
+
                         <button class="login100-form-btn"
                             style="background-color: #C5A992; color: white; padding: 15px 20px; border: none; border-radius: 4px; cursor: pointer;"
                             (click)="payBook()">Confirm Payment</button>
+
+                       <!-- <button class="login100-form-btn" style="background-color: #C5A992; color: white; padding: 15px 20px; border: none; border-radius: 4px; cursor: pointer;" (click)="payBook()">Confirm Payment</button>
+                        <span *ngIf="this.canPaid;else elseStatement" style="color:green">Paid Done!</span>
+                        <ng-template #elseStatement> 
+                            <span style="color:red">Not enough balance</span> 
+                        </ng-template> -->
+
                     </div>
                 </div>
                 <mat-dialog-actions align="end">
@@ -418,3 +426,4 @@
     </section>
 </ng-template>
 <app-footer></app-footer>
+

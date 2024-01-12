@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../auth/login/login.component';
 @Injectable({
@@ -138,6 +137,7 @@ GetBookByID(id:Number){
  }
  //
  GetBookById(id :number){
+  debugger
   this.http.get(`https://localhost:7131/api/Book/GetBookById?id=${id}`).subscribe((resp: any) => {
     this.BookDetails = resp;
     console.log("Fetched BookDetails: ", this.BookDetails);

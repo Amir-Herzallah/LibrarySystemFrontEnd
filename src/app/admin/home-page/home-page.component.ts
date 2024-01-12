@@ -67,12 +67,12 @@ export class HomePageComponent {
   }
 
   UploadHomepageImage(file: any) {
-    if (file.length == 0) return;
-    let fileToUlpoad = <File>file[0];
+    if (file.length === 0) return;
+    let fileToUpload = <File>file[0];
     const formData = new FormData();
-    formData.append('file', fileToUlpoad, fileToUlpoad.name);
+    formData.append('file', fileToUpload, fileToUpload.name);
     this.adminService.UploadAttachment(formData);
-  }
+}
 
   DeleteHomepageDialog(id: number) {
     const dialogRef = this.dialog.open(this.callDeleteHomepageDailog);
