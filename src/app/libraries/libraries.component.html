@@ -1,33 +1,26 @@
-<app-navbar>
-
-</app-navbar>
+<app-navbar></app-navbar>
 <div class="search-container">
   <input type="text" [(ngModel)]="searchText" class="search-input" placeholder="Search libraries, books, categories..."
     aria-label="Search" />
-
   <i class="fas fa-search"></i> <!-- Using Font Awesome for search icon -->
-
 </div>
-
-
-
-
-
 <section id="popular-books" class="bookshelf py-5 my-5">
-    <!-- ... -->
-    <div *ngIf="libraryService.libraries.length; else noData" class="container">
-      <div class="row">
-        <!-- ... header and tabs ... -->
-  
-        <!-- Replace static content with dynamic books from the API -->
-        <div class="tab-content">
-          <div id="all-genre" data-tab-content class="active">
-            <div class="row">
-              <!-- Loop through each book and display its details -->
-              <div *ngFor="let library of (libraryService.libraries| multiSearch:searchText:['name', 'location_Latitude','email'])" class="col-md-3">
-                <div class="product-item">
-                  <figure class="product-style">
-                   <img src="../../../assets/images/{{library.image_Path1}}" alt="library img" class="product-item">  
+  <!-- ... -->
+  <div *ngIf="libraryService.libraries.length; else noData" class="container">
+    <div class="row">
+      <!-- ... header and tabs ... -->
+
+      <!-- Replace static content with dynamic books from the API -->
+      <div class="tab-content">
+        <div id="all-genre" data-tab-content class="active">
+          <div class="row">
+            <!-- Loop through each book and display its details -->
+            <div
+              *ngFor="let library of (libraryService.libraries| multiSearch:searchText:['name', 'location_Latitude','email'])"
+              class="col-md-3">
+              <div class="product-item">
+                <figure class="product-style">
+                  <img src="../../../assets/images/{{library.image_Path1}}" alt="library img" class="product-item">
                   <!--   <img [src]="'../../../assets/Uploded-Images/' + book.book_Img_Path" alt="Book cover" class="product-item">
  -->
 
@@ -110,6 +103,34 @@
   </div>
 </div>
 
+<section id="latest-blog" class="py-5 my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-header align-center">
+          <div class="title">
+            <span>What Our Clients Said About Us</span>
+          </div>
+          <h2 class="section-title">Testimonial</h2>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let rev of bookReviewService.reviews">
+            <article class="column aos-init aos-animate" data-aos="fade-up">
+              <div class="post-item">
+                <div class="meta-date">{{ rev.review_Date }}</div>
+                <h4>{{ rev.review_Text }}</h4>
+                <div class="links-element">
+                  <div class="categories">{{ rev.user_Id }}</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 

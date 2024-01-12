@@ -16,15 +16,22 @@ export class BookReviewService {
 
     rev:any;
     CreateReview(body: any) {
-      debugger;
-      console.log(body.value);
-      
       this.http.post('https://localhost:7131/api/BookReview/CreateBookReview', body).subscribe((resp: any) => {
         this.rev=resp;
-        this.toastr.success("Book Created Successfully");
+        this.toastr.success("Book FeedBack Created Successfully");
       },
         (error: any) => {
           this.toastr.error("Error Occured");
         })
     }
+    reviews:any=[{}]
+    GettAllReviews(){
+      this.http.get('https://localhost:7131/api/BookReview/GetAllBookReviews').subscribe((resp:any)=>{
+        this.reviews=resp;
+        this.toastr.success("Book Reviews Uploaded Successfully");
+      },
+      (error: any) => {
+        this.toastr.error("Error Occured");
+      })
+    } 
 }

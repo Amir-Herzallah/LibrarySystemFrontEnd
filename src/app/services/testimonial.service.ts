@@ -20,4 +20,17 @@ export class TestimonialService {
     }
     )
   }
+  
+  testimonials:any=[{}];
+  GetAllTestimonials() {
+    console.log(this.testimonials.value);
+    debugger
+    this.http.get('https://localhost:7131/api/Testimonial/GetAllTestimonials').subscribe((resp: any) => {
+      this.testimonials = resp;
+      this.toastr.success("Testimonials Loaded Successfully");
+    },
+      (error: any) => {
+        this.toastr.error("Error Occured");
+      })
+  }
 }
