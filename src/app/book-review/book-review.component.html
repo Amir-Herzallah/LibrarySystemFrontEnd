@@ -10,7 +10,7 @@
 								<form name="contactform"[formGroup]="CreateForm" class="form-group contact-form mt-4">
 									<div class="row">
 										<div class="col-md-12">
-											<igc-rating formControlName="rating"  name="userRating"></igc-rating>
+											<igc-rating formControlName="rating"(ngModelChange)="onRatingChanged($event)" (igcChange)="onRatingChanged($event)"></igc-rating>
 											<br>
 											<br>
 										</div>

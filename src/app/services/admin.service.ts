@@ -13,10 +13,9 @@ export class AdminService {
   display_image: any;
   homePageData: any = [{}]
   GetAllHomepageData() {
-    debugger;
+
     this.http.get("https://localhost:7131/api/Homepage/GetAllHomePageData").subscribe((resp) => {
       this.homePageData = resp
-      console.log("homePageData",this.homePageData )
     }, err => {
       alert("Something Went Wrong")
     })
@@ -159,7 +158,6 @@ export class AdminService {
       this.toastr.error('Something Went Wrong');
     })
   }
-
   DeleteTestimonialPage(id: number) {    
     this.http.delete("https://localhost:7131/api/TestimonialPage/DeleteTestimonialPageData?id=" + id).subscribe((resp) => {
       window.location.reload();
@@ -168,7 +166,6 @@ export class AdminService {
       this.toastr.error('Something Went Wrong');
     })
   }
-
   UpdateTestimonialPage(body: any) {
     this.http.put("https://localhost:7131/api/TestimonialPage/UpdateTestimonialPageData", body).subscribe((resp) => {
       window.location.reload();
@@ -177,5 +174,4 @@ export class AdminService {
       this.toastr.error('Something Went Wrong');
     })
   }
-
 }

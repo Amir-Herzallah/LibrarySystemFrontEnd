@@ -16,6 +16,8 @@ export class BookReviewService {
 
     rev:any;
     CreateReview(body: any) {
+      debugger;
+
       this.http.post('https://localhost:7131/api/BookReview/CreateBookReview', body).subscribe((resp: any) => {
         this.rev=resp;
         this.toastr.success("Book FeedBack Created Successfully");

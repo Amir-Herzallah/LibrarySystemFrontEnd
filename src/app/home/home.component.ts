@@ -50,7 +50,6 @@ export class HomeComponent {
     return category.category_Name === this.activeCategory;
   }
   openPaymentDialog(book: any) {
-    debugger;
     this.bookPrice = book.price_Per_Day;
     this.dialog.open(this.callPaymentDialog);
     this.paymentForm.controls['card_Id'].setValue(1);
@@ -61,7 +60,6 @@ export class HomeComponent {
     console.log(this.bankInfo)
   }
   payBook() {
-    debugger;
     if (this.bookPrice <= this.bankInfo.balance) {
       this.bankInfo.balance = this.bankInfo.balance - this.bookPrice;
       this.bankService.UpdateBank(this.bankInfo);
@@ -73,7 +71,6 @@ export class HomeComponent {
     }
   }
   MatchError() {
-    debugger
     if (this.paymentForm.controls['cardholder_Name'].value ==
       this.bankInfo.cardholder_Name) {
       this.paymentForm.controls['cardholder_Name'].setErrors(null);

@@ -17,7 +17,6 @@ export class NavbarComponent {
   }
 
   initializeUser() {
-    debugger;
     if (this.user) {
       const userData = JSON.parse(this.user);
       this.userID = userData.userID;
@@ -32,13 +31,13 @@ export class NavbarComponent {
   }
 
   checkLoginStatus() {
-    debugger;
+
     const user = localStorage.getItem('user');
     this.isLoggedIn = !!user; // Convert to boolean: true if user exists, false otherwise
   }
 
   signOut() {
-    debugger;
+
     localStorage.removeItem('user');
     this.isLoggedIn = false;
     // Add any other logic needed when signing out, like redirecting the user

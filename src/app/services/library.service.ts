@@ -24,7 +24,6 @@ export class LibraryService {
   GetAllLibraries() {
     this.http.get('https://localhost:7131/api/Library/GetAllLibraries').subscribe((resp) => { 
         this.libraries = resp;
-        console.log("Fetched Libraries: ", this.libraries);
       },
       (error) => {
         console.error("Failed to fetch libraries: ", error); 
@@ -39,7 +38,6 @@ export class LibraryService {
       this.http.get(`https://localhost:7131/api/Category/GetCategoriesByLibraryId?id=${id}`)
        .subscribe((res:any) =>{
         this.Categories = res;
-        console.log("Fetched Categories: ", this.Categories);
       } ,
         error => {
           console.error("Failed to fetch categories: ", error);
@@ -88,7 +86,6 @@ export class LibraryService {
     display_image: any;
   
     UpdateLibrary(id:any, body: any) {
-        debugger;
         body.image_Path1=this.display_image;    
         body.image_Path2=this.display_image;    
         

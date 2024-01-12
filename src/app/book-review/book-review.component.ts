@@ -20,7 +20,7 @@ readonly userId?: number | null;
 
 CreateForm: FormGroup=new FormGroup({
   review_Text:new FormControl('Write your feedback',[Validators.required]),
-  rating:new FormControl('',),
+  rating:new FormControl( ''),
   review_Date:new FormControl(new Date(),[Validators.required]),
   borrow_Id:new FormControl(  '',[Validators.required]),
   book_Id:new FormControl(  '' ,[Validators.required]),
@@ -28,12 +28,9 @@ CreateForm: FormGroup=new FormGroup({
 })
 ngOnInit(): void {
   this.route.params.subscribe(params => {
-    debugger;
+
     this.bookId = +params['bookId'];
     this.borrowId = +params['borrowId'];
-    console.log('Book Re Book ID:', this.bookId);
-    console.log('Borrow ID:', this.borrowId);
-     // Now that you have bookId and borrowId, set them on the form
      this.CreateForm.patchValue({
       borrow_Id: this.borrowId,
       book_Id: this.bookId
@@ -52,6 +49,10 @@ ngOnInit(): void {
 saveReview(){
   this.review.CreateReview(this.CreateForm.value);
 }
-
-}   
- 
+onRatingChanged(rate: any) {  
+  this.CreateForm.patchValue({
+    rating: rate.detail
+  });
+  console.log(rate);
+}
+}

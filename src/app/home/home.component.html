@@ -134,7 +134,6 @@
                             </figure>
                         </div>
                     </div>
-
                     <div class="col-md-6">
                         <div class="product-entry">
                             <h2 class="section-title divider">Best Selling Book</h2>
@@ -322,7 +321,7 @@
 <section id="latest-blog" class="py-5 my-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-12" *ngFor="let testi of testimonialService.testimonials">
+            <div class="col-md-12" *ngFor="let obj of testimonialService.testimonials">
                 <div class="section-header align-center">
                     <div class="title">
                         <span>What Our Clients Said About Us</span>
@@ -334,10 +333,10 @@
                     <div class="col-md-4">
                         <article class="column aos-init aos-animate" data-aos="fade-up">
                             <div class="post-item">
-                                <div class="meta-date">testi.submission_Date</div>
-                                <h4>testi.text</h4>
+                                <div class="meta-date">{{obj.submission_Date}}</div>
+                                <h4>{{obj.text}}</h4>
                                 <div class="links-element">
-                                    <div class="categories">testi.user</div>
+                                    <div class="categories">{{obj.user_Id}}</div>
                                 </div>
                             </div>
                         </article>
