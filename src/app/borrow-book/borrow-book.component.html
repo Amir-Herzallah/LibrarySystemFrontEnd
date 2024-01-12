@@ -1,0 +1,154 @@
+<app-navbar></app-navbar>
+<section class="ftco-section">
+  <div class="container  mb-5">
+    <div class="row justify-content-center">
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="wrapper">
+          <div class="row no-gutters">
+            <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
+              <div class="contact-wrap w-100 p-md-5 p-4">
+                <h3 class="mb-4">Borrow Book</h3>
+                <div id="form-message-warning" class="mb-4"></div> 
+                <div id="form-message-success" class="mb-4">
+                  Your message was sent, thank you!
+                </div>
+                <form  method="POST" id="contactForm" name="contactForm" class="contactForm" [formGroup]="borrowBookForm">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="label" for="name">From</label>
+                        <input type="date" matInput class="form-control" name="borrow_Date_From" id="borrow_Date_From" placeholder="borrow_Date_From" formControlName="borrow_Date_From" readonly>
+
+                      </div>
+                    </div>
+                    <div class="col-md-6"> 
+                      <div class="form-group">
+                        <label class="label" for="email">To</label>
+                        <input type="date" class="form-control" name="borrow_Date_To" id="borrow_Date_To" placeholder="borrow_Date_To" formControlName="borrow_Date_To">
+                       <mat-error *ngIf="borrowBookForm.controls['borrow_Date_To'].hasError('required')">
+                        <span style="color:red">Date To Is Required</span>
+                       </mat-error>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="label" for="subject">Fine Percetange</label>
+                        <input type="number" matInput class="form-control" name="fine_Percentage" id="fine_Percentage" placeholder="fine_Percentage" formControlName="fine_Percentage" readonly>
+                      </div>
+                    </div>
+                   
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <button type="submit" value="Borrow" class="btn btn-outline btn-primary" id="editButton" (click)="openPaymentDialog(this.bookService.BookDetails)" [disabled]="borrowBookForm.invalid">Borrow</button>
+                        <div class="submitting"></div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-5 d-flex align-items-stretch">
+              <div class="info-wrap w-100 p-md-5 p-4">
+                 <h3></h3>
+                 <p class="mb-4"></p>
+                <div class="dbox w-100 d-flex align-items-start">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                  </div>
+                  <div class="text pl-3">
+                    <p><span>Book Name:</span> {{this.bookService.BookDetails.title}}</p>
+                  </div>
+                </div>
+                <div class="dbox w-100 d-flex align-items-center">
+                  <div class="icon d-flex align-items-center justify-content-center">
+
+                  </div>
+                  <div class="text pl-3">
+                    <p><span>Book Author:</span> {{this.bookService.BookDetails.author}}</p>
+                  </div>
+                </div>
+                <div class="dbox w-100 d-flex align-items-center">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                  </div>
+                  <div class="text pl-3">
+                    <p><span>Price:</span> {{this.bookService.BookDetails.price_Per_Day}}$</p>
+                  </div>
+                </div>
+
+             
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
+<!-------------------------------------------------------Payment Dialog----------------------------------------------->
+<ng-template #callPaymentDialog>
+    <div class="container-login100" >
+        <div class="row">
+            <div class="col-md-7 mx-auto"> <!-- Adjusted the column size to make it smaller -->
+                <div class="panel panel-default ">
+                    <div class="panel-heading text-center">
+                        <h1 style="font-weight: bolder;">Payment Details</h1>
+                        <button type="button" class="close" aria-label="Close" (click)="closePaymentDialog()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <img class="img-responsive cc-img" src="https://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+                    </div>
+                    <div class="panel-body" style="overflow-y: auto; max-height: 200px;"> <!-- Adjusted max-height and added overflow-y -->
+                        <form role="form" [formGroup]="paymentForm">
+                            <div class="form-group">
+                                <label>CARD OWNER</label>
+                                <input type="text" class="form-control" placeholder="Card Owner Names" formControlName="cardholder_Name" (change)="MatchError()"/>
+                                <span style="font-size:12px ; color: red;" *ngIf="paymentForm.controls['cardholder_Name'].hasError('required')"> card holder name is required</span>
+                                <span style="color: red;"
+                                    *ngIf="paymentForm.controls['cardholder_Name'].hasError('misMatch')">card holder name not true </span>
+                            </div>
+                            <div class="form-group">
+                                <label>CARD NUMBER</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" placeholder="Valid Card Number" matInput formControlName="card_No" (change)="MatchError()"/>
+                                    <span style="font-size:12px ;color: red;" *ngIf="paymentForm.controls['card_No'].hasError('required')"> card no. is required</span>
+                                    <span style="color: red;"
+                                      *ngIf="paymentForm.controls['card_No'].hasError('misMatch')">card number not true </span>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                               
+                                <div class="col-xs-5 col-md-5 pull-right">
+                                    <div class="form-group">
+                                        <label>CV CODE</label>
+                                        <input type="number" class="form-control" placeholder="CVV" formControlName="cvv" />
+                                        <span style="font-size:12px ;color: red;" *ngIf="paymentForm.controls['cvv'].hasError('required')"> cvv is required</span>
+                                        <span style="color: red;"
+                                            *ngIf="paymentForm.controls['cvv'].hasError('misMatch')">cvv not true </span>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xs-5 col-md-5">
+                                    <div class="form-group">
+                                        <label>Total</label>
+                                        <input type="number"   class="form-control" name="total" id="total" placeholder="{{this.bookPrice}}"  readonly>
+
+                                   </div>
+                                </div>
+                    
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                        <button class="login100-form-btn" style="background-color: #C5A992; color: white; padding: 15px 20px; border: none; border-radius: 4px; cursor: pointer;" [disabled]="paymentForm.invalid" (click)="payBook()" 
+                        >Confirm Payment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
