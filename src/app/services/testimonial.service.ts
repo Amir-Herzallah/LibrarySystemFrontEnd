@@ -7,15 +7,16 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TestimonialService {
 
-  testimonial:any=[{}];
+  testimonial:any;
   constructor(private http:HttpClient,private toastr: ToastrService) { }
   CreateTestimonial(body:any){
     
     this.http.post('https://localhost:7131/api/Testimonial/CreateTestimonial',body)
     .subscribe((resp:any)=>
     {
-      this.toastr.success("Your feedback has been submitted successfully.");
       this.testimonial=resp;
+      this.toastr.success("Your feedback has been submitted successfully.");
+
     },err=>{
       this.toastr.error("The submission of your feedback was unsuccessful.");
     }
@@ -24,10 +25,10 @@ export class TestimonialService {
   
   testimonials:any=[{}];
   GetAllTestimonials() {
-
+    debugger;
     this.http.get('https://localhost:7131/api/Testimonial/GetAllTestimonials').subscribe((resp: any) => {
       this.testimonials = resp;
-      // this.toastr.success("Testimonials Loaded Successfully");
+      this.toastr.success("Testimonials Loaded Successfully");
     },
       (error: any) => {
         this.toastr.error("Error Occured");

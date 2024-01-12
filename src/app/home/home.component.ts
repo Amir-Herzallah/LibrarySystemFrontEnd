@@ -25,6 +25,7 @@ export class HomeComponent {
     public dialog: MatDialog,
     public testimonialService: TestimonialService) { }
 
+
   ngOnInit(): void {
     this.manageHome.GetAllHomepageData();
     this.bookService.GetTopBooks();
@@ -32,7 +33,6 @@ export class HomeComponent {
     this.bookService.GetFindBestSellingBook();
     this.libraryService.GetAllLibraries();
     this.testimonialService.GetAllTestimonials();
-
   }
   paymentForm: FormGroup = new FormGroup({
     card_Id: new FormControl(),
