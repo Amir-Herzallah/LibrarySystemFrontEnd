@@ -25,6 +25,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { DateReportsFilterPipe } from 'src/app/pipes/date-reports-filter.pipe';
 import {MatSelectModule} from '@angular/material/select';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ProfileEditComponent } from './profile/profile-edit/profile-edit.compon
     ContactusPageComponent,
     ProfileComponent,
     DateReportsFilterPipe,
-    ProfileEditComponent
+    ProfileEditComponent,
+    MessagesComponent
   ],
   imports: [
     CommonModule,

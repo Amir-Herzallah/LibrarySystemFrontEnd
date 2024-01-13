@@ -46,8 +46,7 @@ export class UserService {
     body.profile_Img_Path = this.display_image;
     this.http.post('https://localhost:7131/api/User/CreateUserLogin', body).subscribe(
       (resp: any) => {
-        this.router.navigate(['/auth/login']);
-        
+        this.router.navigate(['/auth/login']); 
         this.toastr.success('Signed Up Successfully, Please Login To Continue');
       },
       (error: any) => {

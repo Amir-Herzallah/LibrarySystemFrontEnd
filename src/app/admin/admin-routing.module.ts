@@ -13,6 +13,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ContactusPageComponent } from './contactus-page/contactus-page.component';
 import { TestimonialPageComponent } from './testimonial-page/testimonial-page.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MessagesComponent } from './messages/messages.component';
 
 const routes: Routes = [
   {
@@ -39,11 +40,11 @@ const routes: Routes = [
     path: 'reports',
     component: ReportsManagementComponent
   },
-{
-  path:'borrowedbooks' ,
-  component: BorrowedbooksComponent,
- 
-},
+  {
+    path: 'borrowedbooks',
+    component: BorrowedbooksComponent,
+
+  },
   {
     path: 'home-page',
     component: HomePageComponent
@@ -61,8 +62,12 @@ const routes: Routes = [
     component: TestimonialPageComponent
   },
   {
-    path:'profile',
-    component:ProfileComponent
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
+    path: 'messages',
+    component: MessagesComponent
   }
 ];
 
