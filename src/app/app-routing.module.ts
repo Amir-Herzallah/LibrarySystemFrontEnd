@@ -13,6 +13,7 @@ import { MyBooksComponent } from './my-books/my-books.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookReviewComponent } from './book-review/book-review.component';
 import { BorrowBookComponent } from './borrow-book/borrow-book.component';
+import { authorizationGuard } from './authorization.guard';
 
 
 
@@ -43,7 +44,8 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate:[authorizationGuard]
   },
   {
     path: 'Testimonial',

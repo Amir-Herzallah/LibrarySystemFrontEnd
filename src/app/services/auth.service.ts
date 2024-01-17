@@ -31,7 +31,7 @@ export class AuthService {
       localStorage.setItem("token", response.token);
       let data: any = jwtDecode(response.token);
       console.log(data);
-      localStorage.setItem("user", JSON.stringify(data));
+      localStorage.setItem("user", JSON  .stringify(data));
 
       let userData: any = localStorage.getItem("user");
       userData = JSON.parse(userData);
