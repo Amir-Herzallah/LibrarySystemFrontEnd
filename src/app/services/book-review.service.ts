@@ -35,4 +35,15 @@ export class BookReviewService {
         this.toastr.error("Error Occured");
       })
     } 
+
+    reviews_with_name:any=[{}]
+    GettAllReviewsWithBookName(){
+      this.http.get('https://localhost:7131/api/BookReview/GetBookNameAndReview').subscribe((resp:any)=>{
+        this.reviews_with_name=resp;
+        // this.toastr.success("Book Reviews Uploaded Successfully");
+      },
+      (error: any) => {
+        this.toastr.error("Error Occured");
+      })
+    } 
 }

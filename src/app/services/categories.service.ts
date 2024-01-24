@@ -79,4 +79,16 @@ export class CategoriesService {
 
     this.uploadAttachment(formData);
   }
+  category_library: any = [{}];
+  GetAllCategoriesWithLibaray() {
+    debugger
+    this.http.get('https://localhost:7131/api/Category/GetAllCategoriesLibraries').subscribe((resp: any) => {
+      this.category_library= resp;
+      console.log( this.category_library)
+    //  this.toastr.success("Categories Loaded Successfully");
+    },
+      (error: any) => {
+        this.toastr.error("Error Occured");
+      })
+  }
 }

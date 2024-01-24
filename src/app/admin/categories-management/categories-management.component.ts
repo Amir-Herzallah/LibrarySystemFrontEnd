@@ -20,6 +20,8 @@ export class CategoriesManagementComponent {
   
   ngOnInit(): void {
     this.category.GetAllCategories();
+    this.category.GetAllCategoriesWithLibaray();
+
   }
   
   createCategory: FormGroup = new FormGroup({

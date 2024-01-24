@@ -126,6 +126,17 @@ GetBookByID(id:Number){
   
 }
 
+booksWithCategory:any=[{}]
+GetBookInfoWithCategory() {
+  this.http.get('https://localhost:7131/api/Book/GetBookInfoWithCategory').subscribe((resp: any) => {
+    this.booksWithCategory = resp;
+    this.toastr.success("Books Loaded Successfully");
+  },
+    (error: any) => {
+      this.toastr.error("Error Occured");
+    })
+}
+
  //-----------------------------------------------BorrowedBooks Operations-----------------------------------------------
  GetAllBorrowedBooks(){
   this.http.get("https://localhost:7131/api/BorrowedBook/GetAllBorrowedBooks").subscribe((resp: any) => {
