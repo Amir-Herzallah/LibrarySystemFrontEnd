@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -11,9 +13,10 @@ export class NavbarComponent {
   user: any = localStorage.getItem("user");
   userID: number | null = null;
   isLoggedIn: boolean | undefined;
-
-  constructor(public manageHome:AdminService) {
+ 
+  constructor(public manageHome:AdminService ,private router :Router) {
     this.initializeUser();
+    let toastr:ToastrService=inject (ToastrService) ;
   }
 
   initializeUser() {
@@ -38,6 +41,7 @@ export class NavbarComponent {
 
   signOut() {
     localStorage.clear();
+    this.router.navigate(['auth/login'] );
     this.isLoggedIn = false;
   }
 }

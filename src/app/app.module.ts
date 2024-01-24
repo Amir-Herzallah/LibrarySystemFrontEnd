@@ -32,6 +32,8 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookReviewComponent } from './book-review/book-review.component';
 import { BorrowBookComponent } from './borrow-book/borrow-book.component';
 import { PaymentComponent } from './payment/payment.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './interceptor/token.interceptor';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -76,7 +78,12 @@ import { PaymentComponent } from './payment/payment.component';
      MatNativeDateModule,
      
   ],
-  providers: [],
+  providers:  [{
+    provide :HTTP_INTERCEPTORS,
+    useClass:TokenInterceptor,
+    multi:true 
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
