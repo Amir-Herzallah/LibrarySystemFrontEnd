@@ -24,7 +24,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let obj of book.books">
+                                        <tr *ngFor="let obj of book.booksWithCategory">
                                             <td>
                                                <img src="../../../assets/images/{{obj.book_Img_Path}}" class="me-2"
                                                     alt="image"> 
@@ -40,7 +40,7 @@
                                             <td>
                                                 {{obj.publication_Date|date}}
                                             </td>
-                                            <td> {{obj.category_Id}} </td>
+                                            <td> {{obj.category_Name}} </td>
                                             <td> ${{obj.price_Per_Day}} </td>
                                             <td>
                                                 <button mat-button (click)="OpenUpdateDialog(obj)" class="btn btn-success m-1">Update</button>

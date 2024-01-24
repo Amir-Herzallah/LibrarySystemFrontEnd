@@ -24,6 +24,7 @@ export class LibrariesComponent implements OnInit {
     this.libraryService.GetAllLibraries();
     this.bookService.GetAllCategoryBooks();
     this.bookReviewService.GettAllReviews();
+    this.bookReviewService.GettAllReviewsWithBookName();
   }
    // Method to fetch categories for a specific library
    showCategories(id: number) {

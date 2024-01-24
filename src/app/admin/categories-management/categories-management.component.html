@@ -19,18 +19,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let obj of category.category">
+                                      
+                                        <tr *ngFor="let obj of category.category_library">
+                                            <td>{{ obj.category_Name }}</td>
+                                           
+                                            <td>{{obj.name}}</td>
+                                        
                                             <td>
-                                                <!-- <img src="../../../assets/images/{{obj.book_Img_Path}}" class="me-2"
-                                                    alt="image">  -->
-                                                    {{obj.category_Name}}
+                                              <button mat-button (click)="OpenUpdateDialog(obj)" class="btn btn-success m-1">Update</button>
+                                              <button mat-button (click)="DeleteCategory(obj.category_Id)" class="btn btn-danger m-1">Delete</button>
                                             </td>
-                                            <td> {{obj.library_Id}}</td>
-                                            <td>
-                                                <button mat-button (click)="OpenUpdateDialog(obj)" class="btn btn-success m-1">Update</button>
-                                                <button mat-button (click)="DeleteCategory(obj.category_Id)" class="btn btn-danger m-1">Delete</button>
-                                            </td>
-                                        </tr>
+                                          </tr>
+                                       
+                                    
                                     </tbody>
                                 </table>
                             </div>

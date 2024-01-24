@@ -116,14 +116,14 @@
         </div>
         <br>
         <div class="row">
-          <div class="col-md-4" *ngFor="let rev of bookReviewService.reviews">
+          <div class="col-md-4" *ngFor="let rev of bookReviewService.reviews_with_name">
             <article class="column aos-init aos-animate" data-aos="fade-up">
               <div class="post-item">
-                <!-- <div class="meta-date">Book Name: 
+                 <div class="meta-date">Book Name: 
                   <ng-container *ngFor="let book of rev.book">
                     {{ book.title }}
                   </ng-container>
-                </div> -->
+                </div> 
                 <div class="meta-date">{{ rev.review_Date | date }}</div>
                 <h4>{{ rev.review_Text }}</h4>
                 
@@ -131,7 +131,7 @@
                 <igc-rating formControlName="rating" [value] = rev.rating ></igc-rating>
         
                 <div class="links-element">
-                  <div class="categories">{{ rev.user_Id }}</div>
+                  <div class="categories">{{ rev.useR_NAME }}</div>
                 </div>
               </div>
             </article>

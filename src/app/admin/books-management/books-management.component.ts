@@ -22,6 +22,8 @@ export class BooksManagementComponent {
 
   ngOnInit(): void {
     this.book.GetAllBooks();
+    this.book.GetBookInfoWithCategory();
+
   }
   
   createBook: FormGroup = new FormGroup({
