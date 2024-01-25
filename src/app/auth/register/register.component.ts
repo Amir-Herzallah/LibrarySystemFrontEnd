@@ -51,7 +51,7 @@ export class RegisterComponent implements AfterViewInit {
 
   initMap(): void {
     const mapOptions = {
-      center: { lat: -34.397, lng: 150.644 },
+      center: { lat: 31.9539, lng: 35.9106 },
       zoom: 8,
     };
     this.map = new google.maps.Map(this.mapContainer.nativeElement, mapOptions);

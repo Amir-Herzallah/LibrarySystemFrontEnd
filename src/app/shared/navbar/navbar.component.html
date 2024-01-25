@@ -98,7 +98,7 @@
                                     <li class="menu-item"><a routerLink="/libraries" class="nav-link">libraries </a></li>
                                     <li class="menu-item"><a [routerLink]="['/MyBooks', userID]" *ngIf="isLoggedIn" class="nav-link">My Books</a></li>
                                     <li class="menu-item">
-                                        <a  href="/auth/register" class="nav-link btn btn-outline-dark rounded-pill m-0" *ngIf="!isLoggedIn" target="_blank">Sign up</a></li>
+                                        <a  routerLink="/auth/register" class="nav-link btn btn-outline-dark rounded-pill m-0" *ngIf="!isLoggedIn">Sign up</a></li>
                                         <li class="menu-item" class="nav-link btn btn-outline-dark rounded-pill m-0"  *ngIf="isLoggedIn"><a (click)="signOut()">Sign Out</a></li>
                                    
                                             
