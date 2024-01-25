@@ -30,18 +30,15 @@ export class LibrariesComponent implements OnInit {
    showCategories(id: number) {
     
     this.selectedLibraryId = id; // Keep track of selected library
-    debugger;
     console.log("Fetching categories for library ID: ", id);
     this.libraryService.GetCategoriesByLibraryId(id);
   }
   showBooks(id: number){
     this.selectedBooksId = id; // Keep track of selected category 
-    debugger;
     console.log("Fetching categories for books  ID: ", id);
     this.libraryService.GetBooksByCategoryId(id);
   }
   navigateToBorrowBook(bookId: number) {
-    debugger;
     this.router.navigate(['/borrow-book', bookId]);
   }
   

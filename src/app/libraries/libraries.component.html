@@ -120,9 +120,7 @@
             <article class="column aos-init aos-animate" data-aos="fade-up">
               <div class="post-item">
                  <div class="meta-date">Book Name: 
-                  <ng-container *ngFor="let book of rev.book">
-                    {{ book.title }}
-                  </ng-container>
+                  {{rev.title}}
                 </div> 
                 <div class="meta-date">{{ rev.review_Date | date }}</div>
                 <h4>{{ rev.review_Text }}</h4>
